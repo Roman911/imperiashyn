@@ -1,22 +1,23 @@
+import { FC } from 'react';
 import Contacts from '@/widgets/Contacts';
+import type { ConfigSettingsData } from '@/shared/types/settings';
+import type { AliasAll } from '@/shared/types/alias';
+import HeaderTopLineMenu from '@/widgets/Header/ui/HeaderTopLineMenu';
+import LanguageChanger from '@/widgets/Header/ui/HeaderLanguageChanger';
 
-const TopLine = () => {
+interface TopLineProps {
+	alias: AliasAll;
+	settingsData: ConfigSettingsData;
+}
+
+const TopLine: FC<TopLineProps> = ({ alias, settingsData }) => {
+
+
 	return <div className='bg-black text-white'>
-		<div className='container mx-auto flex justify-between py-1 px-4'>
-			<Contacts />
-			{/*<nav className='gap-2 lg:gap-x-7 items-center hidden lg:flex'>*/}
-			{/*	{data?.header.map((item, index) => {*/}
-			{/*		return <Link*/}
-			{/*			key={index}*/}
-			{/*			to={ `/page/${item.slug}` }*/}
-			{/*			className='text-xs 2xl:text-sm font-medium uppercase'>*/}
-			{/*			{ item.descriptions[lang].title }*/}
-			{/*		</Link>*/}
-			{/*	})}*/}
-			{/*</nav>*/}
-			{/*<div className='flex items-center'>*/}
-			{/*	<Language/>*/}
-			{/*</div>*/}
+		<div className='container mx-auto flex justify-between px-4'>
+			<Contacts settingsData={ settingsData } />
+			<HeaderTopLineMenu alias={ alias } />
+			<LanguageChanger />
 		</div>
 	</div>
 };

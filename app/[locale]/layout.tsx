@@ -9,7 +9,7 @@ import '../globals.css';
 import { fontMontserrat } from "@/config/fonts";
 import { Locale } from "@/shared/types/locale";
 import { Header } from '@/widgets';
-import { getSettings } from '@/app/api/api';
+import { getAliasAll, getSettings } from '@/app/api/api';
 
 export const viewport: Viewport = {
 	themeColor: [
@@ -25,17 +25,15 @@ export default async function RootLayout({
 }>) {
 	const { locale } = await params;
 	const messages = await getMessages();
-	const settings = await getSettings();
-	// const alias = await getAliasAll();
-
-	console.log(settings)
+	const settingsData = await getSettings();
+	const alias = await getAliasAll();
 
 	return (<html suppressHydrationWarning lang={ locale }>
 	<head />
 	<body className={ twMerge(fontMontserrat.variable) }>
 	<StoreProvider>
 		<NextIntlClientProvider messages={ messages }>
-			<Header />
+			<Header settingsData={ settingsData } alias={ alias } />
 			<main>
 				{ children }
 			</main>

@@ -31,15 +31,15 @@ export interface LangConfig {
 	config_telephone_kievstar_name: string | null;
 	config_telephone_life_name: string | null;
 
-	config_telephone_vodafone2_url: string;
+	config_telephone_vodafone2_url: string | null;
 	config_telephone_vodafone2: string | null;
 	config_telephone_vodafone2_name: string | null;
 
-	config_telephone_kievstar2_url: string;
+	config_telephone_kievstar2_url: string | null;
 	config_telephone_kievstar2: string | null;
 	config_telephone_kievstar2_name: string | null;
 
-	config_telephone_life2_url: string;
+	config_telephone_life2_url: string | null;
 	config_telephone_life2: string | null;
 	config_telephone_life2_name: string | null;
 

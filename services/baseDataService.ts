@@ -1,20 +1,27 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+
 import {
 	API_CONSTANTS,
-	DEFAULT_HEADERS,
-	FORM_HEADERS,
 	baseEndpoints,
-	productEndpoints,
+	DEFAULT_HEADERS,
 	deliveryEndpoints,
+	FORM_HEADERS,
+	formEndpoints,
 	orderEndpoints,
-	formEndpoints
+	productEndpoints,
 } from '@/config/api';
-import { SettingsProps } from '@/models/settings';
-import { ProductsProps } from '@/models/products';
-import { BaseDataProps, CarModelProps, KitDiskSize, KitTyreSize, ManufModels } from '@/models/baseData';
+import { AkumProps } from '@/models/akumData';
+import {
+	BaseDataProps,
+	CarModelProps,
+	KitDiskSize,
+	KitTyreSize,
+	ManufModels,
+} from '@/models/baseData';
 import { OrdersParamProps } from '@/models/ordersParam';
 import { ProductProps } from '@/models/product';
-import { AkumProps } from '@/models/akumData';
+import { ProductsProps } from '@/models/products';
+import { SettingsProps } from '@/models/settings';
 
 export const baseDataAPI = createApi({
 	reducerPath: 'baseDataAPI',
@@ -34,18 +41,21 @@ export const baseDataAPI = createApi({
 				url: baseEndpoints.baseData,
 			}),
 		}),
-		fetchProducts: build.query<ProductsProps | undefined, {id: string, start?: number, length?: number}>({
+		fetchProducts: build.query<
+			ProductsProps | undefined,
+			{ id: string; start?: number; length?: number }
+		>({
 			query: ({ id, start = 0, length = 10 }) => ({
 				url: productEndpoints.products(id),
 				method: API_CONSTANTS.METHODS.POST,
-				body: { start, length }
+				body: { start, length },
 			}),
 		}),
 		fetchProduct: build.query<ProductProps, string>({
 			query: (section) => ({
 				url: productEndpoints.product(section),
 			}),
-			providesTags: () => ['Product']
+			providesTags: () => ['Product'],
 		}),
 		fetchDataAkum: build.query<AkumProps, string>({
 			query: () => ({
@@ -57,7 +67,7 @@ export const baseDataAPI = createApi({
 				url: orderEndpoints.create,
 				method: API_CONSTANTS.METHODS.POST,
 				body: JSON.stringify(data),
-				headers: FORM_HEADERS
+				headers: FORM_HEADERS,
 			}),
 		}),
 		createCallback: build.mutation({
@@ -65,7 +75,7 @@ export const baseDataAPI = createApi({
 				url: formEndpoints.callback,
 				method: API_CONSTANTS.METHODS.POST,
 				body: JSON.stringify(data),
-				headers: FORM_HEADERS
+				headers: FORM_HEADERS,
 			}),
 		}),
 		createAddAsk: build.mutation({
@@ -73,7 +83,7 @@ export const baseDataAPI = createApi({
 				url: formEndpoints.ask,
 				method: API_CONSTANTS.METHODS.POST,
 				body: JSON.stringify(data),
-				headers: FORM_HEADERS
+				headers: FORM_HEADERS,
 			}),
 		}),
 		fetchKitTyreSize: build.query<KitTyreSize[], string>({
@@ -101,7 +111,7 @@ export const baseDataAPI = createApi({
 				url: productEndpoints.reviews,
 				method: API_CONSTANTS.METHODS.POST,
 				body: JSON.stringify(comment),
-				headers: FORM_HEADERS
+				headers: FORM_HEADERS,
 			}),
 			invalidatesTags: ['Product'],
 		}),
@@ -110,8 +120,8 @@ export const baseDataAPI = createApi({
 				url: deliveryEndpoints.novaPoshta.allCity,
 				method: API_CONSTANTS.METHODS.POST,
 				body: {
-					name: name
-				}
+					name: name,
+				},
 			}),
 		}),
 		fetchNpSearch: build.query({
@@ -119,8 +129,8 @@ export const baseDataAPI = createApi({
 				url: deliveryEndpoints.novaPoshta.search,
 				method: API_CONSTANTS.METHODS.POST,
 				body: {
-					name: name
-				}
+					name: name,
+				},
 			}),
 		}),
 		fetchNpWarehouses: build.query({

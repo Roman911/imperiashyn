@@ -5,7 +5,8 @@ import {
 	baseEndpoints,
 	// productEndpoints
 } from '@/config/api';
-import { ConfigSettingsData } from '@/shared/types/settings';
+import type { ConfigSettingsData } from '@/shared/types/settings';
+import type { AliasAll } from '@/shared/types/alias';
 
 export const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -88,18 +89,18 @@ export async function getSettings(): Promise<ConfigSettingsData> {
 //
 // 	return await res.json();
 // }
-//
-// export async function getAliasAll(): Promise<AliasAll> {
-// 	const res = await fetch(`${ API_URL }${ baseEndpoints.statiAlias.all }`, {
-// 		method: API_CONSTANTS.METHODS.GET,
-// 		headers: DEFAULT_HEADERS
-// 	});
-//
-// 	if (!res.ok) throw new Error('Failed to fetch products');
-//
-// 	return await res.json();
-// }
-//
+
+export async function getAliasAll(): Promise<AliasAll> {
+	const res = await fetch(`${ API_URL }${ baseEndpoints.statiAlias.all }`, {
+		method: API_CONSTANTS.METHODS.GET,
+		headers: DEFAULT_HEADERS
+	});
+
+	if (!res.ok) throw new Error('Failed to fetch products');
+
+	return await res.json();
+}
+
 // export async function getAlias(id: string): Promise<Pages> {
 // 	const res = await fetch(`${ API_URL }${ baseEndpoints.statiAlias.byId(id) }`, {
 // 		method: API_CONSTANTS.METHODS.GET,
