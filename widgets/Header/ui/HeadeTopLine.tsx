@@ -10,16 +10,14 @@ interface TopLineProps {
 	settingsData: ConfigSettingsData;
 }
 
-const TopLine: FC<TopLineProps> = ({ alias, settingsData }) => {
-
-
-	return <div className='bg-black text-white'>
+const TopLine: FC<TopLineProps> = ({ alias, settingsData }) => (
+	<div className='bg-black text-white'>
 		<div className='container mx-auto flex justify-between px-4'>
 			<Contacts settingsData={ settingsData } />
 			<HeaderTopLineMenu alias={ alias } />
 			<LanguageChanger />
 		</div>
 	</div>
-};
+);
 
 export default TopLine;

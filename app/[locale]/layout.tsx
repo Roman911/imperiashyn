@@ -8,7 +8,7 @@ import '../colors.css';
 import '../globals.css';
 import { fontMontserrat } from "@/config/fonts";
 import { Locale } from "@/shared/types/locale";
-import { Header } from '@/widgets';
+import { Footer, Header } from '@/widgets';
 import { getAliasAll, getSettings } from '@/app/api/api';
 
 export const viewport: Viewport = {
@@ -37,6 +37,7 @@ export default async function RootLayout({
 			<main>
 				{ children }
 			</main>
+			<Footer settingsData={ settingsData } />
 		</NextIntlClientProvider>
 	</StoreProvider>
 	</body>
