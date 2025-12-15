@@ -3,28 +3,30 @@ export type SiteConfig = typeof siteConfig;
 export const siteConfig = {
 	name: 'Next.js + HeroUI',
 	description: 'Make beautiful websites regardless of your design experience.',
-	navItems: [
-		{
-			label: 'Home',
-			href: '/',
-		},
-		{
-			label: 'Docs',
-			href: '/docs',
-		},
-		{
-			label: 'Pricing',
-			href: '/pricing',
-		},
-		{
-			label: 'Blog',
-			href: '/blog',
-		},
-		{
-			label: 'About',
-			href: '/about',
-		},
-	],
+	navItems: {
+		buttons: [
+			{ section: 'tires', label: 'cartires' },
+			{ section: 'disks', label: 'cardiscs' }
+		],
+		links: [
+			{
+				label: 'accumulators',
+				href: '/catalog/battery',
+			},
+			{
+				label: 'tire calculator',
+				href: '/tyre-disk-size-calc',
+			},
+			{
+				label: 'about us',
+				href: '/about-us',
+			},
+			{
+				label: 'contacts',
+				href: '/contacts',
+			},
+		],
+	},
 	navMenuItems: [
 		{
 			label: 'Profile',

@@ -29,7 +29,7 @@ const HeaderLogo = () => {
 				alt='logo'
 				width={ width }
 				height={ height }
-				loading='lazy'
+				loading='eager'
 			/>
 		</Link>
 	)
