@@ -1,30 +1,19 @@
-import { createStore } from '@/shared/store/createStore';
-import { aliasApi } from '@/entities/alias/api/alias.api';
-import { settingsApi } from '@/entities/settings/api/settings.api';
 import TopBar from '@/widgets/Header/ui/TopBar';
+import type { AliasItem } from '@/entities/alias/model/alias.types';
+import type { ConfigSettingsApi } from '@/entities/settings/api/types';
 
-export default async function HeaderServer() {
-	const store = createStore();
+interface Props {
+	alias: AliasItem[];
+	settingsData: ConfigSettingsApi;
+}
 
-	// 🔥 RTK Query SSR prefetch
-	await store.dispatch(
-		aliasApi.endpoints.fetchAliasAll.initiate()
-	);
-
-	await store.dispatch(
-		settingsApi.endpoints.fetchSettings.initiate()
-	);
-
-	console.log(store.getState());
-
+export default function Header({ alias, settingsData }: Props) {
 	return (
 		<header>
-			123
 			{/*<HeaderProgress />*/}
-			{/*<TopLine alias={ alias } settingsData={ settingsData }/>*/}
-			{/*<TopBar alias={  } />*/}
+			<TopBar alias={ alias } settingsData={ settingsData } />
 			{/*<HeaderMain settingsData={ settingsData } />*/}
 			{/*<HeaderMenu />*/}
 		</header>
 	);
-}
+};

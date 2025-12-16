@@ -1,9 +1,10 @@
 import { FC } from 'react';
 import Contacts from '@/widgets/Contacts';
 import type { ConfigSettingsData } from '@/shared/types/settings';
-import type { AliasAll } from '@/shared/types/alias';
+// import type { AliasAll } from '@/shared/types/alias';
 import HeaderTopLineMenu from '@/widgets/Header/ui/HeaderTopLineMenu';
 import LanguageChanger from '@/widgets/Header/ui/HeaderLanguageChanger';
+import { AliasAll } from '@/entities/alias/model/alias.types';
 
 interface TopLineProps {
 	alias: AliasAll;

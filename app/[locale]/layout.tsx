@@ -1,19 +1,23 @@
-import { ReactNode, Suspense } from 'react';
+import { ReactNode } from 'react';
 // import { Footer } from '@/widgets/Footer';
-import Header from '@/widgets/Header/ui/Header';
+import Header from '@/widgets/Header';
+import { getAliasAll } from "@/entities/alias/api/alias.api";
+import { getSettings } from '@/entities/settings/api/settings.api';
 
-export default function LocaleLayout({ children, }: { children: ReactNode; }) {
+export default async function LocaleLayout(
+	{ children, params }: { children: ReactNode; params: Promise<{ locale: string }> }
+) {
+	const settingsData = await getSettings();
+	const alias = await getAliasAll();
+
 	return (
 		<>
-			<Suspense fallback={null}>
-				<Header />
-			</Suspense>
+			<Header alias={ alias.header } settingsData={ settingsData } />
+			<main>{ children }</main>
 
-			<main>{children}</main>
-
-			{/*<Suspense fallback={null}>*/}
-			{/*	<Footer />*/}
-			{/*</Suspense>*/}
+			{/*<Suspense fallback={null}>*/ }
+			{/*	<Footer />*/ }
+			{/*</Suspense>*/ }
 		</>
 	);
 };

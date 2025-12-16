@@ -1,24 +1,9 @@
-import { HYDRATE } from 'next-redux-wrapper';
-import { createApi } from '@reduxjs/toolkit/query/react';
-import { baseQuery } from '@/shared/api/baseQuery';
-import { baseEndpoints } from '@/config/api';
-import type { AliasItem, AliasAll } from '@/shared/types/alias';
+import { apiFetch } from "@/shared/api/fetcher";
+import { baseEndpoints } from "@/config/api";
+import type { AliasAll, Pages } from "../model/alias.types";
 
-export const aliasApi = createApi({
-	reducerPath: 'aliasApi',
-	baseQuery,
-	extractRehydrationInfo(action, { reducerPath }) {
-		if (action.type === HYDRATE) {
-			const payload = action.payload as Record<string, unknown>;
-			return payload[reducerPath] as any;
-		}
-	},
-	endpoints: build => ({
-		fetchAlias: build.query<AliasItem, string>({
-			query: (id) => baseEndpoints.statiAlias.byId(id),
-		}),
-		fetchAliasAll: build.query<AliasAll, void>({
-			query: () => baseEndpoints.statiAlias.all,
-		}),
-	}),
-});
+export const getAliasAll = () =>
+	apiFetch<AliasAll>(baseEndpoints.statiAlias.all);
+
+export const getAliasById = (id: string) =>
+	apiFetch<Pages>(baseEndpoints.statiAlias.byId(id));

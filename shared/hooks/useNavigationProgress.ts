@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { usePathname } from '@/i18n/routing';
+import { usePathname } from "@/shared/i18n/navigation";
 import { useAppDispatch } from '@/shared/hooks/redux';
 import { setProgress } from '@/widgets/Header/store/progressSlice';
 

@@ -1,22 +1,17 @@
 'use client';
 
-import { FC } from 'react';
-import { Link } from '@/i18n/routing';
 import { useLanguage } from '@/shared/hooks/useLanguage';
 import { useNavigationProgress } from '@/shared/hooks/useNavigationProgress';
-import type { AliasAll } from '@/shared/types/alias';
+import { Link } from "@/shared/i18n/navigation";
+import type { AliasItem } from '@/entities/alias/model/alias.types';
 
-interface TopNavigationProps {
-	alias: AliasAll;
-}
-
-const TopNavigation: FC<TopNavigationProps> = ({ alias }) => {
+export default function TopNavigation({ alias }: { alias: AliasItem[] }) {
 	const lang = useLanguage();
 	const { handleNavigation } = useNavigationProgress();
 
 	return (
 		<nav className="gap-2 lg:gap-x-7 items-center hidden lg:flex">
-			{ alias.header.map((item, index) => (
+			{ alias.map((item, index) => (
 				<Link
 					key={ index }
 					href={ `/page/${ item.slug }` }
@@ -29,5 +24,3 @@ const TopNavigation: FC<TopNavigationProps> = ({ alias }) => {
 		</nav>
 	);
 };
-
-export default TopNavigation;

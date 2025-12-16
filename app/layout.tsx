@@ -1,7 +1,7 @@
 import { Viewport } from 'next';
 import { ReactNode } from 'react';
-import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages } from "next-intl/server";
 import StoreProvider from './StoreProvider';
 import { fontMontserrat } from '@/config/fonts';
 import '@/app/globals.css';
