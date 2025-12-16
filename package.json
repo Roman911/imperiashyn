@@ -19,6 +19,7 @@
     "framer-motion": "^12.23.26",
     "next": "16.0.10",
     "next-intl": "^4.6.0",
+    "next-redux-wrapper": "^8.1.0",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-redux": "^9.2.0",

@@ -1,25 +1,30 @@
-import { FC } from 'react';
-// import TopLine from './ui/HeadeTopLine';
-// import HeaderProgress from './ui/HeaderProgress';
+import { createStore } from '@/shared/store/createStore';
+import { aliasApi } from '@/entities/alias/api/alias.api';
+import { settingsApi } from '@/entities/settings/api/settings.api';
 import TopBar from '@/widgets/Header/ui/TopBar';
-import HeaderMain from '@/widgets/Header/ui/HeaderMain';
-import HeaderMenu from '@/widgets/Header/ui/HeaderMenu';
-import type { ConfigSettingsData } from '@/shared/types/settings';
-import type { AliasAll } from '@/shared/types/alias';
 
-interface HeaderProps {
-	alias: AliasAll
-	settingsData: ConfigSettingsData
+export default async function HeaderServer() {
+	const store = createStore();
+
+	// 🔥 RTK Query SSR prefetch
+	await store.dispatch(
+		aliasApi.endpoints.fetchAliasAll.initiate()
+	);
+
+	await store.dispatch(
+		settingsApi.endpoints.fetchSettings.initiate()
+	);
+
+	console.log(store.getState());
+
+	return (
+		<header>
+			123
+			{/*<HeaderProgress />*/}
+			{/*<TopLine alias={ alias } settingsData={ settingsData }/>*/}
+			{/*<TopBar alias={  } />*/}
+			{/*<HeaderMain settingsData={ settingsData } />*/}
+			{/*<HeaderMenu />*/}
+		</header>
+	);
 }
-
-const Header: FC<HeaderProps> = ({ alias, settingsData }) => (
-	<header>
-		{/*<HeaderProgress />*/}
-		{/*<TopLine alias={ alias } settingsData={ settingsData }/>*/}
-		<TopBar />
-		<HeaderMain settingsData={ settingsData } />
-		<HeaderMenu />
-	</header>
-);
-
-export default Header;

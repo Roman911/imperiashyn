@@ -1,48 +1,41 @@
-interface DescriptionsItem {
-	title: string
-}
+export type Locale = 'ua' | 'ru';
+export type Localized<T> = Record<Locale, T>;
 
-interface Descriptions {
-	ua: DescriptionsItem
-	ru: DescriptionsItem
+interface DescriptionsItem {
+	title: string;
 }
 
 export interface AliasItem {
-	article_id: number
-	status: number
-	slug: string
-	created_at: string
-	updated_at: string
-	sort_header: number
-	sort_footer: number
-	header: number
-	footer: number
-	descriptions: Descriptions
+	article_id: number;
+	status: 0 | 1;
+	slug: string;
+	created_at: string;
+	updated_at: string;
+	sort_header: number;
+	sort_footer: number;
+	header: 0 | 1;
+	footer: 0 | 1;
+	descriptions: Localized<DescriptionsItem>;
 }
 
 export interface AliasAll {
-	footer: AliasItem[]
-	header: AliasItem[]
+	header: AliasItem[];
+	footer: AliasItem[];
 }
 
 interface DescriptionContent {
-	title: string
-	content: string
-	meta_h1: string
-	meta_title: string
-	meta_description: string
+	title: string;
+	content: string;
+	meta_h1: string;
+	meta_title: string;
+	meta_description: string;
 }
 
-interface Description {
-	ua: DescriptionContent
-	ru: DescriptionContent
-}
+type Description = Localized<DescriptionContent>;
 
 interface Page {
-	description: Description
-	alias: string
+	slug: string;
+	description: Description;
 }
 
-export type Pages = {
-	[key: string]: Page
-}
+export type Pages = Record<string, Page>;
