@@ -7,16 +7,16 @@ import { Navbar, NavbarBrand, NavbarContent, NavbarMenu, NavbarMenuItem, NavbarM
 // import { Link } from '@/i18n/routing';
 import styles from '../styles/index.module.scss';
 import type { ConfigSettingsData } from '@/shared/types/settings';
-import HeaderLogo from '@/widgets/Header/ui/HeaderLogo';
-import HeaderSearch from '@/widgets/Header/ui/HeaderSearch';
+import HeaderLogo from '@/widgets/header/ui/HeaderLogo';
+import HeaderSearch from '@/widgets/header/ui/HeaderSearch';
 // import Logo from '../../Logo';
 // import Search from './Search';
 // import ButtonBlock from './ButtonBlock';
 // import * as Icons from '@/components/UI/Icons';
 // import CarTireFilter from '../Menu/CarTireFilter';
 // import CarDiskFilter from '../Menu/CarDiskFilter';
-// import { links } from '@/components/Layout/Header/links';
-// import Contacts from '@/components/Layout/Header/Contacts';
+// import { links } from '@/components/Layout/header/links';
+// import Contacts from '@/components/Layout/header/Contacts';
 // import { SettingsProps } from '@/models/settings';
 
 interface Props {

@@ -13,7 +13,7 @@ export default function Contacts({ settingsData }: ContactsProps) {
 	const phones = settingsData.locales[lang].phones;
 
 	return (
-		<div className='relative mx-auto max-w-max'>
+		<div className='relative flex'>
 			<Dropdown phones={ phones }/>
 		</div>
 	);

@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { usePathname } from "@/shared/i18n/navigation";
 import { useAppDispatch } from '@/shared/hooks/redux';
-import { setProgress } from '@/widgets/Header/store/progressSlice';
+import { showProgress } from '@/features/progress/model/progress.slice';
 
 export const useNavigationProgress = () => {
 	const pathname = usePathname();
@@ -10,7 +10,7 @@ export const useNavigationProgress = () => {
 	const handleNavigation = useCallback(
 		(href: string) => {
 			if (pathname !== href) {
-				dispatch(setProgress(true));
+				dispatch(showProgress());
 			}
 		},
 		[pathname, dispatch]

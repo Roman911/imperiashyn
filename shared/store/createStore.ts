@@ -4,6 +4,8 @@ import { baseDataApi } from '@/entities/base-data/api/baseData.api';
 import { deliveryApi } from '@/entities/delivery/api/delivery.api';
 import { orderApi } from '@/entities/order/api/order.api';
 
+import progressReducer from '@/features/progress/model/progress.slice';
+
 export const createStore = () =>
 	configureStore({
 		reducer: {
@@ -11,6 +13,7 @@ export const createStore = () =>
 			[baseDataApi.reducerPath]: baseDataApi.reducer,
 			[deliveryApi.reducerPath]: deliveryApi.reducer,
 			[orderApi.reducerPath]: orderApi.reducer,
+			progressReducer,
 		},
 		middleware: getDefault =>
 			getDefault().concat(

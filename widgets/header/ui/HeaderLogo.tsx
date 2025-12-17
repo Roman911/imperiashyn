@@ -1,7 +1,7 @@
 import Image from 'next/image';
-import { Link, usePathname } from '@/i18n/routing';
+import { Link, usePathname } from '@/shared/i18n/navigation';
 import { useAppDispatch } from '@/shared/hooks/redux';
-import { setProgress } from '../store/progressSlice';
+import { showProgress } from '@/features/progress/model/progress.slice';
 
 const width = 185;
 const height = 60;
@@ -12,7 +12,7 @@ const HeaderLogo = () => {
 
 	const handleClick = () => {
 		if(pathname !== '/') {
-			dispatch(setProgress(true));
+			dispatch(showProgress());
 		}
 	};
 

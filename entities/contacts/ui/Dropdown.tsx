@@ -20,11 +20,13 @@ export default function ContactsDropdown({ phones }: ContactsDropdownProps) {
 				<Button
 					size="sm"
 					variant="light"
-					className="text-white text-sm"
-					startContent={ <Phone size={ 21 } className="text-primary"/> }
+					className="text-white text-sm h-10 md:h-8 px-0"
+					startContent={ <div className='bg-blue-500 lg:bg-transparent p-2 lg:p-0 rounded-full'><Phone size={ 21 } className="md:text-primary"/></div> }
 					endContent={ <ChevronDown size={ 10 } className="stroke-white"/> }
 				>
-					{ mainPhone.phone }
+					<span className="hidden md:inline">
+						{ mainPhone.phone }
+					</span>
 				</Button>
 			</DropdownTrigger>
 

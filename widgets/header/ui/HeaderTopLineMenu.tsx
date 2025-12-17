@@ -4,7 +4,7 @@ import { FC } from 'react';
 import { Link, usePathname } from '@/i18n/routing';
 import { useLanguage } from '@/shared/hooks/useLanguage';
 import { useAppDispatch } from '@/shared/hooks/redux';
-import { setProgress } from '@/widgets/Header/store/progressSlice';
+import { setProgress } from '@/widgets/header/store/progressSlice';
 import { AliasAll } from '@/entities/alias/model/alias.types';
 // import type { AliasAll } from '@/shared/types/alias';
 
