@@ -1,6 +1,5 @@
 import { ConfigSettingsApi, LangConfigApi } from '@/entities/settings/api/types';
-import { ConfigSettings, Phone } from '@/entities/settings/model/types';
-import { LangConfig } from '@/entities/settings/model/types';
+import { ConfigSettings, LangConfig, Phone } from '@/shared/types/settings';
 
 export function mapSettings(api: ConfigSettingsApi): ConfigSettings {
 	return {
@@ -16,6 +15,10 @@ export function mapSettings(api: ConfigSettingsApi): ConfigSettings {
 	};
 }
 
+function isPhone(value: Phone | null): value is Phone {
+	return value !== null;
+}
+
 function mapLang(api: LangConfigApi): LangConfig {
 	const phones = [
 		buildPhone('vodafone', api.config_telephone_vodafone, api.config_telephone_vodafone_url, api.config_telephone_vodafone_name),
@@ -24,7 +27,7 @@ function mapLang(api: LangConfigApi): LangConfig {
 		buildPhone('kievstar', api.config_telephone_kievstar2, api.config_telephone_kievstar2_url, api.config_telephone_kievstar2_name),
 		buildPhone('life', api.config_telephone_life, api.config_telephone_life_url, api.config_telephone_life_name),
 		buildPhone('life', api.config_telephone_life2, api.config_telephone_life2_url, api.config_telephone_life2_name),
-	].filter(Boolean);
+	].filter(isPhone);
 
 	return {
 		name: api.config_name,

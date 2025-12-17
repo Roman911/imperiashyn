@@ -1,18 +1,32 @@
-import TopNavigation from '@/features/navigation/ui/TopNavigation';
+import { TopNavigation } from '@/features/navigation/';
+import { Contacts } from '@/entities/contacts';
+import { LanguageSwitcher } from '@/features/i18n';
 import type { AliasItem } from '@/entities/alias/model/alias.types';
-import type { ConfigSettingsApi } from '@/entities/settings/api/types';
-import Contacts from '@/entities/contacts';
+import type { ConfigSettings } from '@/shared/types/settings';
+import { useTranslations, Locale, useLocale } from 'next-intl';
 
 interface Props {
 	alias: AliasItem[];
-	settingsData: ConfigSettingsApi;
+	settingsData: ConfigSettings;
 }
 
 export default function TopBar({ alias, settingsData }: Props) {
+	const t = useTranslations("common");
+
+	const lang = useLocale();
+
+	console.log(lang);
+
 	return (
 		<div className='bg-black text-white'>
-			<Contacts />
-			<TopNavigation alias={ alias } />
+			<div className='container mx-auto flex justify-between px-4'>
+				<Contacts settingsData={ settingsData } />
+				<TopNavigation alias={ alias } />
+				<LanguageSwitcher />
+				<h1>
+					{t("send")}
+				</h1>
+			</div>
 		</div>
 	)
 };

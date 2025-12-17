@@ -1,0 +1,39 @@
+'use client'
+
+import { twMerge } from 'tailwind-merge';
+import { useLocale } from 'next-intl';
+import { Link, usePathname } from '@/shared/i18n/navigation';
+import { Locale } from '@/shared/types/locale';
+
+const params = [
+	{ title: 'UA', language: Locale.UK },
+	{ title: 'RU', language: Locale.RU },
+];
+
+export default function LanguageSwitcher() {
+	const pathname = usePathname();
+	const locale = useLocale();
+
+	console.log(locale, pathname);
+
+	return (
+		<div className='divide-x text-gray-500 divide-gray-500 flex items-center'>
+			{ params.map((item, index) => {
+				return <Link
+					locale={ item.language }
+					key={ index }
+					href={ pathname }
+					className={
+						twMerge(
+							'font-bold text-sm 2xl:text-base pr-1.5 2xl:pr-3 active:text-white',
+							locale === item.language && 'text-white pointer-events-none',
+							index === 0 && 'pr-1.5 2xl:pr-3',
+							index === 1 && 'pl-1.5 2xl:px-3'
+						)
+					}>
+					{ item.title }
+				</Link>
+			}) }
+		</div>
+	)
+};
