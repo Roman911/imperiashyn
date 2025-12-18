@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { Dropdown as DropdownUI, DropdownItem, DropdownMenu, DropdownTrigger } from '@heroui/react';
 
 import { Button } from '@/shared/ui';
-import { ChevronDown, Phone } from '@/shared/icons';
+import { ChevronDownIcon, PhoneIcon } from '@/shared/ui/icons';
 import type { Phone as PhoneType } from '@/shared/types/settings';
 
 interface ContactsDropdownProps {
@@ -21,8 +21,10 @@ export default function ContactsDropdown({ phones }: ContactsDropdownProps) {
 					size="sm"
 					variant="light"
 					className="text-white text-sm h-10 md:h-8 px-0"
-					startContent={ <div className='bg-blue-500 lg:bg-transparent p-2 lg:p-0 rounded-full'><Phone size={ 21 } className="md:text-primary"/></div> }
-					endContent={ <ChevronDown size={ 10 } className="stroke-white"/> }
+					startContent={ <div className='bg-blue-500 lg:bg-transparent p-2 lg:p-0 rounded-full'>
+						<PhoneIcon size={ 21 } className="md:text-primary"/>
+					</div> }
+					endContent={ <ChevronDownIcon size={ 10 } className="stroke-white"/> }
 				>
 					<span className="hidden md:inline">
 						{ mainPhone.phone }

@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from '@heroui/react';
 import { Button } from '@/shared/ui';
-import { ChevronDown, Phone } from '@/shared/icons';
+import { ChevronDown, Phone } from '@/shared/ui/icons';
 import type { phoneTypes } from '@/widgets/Contacts/model/phoneTypes';
 
 interface ContactsDropdownProps {
