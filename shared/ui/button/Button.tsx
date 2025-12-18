@@ -1,14 +1,8 @@
-import { Button, ButtonProps } from '@heroui/button';
+import { Button as ButtonUI, ButtonProps } from '@heroui/button';
 import { twMerge } from 'tailwind-merge';
 
-const MyButton = (
-	{
-		children,
-		color='primary',
-		className,
-		...props
-	}: ButtonProps) => {
-	return <Button
+export function Button({ children, color='primary', className, ...props }: ButtonProps) {
+	return <ButtonUI
 		size='lg'
 		radius="sm"
 		color={ color }
@@ -16,7 +10,5 @@ const MyButton = (
 		{ ...props }
 	>
 		{ children }
-	</Button>
-};
-
-export default MyButton;
+	</ButtonUI>
+}

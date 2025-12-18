@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { productApi } from '@/entities/product/api/product.api';
+import { productApi } from '@/entities/products/api/product.api';
 import { baseDataApi } from '@/entities/base-data/api/baseData.api';
 import { deliveryApi } from '@/entities/delivery/api/delivery.api';
 import { orderApi } from '@/entities/order/api/order.api';

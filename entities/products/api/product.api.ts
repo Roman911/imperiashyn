@@ -1,15 +1,15 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
 import { baseQuery } from '@/shared/api/baseQuery';
 import { API_CONSTANTS, productEndpoints } from '@/config/api';
-import { ProductProps, ProductsProps } from '@/models/product';
+import { ProductsResponseApi } from './types';
 
 export const productApi = createApi({
 	reducerPath: 'productApi',
 	baseQuery,
-	tagTypes: [ 'Product' ],
+	tagTypes: [ 'Products' ],
 	endpoints: build => ({
 		fetchProducts: build.query<
-			ProductsProps,
+			ProductsResponseApi,
 			{ id: string; start?: number; length?: number }
 		>({
 			query: ({ id, start = 0, length = 10 }) => ({
@@ -19,10 +19,10 @@ export const productApi = createApi({
 			}),
 		}),
 
-		fetchProduct: build.query<ProductProps, string>({
-			query: section => productEndpoints.product(section),
-			providesTags: [ 'Product' ],
-		}),
+		// fetchProduct: build.query<ProductProps, string>({
+		// 	query: section => productEndpoints.product(section),
+		// 	providesTags: [ 'Products' ],
+		// }),
 
 		createComment: build.mutation<void, any>({
 			query: comment => ({
@@ -30,13 +30,13 @@ export const productApi = createApi({
 				method: API_CONSTANTS.METHODS.POST,
 				body: JSON.stringify(comment),
 			}),
-			invalidatesTags: [ 'Product' ],
+			invalidatesTags: [ 'Products' ],
 		}),
 	}),
 });
 
 export const {
 	useFetchProductsQuery,
-	useFetchProductQuery,
+	// useFetchProductQuery,
 	useCreateCommentMutation,
 } = productApi;

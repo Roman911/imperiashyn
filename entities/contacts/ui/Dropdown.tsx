@@ -2,8 +2,7 @@
 
 import Image from 'next/image';
 import { Dropdown as DropdownUI, DropdownItem, DropdownMenu, DropdownTrigger } from '@heroui/react';
-
-import { Button } from '@/shared/ui';
+import { Button } from '@/shared/ui/button';
 import { ChevronDownIcon, PhoneIcon } from '@/shared/ui/icons';
 import type { Phone as PhoneType } from '@/shared/types/settings';
 

@@ -1,8 +1,8 @@
 'use client';
 
 import { NavbarMenu, NavbarMenuItem } from '@heroui/react';
-import { useTranslations } from 'next-intl';
-import { Link } from '@/shared/i18n/navigation';
+// import { useTranslations } from 'next-intl';
+// import { Link } from '@/shared/i18n/navigation';
 // import { CarTireFilter } from '@/features/tires-filter';
 // import { CarDiskFilter } from '@/features/disks-filter';
 
@@ -17,13 +17,14 @@ export function HeaderMobileMenu({
 																	 toggleFilter,
 																	 closeAll,
 																 }: Props) {
-	const t = useTranslations('header');
+	// const t = useTranslations('header');
 
 	return (
 		<NavbarMenu>
 			<NavbarMenuItem>
 				<button onClick={() => toggleFilter('tires')}>
-					{t('cartires')}
+					123
+					{/*{t('cartires')}*/}
 				</button>
 
 				{/*{activeFilter === 'tires' && (*/}
@@ -33,7 +34,8 @@ export function HeaderMobileMenu({
 
 			<NavbarMenuItem>
 				<button onClick={() => toggleFilter('disks')}>
-					{t('cardiscs')}
+					123
+					{/*{t('cardiscs')}*/}
 				</button>
 
 				{/*{activeFilter === 'disks' && (*/}
