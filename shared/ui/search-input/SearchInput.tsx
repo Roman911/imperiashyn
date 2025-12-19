@@ -9,12 +9,7 @@ interface Props {
 	endContent?: ReactNode;
 }
 
-export function SearchInput({
-															value,
-															onChange,
-															onSubmit,
-															endContent,
-														}: Props) {
+export function SearchInput({ value, onChange, onSubmit, endContent, }: Props) {
 	const placeholder = useSearchPlaceholder();
 
 	return (
@@ -32,7 +27,7 @@ export function SearchInput({
 					mainWrapper: 'h-full',
 					input: 'text-md',
 					inputWrapper:
-						'h-full font-normal text-default-500 w-full pl-4 pr-0 border-gray-200 dark:border-gray-500',
+						'h-full font-normal text-default-500 w-full pl-4 pr-0',
 				} }
 				endContent={ endContent }
 			/>

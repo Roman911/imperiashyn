@@ -17,6 +17,7 @@ export default function MainBar({ settingsData }: Props) {
 
 	return (
 		<Navbar
+			shouldHideOnScroll
 			maxWidth="2xl"
 			isMenuOpen={ menu.isMenuOpen }
 			onMenuOpenChange={ menu.setIsMenuOpen }
