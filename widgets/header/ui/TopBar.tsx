@@ -11,7 +11,7 @@ interface Props {
 
 export default function TopBar({ alias, settingsData }: Props) {
 	return (
-		<div className='bg-black text-white'>
+		<div className='bg-black text-white w-full'>
 			<div className='container mx-auto flex justify-between py-1 px-4'>
 				<Contacts settingsData={ settingsData } />
 				<TopNavigation alias={ alias } />

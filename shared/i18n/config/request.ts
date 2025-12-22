@@ -11,15 +11,9 @@ export default getRequestConfig(async({ requestLocale }) => {
 
 	const messages = {
 		common: locale === Locale.UK ? (await import("../locales/uk/common.json")).default : (await import(`../locales/${ locale }/common.json`)).default,
-		// banner: (await import("@/widgets/banner/locales/uk.json")).default,
-		// callback: (await import("@/features/callback/locales/uk.json")).default,
-		// car: (await import("@/entities/car/locales/uk.json")).default,
+		select: locale === Locale.UK ? (await import("../locales/uk/select.json")).default : (await import(`../locales/${ locale }/select.json`)).default,
+		filters: locale === Locale.UK ? (await import("@/entities/filters/locales/uk/filters.json")).default : (await import(`@/entities/filters/locales/${ locale }/filters.json`)).default,
 	};
-
-	// const messages =
-	// 	locale === Locale.UK
-	// 		? (await import("../../../locales/uk.json")).default
-	// 		: (await import(`../../../locales/${ locale }.json`)).default;
 
 	return { locale, messages };
 });
