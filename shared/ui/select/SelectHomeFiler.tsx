@@ -18,14 +18,7 @@ interface SelectProps {
 	section: Section
 }
 
-export const SelectHomeFiler: FC<SelectProps> = ({
-																		 name,
-																		 label,
-																		 options = [],
-																		 isDisabled = false,
-																		 onChange,
-																		 section
-																	 }) => {
+export const SelectHomeFiler: FC<SelectProps> = ({ name, label, options = [], isDisabled = false, onChange, section }) => {
 	const t = useTranslations('select');
 	const popularSizeOptions =
 		section === Section.Tires ? popularSize.includes(name) && POPULAR_SIZE[name]
@@ -37,7 +30,7 @@ export const SelectHomeFiler: FC<SelectProps> = ({
 
 	return <Autocomplete
 		variant='flat'
-		size='sm'
+		size='lg'
 		color='default'
 		className={ twMerge('max-w-full md:max-w-xs') }
 		label={ <span className='text-black dark:text-white font-semibold'>{ label }</span> }
