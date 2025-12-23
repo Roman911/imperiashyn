@@ -6,6 +6,8 @@ import { orderApi } from '@/entities/order/api/order.api';
 import { supportApi } from '@/entities/support/api/support.api';
 
 import progressReducer from '@/features/progress/model/progress.slice';
+import bookmarksReducer from '@/features/bookmarks/toggle/lib/storage';
+import comparisonReducer from '@/features/comparison/toggle/lib/storage';
 
 export const createStore = () =>
 	configureStore({
@@ -15,6 +17,8 @@ export const createStore = () =>
 			[deliveryApi.reducerPath]: deliveryApi.reducer,
 			[orderApi.reducerPath]: orderApi.reducer,
 			[supportApi.reducerPath]: supportApi.reducer,
+			bookmarksReducer,
+			comparisonReducer,
 			progressReducer,
 		},
 		middleware: getDefault =>

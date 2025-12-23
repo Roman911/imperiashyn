@@ -7,7 +7,6 @@ import { getSettings } from '@/entities/settings/api/settings.api';
 import { mapSettings } from '@/entities/settings/model/mapper';
 import { ProgressBar } from '@/widgets/progress';
 import { Footer } from '@/widgets/footer';
-import { Support } from '@/widgets/support';
 
 export default async function LocaleLayout({ children }: { children: ReactNode }) {
 	const messages = await getMessages();
@@ -23,7 +22,6 @@ export default async function LocaleLayout({ children }: { children: ReactNode }
 			<main>
 				{ children }
 			</main>
-			<Support />
 			<Footer
 				alias={ alias.header }
 				settingsData={ settingsData }

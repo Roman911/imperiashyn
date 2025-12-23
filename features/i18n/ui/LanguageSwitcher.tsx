@@ -14,8 +14,6 @@ export default function LanguageSwitcher() {
 	const pathname = usePathname();
 	const locale = useLocale();
 
-	console.log(locale, pathname);
-
 	return (
 		<div className='divide-x text-gray-500 divide-gray-500 flex items-center'>
 			{ params.map((item, index) => {

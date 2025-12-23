@@ -17,7 +17,7 @@ const nextConfig: NextConfig = {
 			{
 				protocol: 'https',
 				hostname: 'opt.tyreclub.com.ua',
-				pathname: '/public/img/user/**',
+				pathname: '/api/public/img/user/**',
 			},
 			{
 				protocol: 'https',

@@ -13,7 +13,7 @@ interface PhoneInputProps {
 
 export const PhoneInput = forwardRef<HTMLInputElement, PhoneInputProps>(
 	({ error, onClearError }, ref) => {
-		const t = useTranslations('PhoneMask');
+		const t = useTranslations('phoneMask');
 		const [ value, setValue ] = useState<string>('');
 
 		const handleChange = ({ value }: { value: string }) => {

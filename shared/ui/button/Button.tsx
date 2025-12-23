@@ -1,12 +1,12 @@
 import { Button as ButtonUI, ButtonProps } from '@heroui/button';
 import { twMerge } from 'tailwind-merge';
 
-export function Button({ children, color='primary', className, ...props }: ButtonProps) {
+export function Button({ children, color='primary', radius="sm", size='lg', className, ...props }: ButtonProps) {
 	return <ButtonUI
-		size='lg'
-		radius="sm"
+		size={ size }
+		radius={ radius }
 		color={ color }
-		className={ twMerge('uppercase font-bold', className, color === 'secondary' && 'text-black') }
+		className={ twMerge(size === 'lg' && 'uppercase font-bold', className, color === 'secondary' && 'text-black') }
 		{ ...props }
 	>
 		{ children }
