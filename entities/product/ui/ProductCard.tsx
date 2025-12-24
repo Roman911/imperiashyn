@@ -59,7 +59,7 @@ export function ProductCard({ item }: Props): JSX.Element {
 			</CardBody>
 			<CardFooter className='justify-between'>
 				<ProductPrice min_price={ min_price } sectionIsBattery={ section === Section.Battery } />
-				<AddToCart product={undefined} />
+				<AddToCart id={ best_offer?.id || 0 } quantity={ 1 } section={ sectionNew } />
 			</CardFooter>
 		</Card>
 	)

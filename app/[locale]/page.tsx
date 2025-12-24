@@ -4,11 +4,11 @@ import { Layout } from '@/shared/ui/layout/Layout';
 import { Support } from '@/widgets/support';
 import { Title } from '@/shared/ui/title';
 import { NoResult } from '@/shared/ui/no-result';
-import { getProducts } from '@/entities/product/api/getProducts';
+import { getProductsApi } from '@/entities/product/api/getProducts.api';
 import { ProductList } from '@/entities/product/ui';
 
 export default async function Home({ params }: { params: Promise<{ locale: Locale }> }) {
-	const res = await getProducts({ id: '?order[value]=featured', start: 0, length: 10 });
+	const res = await getProductsApi({ id: '?order[value]=featured', start: 0, length: 10 });
 
 	return (
 		<>

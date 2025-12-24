@@ -8,7 +8,7 @@ export interface ProductsResponse {
 	products: Product[];
 }
 
-export const getProducts = (params: {
+export const getProductsApi = (params: {
 	id: string;
 	start?: number;
 	length?: number;

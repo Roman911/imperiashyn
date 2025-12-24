@@ -1,36 +1,28 @@
 'use client';
 
-import { useMemo } from 'react';
-import { useRouter } from '@/shared/i18n/navigation';
 import { useAppDispatch } from '@/shared/hooks/redux';
 import { getCart, saveCart } from '@/entities/cart/lib/cartStorage';
 import { addCart } from '@/entities/cart/model/cart.slice';
-import type { Product } from '@/entities/product/model';
+import { Section } from '@/shared/types/section';
 
-export function useAddToCart(product: Product) {
+interface Props {
+	id: number;
+	quantity: number;
+	section: Section;
+}
+
+export function useAddToCart({ id, quantity, section }: Props) {
 	const dispatch = useAppDispatch();
-	const router = useRouter();
-
-	const cart = useMemo(() => getCart(), []);
+	const cart = getCart();
 
 	const addToCart = () => {
-		const offerId = product.best_offer.id;
+		const updatedCart = [
+			...cart,
+			{ id, quantity, section },
+		];
 
-		if (!cart.some(item => item.id === offerId)) {
-			const updatedCart = [
-				...cart,
-				{
-					id: offerId,
-					quantity: 1,
-					section: product.section,
-				},
-			];
-
-			dispatch(addCart({ id: offerId, quantity: 1, section: product.section }));
-			saveCart(updatedCart);
-		}
-
-		router.push('/cart');
+		dispatch(addCart({ id, quantity, section }));
+		saveCart(updatedCart);
 	};
 
 	return { addToCart };
