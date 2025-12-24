@@ -8,6 +8,7 @@ import { supportApi } from '@/entities/support/api/support.api';
 import progressReducer from '@/features/progress/model/progress.slice';
 import bookmarksReducer from '@/features/bookmarks/toggle/lib/storage';
 import comparisonReducer from '@/features/comparison/toggle/lib/storage';
+import cartReducer from '@/entities/cart/model/cart.slice';
 
 export const createStore = () =>
 	configureStore({
@@ -20,6 +21,7 @@ export const createStore = () =>
 			bookmarksReducer,
 			comparisonReducer,
 			progressReducer,
+			cartReducer,
 		},
 		middleware: getDefault =>
 			getDefault().concat(
