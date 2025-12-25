@@ -1,7 +1,7 @@
 import { useEffect, useMemo } from 'react';
 import { useAppDispatch } from '@/shared/hooks/redux';
 
-import { ProductItem } from '@/entities/product/model/types';
+import { ProductItem } from '@/entities/products/model/types';
 import { groupProductsBySection } from './groupProducts';
 import { validateProducts } from './validateProducts';
 import { ProductsReducer } from './types';

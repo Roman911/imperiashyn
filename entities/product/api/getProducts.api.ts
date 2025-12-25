@@ -1,6 +1,6 @@
 import { apiFetch } from '@/shared/api/fetcher';
 import { ApiResponse } from '@/shared/api/types';
-import { Product } from '../model';
+import { Product } from '../../products/model';
 import { API_CONSTANTS, productEndpoints } from '@/config/api';
 
 export interface ProductsResponse {

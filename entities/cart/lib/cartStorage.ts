@@ -1,5 +1,5 @@
 import { addToStorage, getFromStorage, removeFromStorage } from '@/shared/lib/locale-storage/localeStorage';
-import { ProductItem } from '@/entities/product/model/types';
+import { ProductItem } from '@/entities/products/model/types';
 
 const STORAGE_KEY = 'reducerCart';
 

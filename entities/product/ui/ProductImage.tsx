@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { useLocale } from 'next-intl';
 import { twMerge } from 'tailwind-merge';
 import { Locale } from '@/shared/types/locale';
-import type { ModelImage } from '@/entities/product/model';
+import type { ModelImage } from '@/entities/products/model';
 
 interface Props {
 	default_photo: string;

@@ -1,6 +1,6 @@
 import type { ComponentType } from 'react';
 import * as UiIcons from '@/shared/ui/icons';
-import type { VehicleType } from '../model';
+import type { VehicleType } from '../../products/model';
 
 const vehicleTypeToIcon: Record<VehicleType, ComponentType<any>> = {
 	'1': UiIcons.CarIcon,

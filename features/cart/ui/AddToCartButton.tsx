@@ -1,6 +1,6 @@
 "use client";
 
-import { Product } from '@/entities/product/model';
+import { Product } from '@/entities/products/model';
 import { Button } from '@/shared/ui/button';
 import * as Icons from '@/shared/ui/icons';
 

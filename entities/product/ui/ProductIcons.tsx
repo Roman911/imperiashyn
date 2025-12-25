@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { getSeasonIcon } from '../lib/getSeasonIcon';
 import { getVehicleIcon } from '@/entities/product/lib';
-import type { SeasonType, VehicleType } from '../model';
+import type { SeasonType, VehicleType } from '../../products/model';
 
 interface Props {
 	season: SeasonType;

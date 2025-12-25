@@ -1,5 +1,5 @@
 import { twMerge } from 'tailwind-merge';
-import { Product } from '@/entities/product/model';
+import { Product } from '@/entities/products/model';
 import { ProductCard } from '@/entities/product/ui/ProductCard';
 
 interface Props {

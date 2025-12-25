@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { useProducts } from '@/features/products/get-products';
 import { getCartTotal } from '@/features/cart/model/cart.logic';
-import { ProductItem } from '@/entities/product/model/types';
+import { ProductItem } from '@/entities/products/model/types';
 
 export function useAddToCartDrawer(cartItems: ProductItem[]) {
 	const { tires, cargo, disks, battery, isLoading } = useProducts(

@@ -1,4 +1,4 @@
-import { ProductItem } from '@/entities/product/model/types';
+import { ProductItem } from '@/entities/products/model/types';
 
 export interface AddToCartDrawerProps {
 	isOpen: boolean;

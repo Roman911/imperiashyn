@@ -1,4 +1,4 @@
-import type { SeasonType } from '../model/types';
+import type { SeasonType } from '@/entities/products/model/types';
 
 export function getSeasonIcon(season: SeasonType): string | null {
 	switch(season) {

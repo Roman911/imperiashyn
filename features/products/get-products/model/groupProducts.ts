@@ -1,4 +1,4 @@
-import { ProductItem } from '@/entities/product/model/types';
+import { ProductItem } from '@/entities/products/model/types';
 import { GroupedIds } from './types';
 
 export function groupProductsBySection(

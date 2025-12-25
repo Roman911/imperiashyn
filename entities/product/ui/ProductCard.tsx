@@ -2,7 +2,7 @@
 
 import { JSX } from 'react';
 import { Card, CardBody, CardFooter } from '@heroui/react';
-import { Product } from '@/entities/product/model';
+import { Product } from '@/entities/products/model';
 import { ProductIcons } from './ProductIcons';
 import { ActionsBlock } from '@/entities/product/ui/ActionsBlock';
 import { Section } from '@/shared/types/section';
