@@ -2,7 +2,7 @@
 
 import { useAppDispatch } from '@/shared/hooks/redux';
 import { getCart, saveCart } from '@/entities/cart/lib/cartStorage';
-import { addCart } from '@/entities/cart/model/cart.slice';
+import { addItem } from '@/entities/cart/model/cart.slice';
 import { Section } from '@/shared/types/section';
 
 interface Props {
@@ -21,7 +21,7 @@ export function useAddToCart({ id, quantity, section }: Props) {
 			{ id, quantity, section },
 		];
 
-		dispatch(addCart({ id, quantity, section }));
+		dispatch(addItem({ id, quantity, section }));
 		saveCart(updatedCart);
 	};
 

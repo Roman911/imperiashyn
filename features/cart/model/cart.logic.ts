@@ -1,15 +1,11 @@
-interface CartItem {
-	id: number;
-	quantity: number;
-	section: string;
-}
+import { ProductItem } from '@/entities/product/model/types';
 
 export interface ProductPrices {
 	id: number;
 	price: number;
 }
 
-export const getCartTotal = (cartItems: CartItem[], productPrices: ProductPrices[]) => productPrices.reduce(
+export const getCartTotal = (cartItems: ProductItem[], productPrices: ProductPrices[]) => productPrices.reduce(
 	(sum, item) => sum + item.price * (cartItems.find(cartItem => cartItem.id === item.id)?.quantity || 1),
 	0,
 );

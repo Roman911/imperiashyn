@@ -1,17 +1,16 @@
-import { addToStorage, getFromStorage } from '@/shared/lib/locale-storage/localeStorage';
-
-export interface CartItem {
-	id: number;
-	quantity: number;
-	section: string;
-}
+import { addToStorage, getFromStorage, removeFromStorage } from '@/shared/lib/locale-storage/localeStorage';
+import { ProductItem } from '@/entities/product/model/types';
 
 const STORAGE_KEY = 'reducerCart';
 
-export function getCart(): CartItem[] {
+export function getCart(): ProductItem[] {
 	return getFromStorage(STORAGE_KEY) ?? [];
 }
 
-export function saveCart(cart: CartItem[]) {
+export function saveCart(cart: ProductItem[]) {
 	addToStorage(STORAGE_KEY, cart);
+}
+
+export function updatedCart(id: number) {
+	removeFromStorage(STORAGE_KEY, id);
 }

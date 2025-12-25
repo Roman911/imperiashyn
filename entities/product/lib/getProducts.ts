@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useAppDispatch } from '@/shared/hooks/redux';
 import { productApi } from '@/entities/products/api/product.api';
 import { removeFromStorage } from '@/shared/lib/locale-storage/localeStorage';
-import { removeCart } from '@/entities/cart/model/cart.slice';
+import { removeItem } from '@/entities/cart/model/cart.slice';
 import { removeBookmarks } from '@/features/bookmarks/toggle/lib/storage';
 import { removeComparison } from '@/features/comparison/toggle/lib/storage';
 import { ProductApi } from '@/entities/products/api/types';
@@ -100,7 +100,7 @@ export const getProducts = (
 				if(!dataTires.data?.products.find(item => byOffer ? item.best_offer.id === product : item.group)) {
 					if(reducer !== 'recentlyViewed') {
 						removeFromStorage(reducer, product);
-						dispatch(reducer === 'reducerCart' ? removeCart(product) : reducer === 'reducerBookmarks' ? removeBookmarks(product) : removeComparison(product));
+						dispatch(reducer === 'reducerCart' ? removeItem(product) : reducer === 'reducerBookmarks' ? removeBookmarks(product) : removeComparison(product));
 					}
 				}
 			})
@@ -111,7 +111,7 @@ export const getProducts = (
 				if(!dataCargo.data?.products.find(item => byOffer ? item.best_offer.id === product : item.group)) {
 					if(reducer !== 'recentlyViewed') {
 						removeFromStorage(reducer, product);
-						dispatch(reducer === 'reducerCart' ? removeCart(product) : reducer === 'reducerBookmarks' ? removeBookmarks(product) : removeComparison(product));
+						dispatch(reducer === 'reducerCart' ? removeItem(product) : reducer === 'reducerBookmarks' ? removeBookmarks(product) : removeComparison(product));
 					}
 				}
 			})
@@ -122,7 +122,7 @@ export const getProducts = (
 				if(!dataDisks.data?.products.find(item => byOffer ? item.best_offer.id === product : item.group)) {
 					if(reducer !== 'recentlyViewed') {
 						removeFromStorage(reducer, product);
-						dispatch(reducer === 'reducerCart' ? removeCart(product) : reducer === 'reducerBookmarks' ? removeBookmarks(product) : removeComparison(product));
+						dispatch(reducer === 'reducerCart' ? removeItem(product) : reducer === 'reducerBookmarks' ? removeBookmarks(product) : removeComparison(product));
 					}
 				}
 			})
@@ -133,7 +133,7 @@ export const getProducts = (
 				if(!dataBattery.data?.products.find(item => byOffer ? item.best_offer.id === product : item.group)) {
 					if(reducer !== 'recentlyViewed') {
 						removeFromStorage(reducer, product);
-						dispatch(reducer === 'reducerCart' ? removeCart(product) : reducer === 'reducerBookmarks' ? removeBookmarks(product) : removeComparison(product));
+						dispatch(reducer === 'reducerCart' ? removeItem(product) : reducer === 'reducerBookmarks' ? removeBookmarks(product) : removeComparison(product));
 					}
 				}
 			})

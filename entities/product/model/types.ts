@@ -74,3 +74,9 @@ export interface ProductLabel {
 	id?: number;
 	name?: string;
 }
+
+export interface ProductItem {
+	id: number;
+	section: 'tires' | 'cargo' | 'disks' | 'battery';
+	quantity?: number;
+}

@@ -1,6 +1,6 @@
 import { Product } from '@/entities/product/model';
 
-export interface CartItem {
+export interface CartItemTypes {
 	product: Product;
 	quantity: number;
 }

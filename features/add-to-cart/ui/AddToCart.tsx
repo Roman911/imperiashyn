@@ -3,9 +3,9 @@
 import { useDisclosure } from '@heroui/react';
 import { useAddToCart } from '../model/useAddToCart';
 import { AddToCartButton } from './AddToCartButton';
-import { AddToCartDrawer } from './AddToCartDrawer';
 import { Section } from '@/shared/types/section';
 import { useAppSelector } from '@/shared/hooks/redux';
+import { AddToCartDrawer } from '@/features/cart/add-to-cart-drawer';
 
 interface Props {
 	id: number;

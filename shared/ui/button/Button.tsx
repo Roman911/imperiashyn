@@ -1,3 +1,5 @@
+'use client';
+
 import { Button as ButtonUI, ButtonProps } from '@heroui/button';
 import { twMerge } from 'tailwind-merge';
 
