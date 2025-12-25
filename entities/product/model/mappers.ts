@@ -17,11 +17,14 @@ export function mapProductFromApi(api: ProductApi): Product {
 
 	return {
 		id: api.id,
+		sku: api.offer_group.sku,
 		name: api.full_name,
 		slug: api.page_url,
 		imageSmall: api.photo.url_part,
 		imageBig: api.photo.url_part2,
 		images: api.photos.urls,
+		brandImage: api.model.brand_image,
+		brandName: api.brand.name,
 
 		price: Number(offer?.price ?? api.min_price),
 		maxPrice: api.max_price,
@@ -31,8 +34,11 @@ export function mapProductFromApi(api: ProductApi): Product {
 		width: api.offer_group.width,
 		height: api.offer_group.height,
 		diameter: api.offer_group.diameter,
+		vehicleType: api.offer_group.vehicle_type,
 
 		disabled: api.disabled,
+
+		review: api.review,
 	};
 }
 

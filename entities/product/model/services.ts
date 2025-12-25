@@ -4,7 +4,6 @@ import { Product } from './types';
 
 export async function getProduct(id: string): Promise<Product> {
 	const response = await getProductApi(id);
-	console.log(response);
 
 	return mapProductFromApi(response.data);
 }

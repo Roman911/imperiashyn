@@ -1,3 +1,5 @@
+import { VehicleType } from '@/entities/products/model';
+
 export interface ProductDescription {
 	ua: ProductSeo;
 	ru: ProductSeo;
@@ -95,7 +97,7 @@ export interface ProductOfferGroup {
 	speed_index: string;
 	speed_index_ru: string;
 
-	vehicle_type: string;
+	vehicle_type: VehicleType;
 
 	reinforce: boolean;
 	run_flat: boolean;

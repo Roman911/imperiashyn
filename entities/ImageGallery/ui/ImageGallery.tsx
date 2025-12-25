@@ -1,6 +1,7 @@
 import { Images } from '@/entities/product/model/types';
 import { ProductImage } from '@/entities/product/ui/ProductImage';
-import { ReactSlick } from '@/features/react-slick/ui/ReactSlick';
+import { mapProductImages } from '@/shared/ui/image-slider/lib/map-images';
+import { ImageSlider } from '@/shared/ui/image-slider/ui/image-slider';
 
 interface Props {
 	photo: {
@@ -12,7 +13,9 @@ interface Props {
 }
 
 export function ImageGallery({ photo, images, name }: Props) {
-	if(images.length) return <ReactSlick images={ images } photo={ photo } />;
+	const productImages = mapProductImages(images, photo);
+
+	if(images.length) return <ImageSlider images={ productImages } />;
 
 	return (
 		<ProductImage

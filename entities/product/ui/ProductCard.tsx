@@ -32,7 +32,7 @@ export function ProductCard({ item }: Props): JSX.Element {
 		>
 			<CardBody>
 				<div className='relative min-h-32 sm:min-h-52 text-center'>
-					<ProductIcons season={ season } vehicleType={ vehicle_type }/>
+					<ProductIcons isProductCard season={ season } vehicleType={ vehicle_type } />
 					<ActionsBlock sectionNew={ sectionNew } group={ group }/>
 					<ProductImage default_photo={ default_photo } images={ model.model_images } full_name={ full_name }/>
 				</div>

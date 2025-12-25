@@ -1,3 +1,5 @@
+import { VehicleType } from '@/entities/products/model';
+
 export interface Images {
 	small: string;
 	big: string;
@@ -5,11 +7,14 @@ export interface Images {
 
 export interface Product {
 	id: number;
+	sku: string;
 	name: string;
 	slug: string;
 	imageSmall: string;
 	imageBig: string;
 	images: Images[];
+	brandImage: string;
+	brandName: string;
 
 	price: number;
 	maxPrice: number;
@@ -19,6 +24,9 @@ export interface Product {
 	width: string;
 	height: string;
 	diameter: string;
+	vehicleType: VehicleType;
 
 	disabled: boolean;
+
+	review: unknown[];
 }
