@@ -1,12 +1,15 @@
 'use client'
 
-import TopBar from '@/widgets/header/ui/TopBar';
+import { Navbar } from '@heroui/react';
+
 import type { AliasItem } from '@/entities/alias/model/alias.types';
 import type { ConfigSettings } from '@/shared/types/settings';
-import { useHeaderMenu } from '@/widgets/header/model/useHeaderMenu';
-import { Navbar } from '@heroui/react';
-import MainBarLayout from '@/widgets/header/ui/MainBarLayout';
-import { HeaderMobileMenu } from '@/widgets/header/ui/HeaderMobileMenu';
+
+import { TopBar } from './TopBar';
+import { useHeaderMenu } from '../model/useHeaderMenu';
+import { MainBarLayout } from './MainBarLayout';
+import { HeaderMobileMenu } from './HeaderMobileMenu';
+import { Navigation } from './Navigation';
 
 interface Props {
 	alias: AliasItem[];
@@ -26,6 +29,7 @@ export function Header({ alias, settingsData }: Props) {
 		>
 			<TopBar alias={ alias } settingsData={ settingsData } />
 			<MainBarLayout settingsData={ settingsData } />
+			<Navigation />
 			<HeaderMobileMenu { ...menu } />
 		</Navbar>
 	);

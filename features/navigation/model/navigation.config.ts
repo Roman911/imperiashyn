@@ -2,36 +2,23 @@ import { NavigationItem } from "./navigation.types";
 
 export const MAIN_NAVIGATION: NavigationItem[] = [
 	{
-		id: "catalog",
-		label: "menu.catalog",
-		href: "/catalog",
+		id: "accumulators",
+		label: "accumulators",
+		href: "/catalog/battery",
 	},
 	{
-		id: "tires",
-		label: "menu.tires",
-		href: "/tires",
+		id: "calculator",
+		label: "tire calculator",
+		href: "/tyre-disk-size-calc",
 	},
 	{
-		id: "disks",
-		label: "menu.disks",
-		href: "/disks",
+		id: "about",
+		label: "about us",
+		href: "/page/about-us",
 	},
 	{
 		id: "contacts",
-		label: "menu.contacts",
-		href: "/contacts",
-	},
-];
-
-export const TOP_NAVIGATION: NavigationItem[] = [
-	{
-		id: "about",
-		label: "menu.about",
-		href: "/about",
-	},
-	{
-		id: "delivery",
-		label: "menu.delivery",
-		href: "/delivery",
+		label: "contacts",
+		href: "/page/contacts",
 	},
 ];
