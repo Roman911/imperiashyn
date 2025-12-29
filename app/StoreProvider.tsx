@@ -12,7 +12,7 @@ export default function StoreProvider({ children }: { children: ReactNode }) {
 
 	return (
 		<Provider store={ storeRef.current }>
-			<ToastProvider placement='top-right' toastProps={{ radius: 'sm', timeout: 4000 }}/>
+			<ToastProvider placement='top-right' toastProps={{ radius: 'sm', timeout: 4000, classNames: { icon: 'text-gray-500' }}} />
 			{ children }
 		</Provider>
 	);

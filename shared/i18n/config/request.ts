@@ -1,6 +1,7 @@
 import { getRequestConfig } from "next-intl/server";
 import { routing } from "./routing";
 import { Locale } from "@/shared/types/locale";
+import { LanguageSwitcher } from '@/features/i18n';
 
 export default getRequestConfig(async({ requestLocale }) => {
 	let locale = await requestLocale;
@@ -19,6 +20,7 @@ export default getRequestConfig(async({ requestLocale }) => {
 		comparison: locale === Locale.UK ? (await import("@/features/comparison/locales/uk/comparison.json")).default : (await import(`@/features/comparison/locales/${ locale }/comparison.json`)).default,
 		cart: locale === Locale.UK ? (await import("@/entities/cart/locales/uk/cart.json")).default : (await import(`@/entities/cart/locales/${ locale }/cart.json`)).default,
 		catalog: locale === Locale.UK ? (await import("@/entities/catalog/locales/uk/catalog.json")).default : (await import(`@/entities/catalog/locales/${ locale }/catalog.json`)).default,
+		languageSwitcher: locale === Locale.UK ? (await import("@/features/i18n/locales/uk/language-switcher.json")).default : (await import(`@/features/i18n/locales/${ locale }/language-switcher.json`)).default,
 	};
 
 	return { locale, messages };

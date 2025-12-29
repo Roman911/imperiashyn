@@ -1,7 +1,9 @@
 'use client'
 
+import { useLocale, useTranslations } from 'next-intl';
 import { twMerge } from 'tailwind-merge';
-import { useLocale } from 'next-intl';
+import { addToast } from '@heroui/toast';
+
 import { Link, usePathname } from '@/shared/i18n/navigation';
 import { Locale } from '@/shared/types/locale';
 
@@ -10,9 +12,10 @@ const params = [
 	{ title: 'RU', language: Locale.RU },
 ];
 
-export default function LanguageSwitcher() {
-	const pathname = usePathname();
+export function LanguageSwitcher() {
 	const locale = useLocale();
+	const pathname = usePathname();
+	const t = useTranslations('languageSwitcher');
 
 	return (
 		<div className='divide-x text-gray-500 divide-gray-500 flex items-center'>
@@ -21,6 +24,9 @@ export default function LanguageSwitcher() {
 					locale={ item.language }
 					key={ index }
 					href={ pathname }
+					onClick={ () => addToast({
+						title: t('language changed'),
+					}) }
 					className={
 						twMerge(
 							'font-bold text-sm 2xl:text-base pr-1.5 2xl:pr-3 active:text-white',
@@ -34,4 +40,4 @@ export default function LanguageSwitcher() {
 			}) }
 		</div>
 	)
-};
+}
