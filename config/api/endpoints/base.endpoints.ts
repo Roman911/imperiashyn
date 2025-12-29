@@ -6,6 +6,7 @@ export const baseEndpoints = {
 	settings: `${BASE_DATA}/settings`,
 	featureParams: `${API}/getFeatureParams`,
 	reviews: `${API}/reviews`,
+	filterData: (id: string) => `${API}/FildterData${id}`,
 	manufModels: (section: string) => `${API}/getManufModels/${section}`,
 	brands: (id: string) => `${API}/catalog-map/${id}`,
 	statiAlias: {

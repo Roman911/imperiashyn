@@ -1,5 +1,5 @@
-'use client'
-import { FC } from 'react';
+'use client';
+
 import { useTranslations } from 'next-intl';
 import { twMerge } from 'tailwind-merge';
 import { Autocomplete, AutocompleteItem, AutocompleteSection } from '@heroui/react';
@@ -18,7 +18,7 @@ interface SelectProps {
 	section: Section
 }
 
-export const SelectHomeFiler: FC<SelectProps> = ({ name, label, options = [], isDisabled = false, onChange, section }) => {
+export function SelectHomeFiler({ name, label, options = [], isDisabled = false, onChange, section }: SelectProps) {
 	const t = useTranslations('select');
 	const popularSizeOptions =
 		section === Section.Tires ? popularSize.includes(name) && POPULAR_SIZE[name]
@@ -56,4 +56,4 @@ export const SelectHomeFiler: FC<SelectProps> = ({ name, label, options = [], is
 			<AutocompleteItem key={ item.value }>{ item.label }</AutocompleteItem>
 		)) }
 	</Autocomplete>
-};
+}

@@ -18,6 +18,7 @@ export default getRequestConfig(async({ requestLocale }) => {
 		bookmarks: locale === Locale.UK ? (await import("@/features/bookmarks/locales/uk/bookmarks.json")).default : (await import(`@/features/bookmarks/locales/${ locale }/bookmarks.json`)).default,
 		comparison: locale === Locale.UK ? (await import("@/features/comparison/locales/uk/comparison.json")).default : (await import(`@/features/comparison/locales/${ locale }/comparison.json`)).default,
 		cart: locale === Locale.UK ? (await import("@/entities/cart/locales/uk/cart.json")).default : (await import(`@/entities/cart/locales/${ locale }/cart.json`)).default,
+		catalog: locale === Locale.UK ? (await import("@/entities/catalog/locales/uk/catalog.json")).default : (await import(`@/entities/catalog/locales/${ locale }/catalog.json`)).default,
 	};
 
 	return { locale, messages };
