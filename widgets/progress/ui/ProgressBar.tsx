@@ -13,10 +13,10 @@ export function ProgressBar() {
 	return (
 		<div className="fixed top-0 left-0 w-full z-50">
 			<ProgressUI
-				color="secondary"
+				color="primary"
 				isIndeterminate
 				aria-label="Loading..."
-				size="sm"
+				size='sm'
 			/>
 		</div>
 	);

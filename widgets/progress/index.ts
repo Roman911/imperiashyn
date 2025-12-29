@@ -1,1 +1,2 @@
-export { ProgressBar } from "./ui/ProgressBar";
+export * from "./ui/ProgressBar";
+export * from "./ui/ResetProgress";
