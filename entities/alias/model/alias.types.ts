@@ -34,7 +34,7 @@ interface DescriptionContent {
 type Description = Localized<DescriptionContent>;
 
 interface Page {
-	slug: string;
+	alias: string;
 	description: Description;
 }
 

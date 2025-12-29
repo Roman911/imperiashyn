@@ -50,8 +50,8 @@ export function FooterContacts({ settings }: Props) {
 					{ locale.email }
 				</Link>
 
-				<HtmlContent htmlString={ settings.locales[lang].open || '' }/>
-				<HtmlContent htmlString={ settings.locales[lang].address || '' }/>
+				<HtmlContent htmlString={ settings.locales[lang].open || '' } className='text-white' />
+				<HtmlContent htmlString={ settings.locales[lang].address || '' } className='text-white' />
 			</div>
 		</div>
 	);
