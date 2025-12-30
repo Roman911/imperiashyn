@@ -97,7 +97,7 @@ export const ChevronDownIcon: React.FC<IconSvgProps> = ({ size = 24, width, heig
 	>
 		<path
 			d="M1 2.75L5 6.75L9 2.75"
-			strokeWidth="1"
+			strokeWidth="1.5"
 			strokeLinecap="round"
 			strokeLinejoin="round"
 		/>

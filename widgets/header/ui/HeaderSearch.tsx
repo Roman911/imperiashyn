@@ -1,5 +1,6 @@
-import { SearchForm } from '@/features/search';
 import { twMerge } from 'tailwind-merge';
+
+import { SearchForm } from '@/features/search';
 
 export function HeaderSearch({ className }: { className: string }) {
 	return (

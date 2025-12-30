@@ -2,6 +2,7 @@
 
 import { Navbar } from '@heroui/react';
 
+import { Navigation } from '@/widgets/navigation';
 import type { AliasItem } from '@/entities/alias/model/alias.types';
 import type { ConfigSettings } from '@/shared/types/settings';
 
@@ -9,7 +10,6 @@ import { TopBar } from './TopBar';
 import { useHeaderMenu } from '../model/useHeaderMenu';
 import { MainBarLayout } from './MainBarLayout';
 import { HeaderMobileMenu } from './HeaderMobileMenu';
-import { Navigation } from './Navigation';
 
 interface Props {
 	alias: AliasItem[];
@@ -25,7 +25,7 @@ export function Header({ alias, settingsData }: Props) {
 			shouldHideOnScroll
 			isMenuOpen={ menu.isMenuOpen }
 			onMenuOpenChange={ menu.setIsMenuOpen }
-			classNames={{ wrapper: 'p-0 flex-col gap-0 h-32' }}
+			classNames={{ wrapper: 'p-0 flex-col gap-0 h-40' }}
 		>
 			<TopBar alias={ alias } settingsData={ settingsData } />
 			<MainBarLayout settingsData={ settingsData } />

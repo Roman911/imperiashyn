@@ -1,9 +1,10 @@
 'use client';
 
-import { Button } from '@heroui/react';
+import { Button } from '@/shared/ui/button';
 import * as Icons from '@/shared/ui/icons';
 import { Link } from '@/shared/i18n/navigation';
 import { SearchInput } from '@/shared/ui/search-input';
+
 import { useSearch } from '../model/useSearch';
 import { SearchResults } from './SearchResults';
 
@@ -16,8 +17,7 @@ export function SearchForm() {
 		dropdownRef,
 		onChange,
 		onSubmit,
-		onClear,
-		onAllResults,
+		onResults,
 		searchHref,
 	} = useSearch();
 
@@ -31,11 +31,12 @@ export function SearchForm() {
 					<Button
 						as={ Link }
 						href={ searchHref }
+						color='primary'
 						type="submit"
 						isIconOnly
 						aria-label="Search"
 						radius="sm"
-						className="w-16 h-11 -mr-1 bg-gray-900"
+						className="w-16 h-11 -mr-1"
 					>
 						<Icons.SearchIcon className="text-white"/>
 					</Button>
@@ -46,9 +47,9 @@ export function SearchForm() {
 				products={ products }
 				totalCount={ totalCount }
 				isOpen={ isOpen }
-				onClose={ onClear }
-				onAllResults={ onAllResults }
+				onResults={ onResults }
 				dropdownRef={ dropdownRef }
+				href={ searchHref }
 			/>
 		</>
 	);
