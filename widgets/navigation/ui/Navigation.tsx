@@ -5,12 +5,13 @@ import { NavbarContent } from '@heroui/react';
 
 import { MAIN_NAVIGATION } from '@/features/navigation/model/navigation.config';
 import { Section } from '@/shared/types/section';
+import { TireFilter } from '@/features/header-menu-filter';
+import { usePathname } from '@/shared/i18n/navigation';
 
 import { SECTION_MENU } from '../model/navigation.const';
 import { useSectionMenuReset } from '../lib/useSectionMenuReset';
 import { SectionMenu } from './SectionMenu';
 import { NavigationItem } from './NavigationItem';
-import { TireFilter } from '@/features/header-menu-filter';
 
 // import { CarTireFilter } from '@/features/car-filter/ui/CarTireFilter';
 // import { CarDiskFilter } from '@/features/car-filter/ui/CarDiskFilter';
@@ -27,12 +28,13 @@ export function Navigation() {
 						<SectionMenu
 							key={ item.section }
 							label={ t(item.labelKey) }
+							section={ item.section }
 						>
-							{ item.section === Section.Tires && <TireFilter /> }
-							{ item.section === Section.Disks && (
-								<div>324</div>
-								// <CarDiskFilter onClick={ triggerReset }/>
-							) }
+							{({ onClose }) => (
+								<>
+									{ item.section === Section.Tires && <TireFilter onClose={ onClose } /> }
+								</>
+							)}
 						</SectionMenu>
 					)) }
 

@@ -18,7 +18,7 @@ export const SEASON = [
 		img: 'spiked',
 		label: 'spiked',
 		href: '/catalog/tires/s-2/stud-1',
-		mt: 'mt-8',
+		className: 'mt-6',
 	},
 	{
 		img: 'off-road',
@@ -80,63 +80,67 @@ export const BRANDS = [
 
 export const DIAMETER = [
 	{
+		label: 'R12',
+		href: '/catalog/tires/d-12',
+	},
+	{
+		label: 'R13',
+		href: '/catalog/tires/d-13',
+	},
+	{
+		label: 'R14',
+		href: '/catalog/tires/d-14',
+	},
+	{
+		label: 'R15',
+		href: '/catalog/tires/d-15',
+	},
+	{
 		label: 'R16',
 		href: '/catalog/tires/d-16',
-		border: true
 	},
 	{
 		label: 'R17',
 		href: '/catalog/tires/d-17',
-		border: true
 	},
 	{
 		label: 'R18',
 		href: '/catalog/tires/d-18',
-		border: true
 	},
 	{
 		label: 'R19',
 		href: '/catalog/tires/d-19',
-		border: true
 	},
 	{
 		label: 'R20',
 		href: '/catalog/tires/d-20',
-		border: true
 	},
 	{
 		label: 'R21',
 		href: '/catalog/tires/d-21',
-		border: true
 	},
 	{
 		label: 'R22',
 		href: '/catalog/tires/d-22',
-		border: true
 	},
 	{
 		label: 'R23',
 		href: '/catalog/tires/d-23',
-		border: true
 	},
 	{
 		label: 'R24',
 		href: '/catalog/tires/d-24',
-		border: true
 	},
 	{
 		label: 'R17.5',
 		href: '/catalog/tires/d-17,5',
-		border: true
 	},
 	{
 		label: 'R19.5',
 		href: '/catalog/tires/d-19,5',
-		border: true
 	},
 	{
 		label: 'R22.5',
 		href: '/catalog/tires/d-22,5',
-		border: true
 	},
 ];
