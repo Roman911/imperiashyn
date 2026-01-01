@@ -3,27 +3,24 @@ import { useTranslations } from 'next-intl';
 import { Title } from './Title';
 import { Link } from './Link';
 import * as LINKS from '../model/constants';
-import { TypeCarFilter } from '@/widgets/navigation';
 
 interface Props {
 	onClose: (href: string) => void;
 }
 
-export function TireFilter({ onClose }: Props) {
+export function DiskFilter({ onClose }: Props) {
 	const t = useTranslations('headerMenuFilter');
 
 	return (
 		<>
 			<div>
-				<Title title={ t('by season') } />
+				<Title title={ t('by disk type') } />
 				<div className='mt-6 mb-6 grid grid-cols-1 justify-items-start'>
-					{ LINKS.SEASON.map((item, index) => {
+					{ LINKS.TYPE_DISK.map((item, index) => {
 						return <Link
 							key={ index }
 							href={ item.href }
 							onClose={ onClose }
-							img={ item.img }
-							className={ item.className }
 						>
 							{ t(item.label) }
 						</Link>
@@ -31,13 +28,9 @@ export function TireFilter({ onClose }: Props) {
 				</div>
 			</div>
 			<div>
-				<Title title={ t('by car type') } />
-				<TypeCarFilter onClose={ onClose } />
-			</div>
-			<div>
 				<Title title={ t('by brands') } />
 				<div className='mt-6 mb-6 grid grid-cols-2 gap-x-2 justify-items-start'>
-					{ LINKS.BRANDS.map((item, index) => {
+					{ LINKS.DISKS_BRAND.map((item, index) => {
 						return <Link
 							key={ index }
 							href={ item.href }
@@ -48,7 +41,7 @@ export function TireFilter({ onClose }: Props) {
 					}) }
 					<Link
 						onClose={ onClose }
-						href='/catalog/tires'
+						href='/catalog/disks'
 						className='text-primary font-bold hover:underline uppercase mt-2'
 					>
 						{ t('all brands') }
@@ -56,9 +49,30 @@ export function TireFilter({ onClose }: Props) {
 				</div>
 			</div>
 			<div>
+				<Title title={ t('by car brands') } />
+				<div className='mt-6 mb-6 grid grid-cols-2 gap-x-2 justify-items-start'>
+					{ LINKS.CAR_BRANDS.map((item, index) => {
+						return <Link
+							key={ index }
+							href={ item.href }
+							onClose={ onClose }
+						>
+							{ item.label }
+						</Link>
+					}) }
+					<Link
+						onClose={ onClose }
+						href='/catalog/disks/car-'
+						className='text-primary font-bold hover:underline uppercase mt-2'
+					>
+						{ t('all car brands') }
+					</Link>
+				</div>
+			</div>
+			<div>
 				<Title title={ t('by diameter') } />
 				<div className='mt-6 mb-6 grid grid-cols-4 gap-2 justify-items-start'>
-					{ LINKS.DIAMETER.map((item, index) => {
+					{ LINKS.DISK_DIAMETERS.map((item, index) => {
 						return <Link
 							key={ index }
 							href={ item.href }

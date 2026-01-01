@@ -1,7 +1,6 @@
 import { getRequestConfig } from "next-intl/server";
 import { routing } from "./routing";
 import { Locale } from "@/shared/types/locale";
-import { LanguageSwitcher } from '@/features/i18n';
 
 export default getRequestConfig(async({ requestLocale }) => {
 	let locale = await requestLocale;
@@ -23,6 +22,7 @@ export default getRequestConfig(async({ requestLocale }) => {
 		languageSwitcher: locale === Locale.UK ? (await import("@/features/i18n/locales/uk/language-switcher.json")).default : (await import(`@/features/i18n/locales/${ locale }/language-switcher.json`)).default,
 		navigation: locale === Locale.UK ? (await import("@/features/navigation/locales/uk/navigation.json")).default : (await import(`@/features/navigation/locales/${ locale }/navigation.json`)).default,
 		headerMenuFilter: locale === Locale.UK ? (await import("@/features/header-menu-filter/locales/uk/header-menu-filter.json")).default : (await import(`@/features/header-menu-filter/locales/${ locale }/header-menu-filter.json`)).default,
+		carType: locale === Locale.UK ? (await import("@/widgets/navigation/locales/uk/car-type.json")).default : (await import(`@/widgets/navigation/locales/${ locale }/car-type.json`)).default,
 	};
 
 	return { locale, messages };

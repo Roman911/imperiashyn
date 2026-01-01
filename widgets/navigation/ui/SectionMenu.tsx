@@ -27,7 +27,7 @@ export function SectionMenu({ label, children, section }: Props) {
 	};
 
 	return (
-		<div
+		<section
 			onMouseEnter={ () => setIsOpen(true) }
 			onMouseLeave={ () => setIsOpen(false) }
 		>
@@ -68,6 +68,6 @@ export function SectionMenu({ label, children, section }: Props) {
 					</div>
 				</div>
 			) }
-		</div>
+		</section>
 	);
 }

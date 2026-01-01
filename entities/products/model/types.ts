@@ -1,5 +1,5 @@
 export type SeasonType = '1' | '2' | '3';
-export type VehicleType = '1' | '2' | '7' | '8' | '9';
+export type VehicleType = '1' | '2' | '3' | '7' | '8' | '9';
 
 export interface Product {
 	full_name: string;
