@@ -1,1 +1,1 @@
-export * from './ui/StaticPage';
+export { default } from './ui/StaticPage';

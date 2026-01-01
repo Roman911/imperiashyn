@@ -10,7 +10,7 @@ interface Props {
 	meta_h1: string;
 }
 
-export function StaticPage({ title, href, content, meta_h1 }: Props) {
+export default function StaticPage({ title, href, content, meta_h1 }: Props) {
 	const path = [
 		{
 			title: title,

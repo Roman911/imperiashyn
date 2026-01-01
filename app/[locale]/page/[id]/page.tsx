@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 
 import { getAliasById } from '@/entities/alias/api/alias.api';
 import { Locale, LocaleCode } from '@/shared/types/locale';
-import { StaticPage } from '@/pages/static-page';
+import StaticPage from '@/pages/static-page';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: Locale, id: string }> }): Promise<Metadata> {
 	const { locale, id } = await params;
