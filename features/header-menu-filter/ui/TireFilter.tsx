@@ -16,7 +16,7 @@ export function TireFilter({ onClose }: Props) {
 		<>
 			<div>
 				<Title title={ t('by season') } />
-				<div className='mt-6 mb-6 grid grid-cols-1 justify-items-start'>
+				<div className='mb-6 grid grid-cols-1 justify-items-start'>
 					{ LINKS.SEASON.map((item, index) => {
 						return <Link
 							key={ index }
@@ -36,7 +36,7 @@ export function TireFilter({ onClose }: Props) {
 			</div>
 			<div>
 				<Title title={ t('by brands') } />
-				<div className='mt-6 mb-6 grid grid-cols-2 gap-x-2 justify-items-start'>
+				<div className='mb-6 grid grid-cols-2 gap-x-1 md:gap-x-2 justify-items-start'>
 					{ LINKS.BRANDS.map((item, index) => {
 						return <Link
 							key={ index }
@@ -57,7 +57,7 @@ export function TireFilter({ onClose }: Props) {
 			</div>
 			<div>
 				<Title title={ t('by diameter') } />
-				<div className='mt-6 mb-6 grid grid-cols-4 gap-2 justify-items-start'>
+				<div className='mb-6 grid grid-cols-4 gap-1 md:gap-2 justify-items-start'>
 					{ LINKS.DIAMETER.map((item, index) => {
 						return <Link
 							key={ index }

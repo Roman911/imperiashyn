@@ -11,7 +11,7 @@ export function TypeCarFilter({ onClose }: Props) {
 	const t = useTranslations('carType');
 
 	return (
-		<section className="mt-6 mb-6 grid grid-cols-1 justify-items-start">
+		<section className="grid grid-cols-1 justify-items-start">
 			{ TYPE_CAR.map(item => {
 				return (
 					<Link

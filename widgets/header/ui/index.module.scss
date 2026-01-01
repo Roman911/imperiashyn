@@ -1,20 +1,18 @@
-.header-center {
-	@media screen and (max-width: 1024px) {
-		.container {
-			grid-template-areas: "logo menu"
+@media screen and (max-width: 1024px) {
+	.container {
+		grid-template-areas: "logo menu"
     	"search search";
-		}
+	}
 
-		.logo {
-			grid-area: logo;
-		}
+	.logo {
+		grid-area: logo;
+	}
 
-		.search {
-			grid-area: search;
-		}
+	.search {
+		grid-area: search;
+	}
 
-		.menu {
-			grid-area: menu;
-		}
+	.menu {
+		grid-area: menu;
 	}
 }

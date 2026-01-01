@@ -15,7 +15,7 @@ export function DiskFilter({ onClose }: Props) {
 		<>
 			<div>
 				<Title title={ t('by disk type') } />
-				<div className='mt-6 mb-6 grid grid-cols-1 justify-items-start'>
+				<div className='mb-6 grid grid-cols-1 justify-items-start'>
 					{ LINKS.TYPE_DISK.map((item, index) => {
 						return <Link
 							key={ index }
@@ -29,7 +29,7 @@ export function DiskFilter({ onClose }: Props) {
 			</div>
 			<div>
 				<Title title={ t('by brands') } />
-				<div className='mt-6 mb-6 grid grid-cols-2 gap-x-2 justify-items-start'>
+				<div className='mb-6 grid grid-cols-2 gap-x-2 justify-items-start'>
 					{ LINKS.DISKS_BRAND.map((item, index) => {
 						return <Link
 							key={ index }
@@ -50,7 +50,7 @@ export function DiskFilter({ onClose }: Props) {
 			</div>
 			<div>
 				<Title title={ t('by car brands') } />
-				<div className='mt-6 mb-6 grid grid-cols-2 gap-x-2 justify-items-start'>
+				<div className='mb-6 grid grid-cols-2 gap-x-2 justify-items-start'>
 					{ LINKS.CAR_BRANDS.map((item, index) => {
 						return <Link
 							key={ index }
@@ -71,7 +71,7 @@ export function DiskFilter({ onClose }: Props) {
 			</div>
 			<div>
 				<Title title={ t('by diameter') } />
-				<div className='mt-6 mb-6 grid grid-cols-4 gap-2 justify-items-start'>
+				<div className='mb-6 grid grid-cols-4 gap-2 justify-items-start'>
 					{ LINKS.DISK_DIAMETERS.map((item, index) => {
 						return <Link
 							key={ index }

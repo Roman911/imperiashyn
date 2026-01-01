@@ -1,6 +1,7 @@
 'use client';
 
 import { NavbarItem } from '@heroui/react';
+
 import { Link } from '@/shared/i18n/navigation';
 import { useNavigationProgress } from '@/shared/hooks/useNavigationProgress';
 

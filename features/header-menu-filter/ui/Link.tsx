@@ -39,7 +39,7 @@ export function Link({ children, href, onClose, img, className, variant='light',
 			color='default'
 			size='md'
 			onPress={ () => onClose(href) }
-			className={ twMerge(variant === 'bordered' ? 'min-w-12 lg:min-w-16 text-sm lg:text-base px-2' : 'text-lg hover:text-primary hover:underline group', className) }
+			className={ twMerge(variant === 'bordered' ? 'min-w-12 lg:min-w-16 text-sm lg:text-base px-2' : 'text-base md:text-lg hover:text-primary hover:underline group', className) }
 			startContent={ img ? <ImageUI img={ img } /> : VehicleIcon ? <span className='text-gray-500 group-hover:text-primary'><VehicleIcon /></span> : null }
 		>
 			{ children }
