@@ -1,12 +1,28 @@
+import { Metadata } from 'next';
 import { ReactNode } from 'react';
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
+
+import { buildMetadata } from '@/shared/lib/seo/buildMetadata';
+import { getHomeSeo } from '@/pages/home/model/seo';
+
 import { Header } from '@/widgets/header';
 import { getAliasAll } from "@/entities/alias/api/alias.api";
 import { getSettings } from '@/entities/settings/api/settings.api';
 import { mapSettings } from '@/entities/settings/model/mapper';
 import { ProgressBar } from '@/widgets/progress';
 import { Footer } from '@/widgets/footer';
+import { Locale } from '@/shared/types/locale';
+
+export async function generateMetadata({ params, }: { params: { locale: Locale, section: string } }): Promise<Metadata> {
+	const seo = await getHomeSeo(params.locale);
+
+	return buildMetadata({
+		title: seo.title,
+		description: seo.description,
+		ogImagePath: `/${params.locale}/opengraph-image`,
+	});
+}
 
 export default async function LocaleLayout({ children }: { children: ReactNode }) {
 	const messages = await getMessages();

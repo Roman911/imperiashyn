@@ -1,7 +1,10 @@
 import { Viewport } from 'next';
 import { ReactNode } from 'react';
-import StoreProvider from './StoreProvider';
+import { GoogleTagManager } from '@next/third-parties/google'
+
 import { fontMontserrat } from '@/config/fonts';
+import StoreProvider from './StoreProvider';
+
 import '@/app/globals.css';
 import '@/app/colors.css';
 
@@ -15,6 +18,7 @@ export const viewport: Viewport = {
 export default async function RootLayout({ children }: { children: ReactNode; }) {
 	return (
 		<html lang='uk' suppressHydrationWarning>
+		<GoogleTagManager gtmId={ process.env.NEXT_PUBLIC_GTM_ID || '' } />
 		<body className={ fontMontserrat.variable }>
 		<StoreProvider>
 			{ children }

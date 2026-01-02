@@ -8,6 +8,7 @@ const withNextIntl = createNextIntlPlugin(
 const nextConfig: NextConfig = {
 	env: {
 		NEXT_PUBLIC_API_URL: process.env.SERVER_URL,
+		NEXT_PUBLIC_GTM_ID: process.env.NEXT_PUBLIC_GTM_ID,
 		HOSTNAME: process.env.HOSTNAME,
 		HOSTNAME_TYRECLUB: process.env.HOSTNAME,
 		ACCESS_ORIGIN: process.env.NEXT_PUBLIC_ACCESS_ORIGIN,
