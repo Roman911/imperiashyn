@@ -2,7 +2,10 @@ import type { Metadata } from 'next'
 
 import { getAliasById } from '@/entities/alias/api/alias.api';
 import { Locale, LocaleCode } from '@/shared/types/locale';
-import StaticPage from '@/pages/static-page';
+import { Breadcrumbs } from '@/shared/ui/breadcrumbs';
+import { Title } from '@/shared/ui/title';
+import { HtmlContent } from '@/shared/lib/sanitizeHtml';
+import { Layout } from '@/shared/ui/layout/Layout';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: Locale, id: string }> }): Promise<Metadata> {
 	const { locale, id } = await params;
@@ -20,12 +23,18 @@ export default async function Pages({ params }: { params: Promise<{ locale: Loca
 	const lang = locale === Locale.UK ? LocaleCode.UA : Locale.RU;
 	const alias = await getAliasById(id);
 
+	const path = [
+		{
+			title: alias[id].description[lang].meta_title,
+			href: alias?.[id].alias || '/',
+		}
+	];
+
 	return (
-		<StaticPage
-			href={ alias?.[id].alias || '/' }
-			content={ alias[id].description?.[lang].content || '' }
-			meta_h1={ alias[id].description[lang].meta_h1 || '' }
-			title={ alias[id].description[lang].meta_title }
-		/>
+		<Layout size='lg'>
+			<Breadcrumbs path={ path } />
+			<Title title={ alias[id].description[lang].meta_h1 || '' } />
+			<HtmlContent htmlString={ alias[id].description?.[lang].content || '' } />
+		</Layout>
 	)
 };

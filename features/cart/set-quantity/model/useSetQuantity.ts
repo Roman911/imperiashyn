@@ -1,7 +1,9 @@
 import { useCallback } from 'react';
+
 import { useAppDispatch, useAppSelector } from '@/shared/hooks/redux';
 import { setQuantity } from '@/entities/cart/model/cart.slice';
 import { addToStorage, getFromStorage } from '@/shared/lib/locale-storage/localeStorage';
+import { Section } from '@/shared/types/section';
 
 export function useSetQuantity(id: number, maxQuantity: number) {
 	const dispatch = useAppDispatch();
@@ -28,7 +30,7 @@ export function useSetQuantity(id: number, maxQuantity: number) {
 				setQuantity({
 					id,
 					quantity: nextQuantity,
-					section: 'tires',
+					section: Section.Tires,
 				})
 			);
 		},

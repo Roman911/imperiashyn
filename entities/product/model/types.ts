@@ -30,3 +30,8 @@ export interface Product {
 
 	review: unknown[];
 }
+
+export interface ProductPageParams {
+	locale: string;
+	product: string;
+}

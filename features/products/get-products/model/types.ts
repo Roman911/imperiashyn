@@ -1,11 +1,9 @@
 import { ProductApi } from '@/entities/products/api/types';
+import { Section } from '@/shared/types/section';
 
-export type GroupedIds = Record<'tires' | 'cargo' | 'disks' | 'battery', number[]>;
+export type GroupedIds = Record<Section, number[]>;
 
-export type GroupedItems = Record<
-	'tires' | 'cargo' | 'disks' | 'battery',
-	ProductApi[]
->;
+export type GroupedItems = Record<Section, ProductApi[]>;
 
 export type ProductsReducer =
 	| 'reducerCart'
