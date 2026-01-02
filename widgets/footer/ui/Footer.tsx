@@ -9,6 +9,7 @@ import { FooterContacts } from './FooterContacts';
 import { FooterCatalog } from './FooterCatalog';
 import { FooterInfo } from './FooterInfo';
 import { useLanguage } from '@/shared/hooks/useLanguage';
+import { LanguageSwitcher } from '@/features/i18n';
 
 interface Props {
 	alias: AliasItem[];
@@ -24,11 +25,12 @@ export function Footer({ alias, settingsData, year }: Props) {
 		<footer className="bg-black">
 			<div className="container mx-auto py-16 px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
 				<div>
-					<p className="text-gray-500 leading-6 text-sm">
+					<p className="text-gray-500 leading-6 text-sm mb-8">
 						© {year} {settingsData.locales[lang].owner}
 						<br/>
 						{ t('all rights reserved') }
 					</p>
+					<LanguageSwitcher />
 				</div>
 
 				<div>
