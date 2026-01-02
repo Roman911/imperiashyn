@@ -21,6 +21,28 @@ export function mapBaseData(api: BaseDataApi): FiltersBaseData {
 			labelRu: c.label_ru,
 		})),
 
+		diskBrand: api.brand_disc.map(b => ({
+			label: b.label,
+			value: b.value,
+			sortOrder: b.sort_order,
+		})),
+
+		discDiameter: api.disc_diameter.map(d => ({
+			number: d.numeric,
+			value: d.value,
+			p: d.p,
+		})),
+
+		discKrepeg: api.krip.map(k => ({
+			value: k.value,
+			p: k.p,
+		})),
+
+		discEt: api.et.map(e => ({
+			value: e.value,
+			p: e.p,
+		})),
+
 		tyreDiameter: api.tyre_diameter.map(d => ({
 			number: d.numeric,
 			value: d.value,

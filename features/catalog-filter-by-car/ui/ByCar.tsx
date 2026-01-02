@@ -6,15 +6,17 @@ import { Button } from '@/shared/ui/button';
 import { Autocomplete } from './Autocomplete';
 
 import { useByCar } from '../model/useByCar';
+import { twMerge } from 'tailwind-merge';
 
 interface Props {
 	car: string | null;
 	section: Section;
+	isHomeFilter?: boolean;
 }
 
-export function ByCar({ car, section }: Props) {
+export function ByCar({ car, section, isHomeFilter }: Props) {
 	const t = useTranslations('filters');
-	const { filter, auto, model, year, kit, onChange, submit } = useByCar(car, section);
+	const { filter, auto, model, year, kit, tyreSize, onChange, submit } = useByCar(car, section);
 
 	return (
 		<>
@@ -22,6 +24,7 @@ export function ByCar({ car, section }: Props) {
 				name="brand"
 				label={ t('car brand') }
 				options={ auto?.auto }
+				isHomeFilter={ isHomeFilter }
 				defaultValue={ filter.brand.toString() || '' }
 				onChange={ (_, v) => onChange('brand', Number(v)) }
 			/>
@@ -30,6 +33,7 @@ export function ByCar({ car, section }: Props) {
 				name="model"
 				label={ t('model') }
 				options={ model }
+				isHomeFilter={ isHomeFilter }
 				isDisabled={ !model?.length }
 				defaultValue={ filter.model.toString() || '' }
 				onChange={ (_, v) => onChange('model', Number(v)) }
@@ -39,6 +43,7 @@ export function ByCar({ car, section }: Props) {
 				name="year"
 				label={ t('graduation year') }
 				options={ year?.map(v => ({ value: v, label: String(v) })) }
+				isHomeFilter={ isHomeFilter }
 				isDisabled={ !year?.length }
 				defaultValue={ filter.year.toString() || '' }
 				onChange={ (_, v) => onChange('year', Number(v)) }
@@ -48,12 +53,19 @@ export function ByCar({ car, section }: Props) {
 				name="modification"
 				label={ t('modification') }
 				options={ kit }
+				isHomeFilter={ isHomeFilter }
 				isDisabled={ !kit?.length }
 				defaultValue={ filter.modification.toString() || '' }
 				onChange={ (_, v) => onChange('modification', Number(v)) }
 			/>
 
-			<Button onPress={ submit } className="w-full mt-2 uppercase">
+			<Button
+				onPress={ submit }
+				size={ isHomeFilter ? 'lg' : 'md' }
+				color={ isHomeFilter ? 'secondary' : 'primary' }
+				isDisabled={ !tyreSize?.length }
+				className={ twMerge('w-full',  isHomeFilter ? "font-semibold h-16" : "mt-2 uppercase") }
+			>
 				{ t('choose') }
 			</Button>
 		</>

@@ -67,6 +67,7 @@ export function useByCar(car: string | null, section: Section) {
 		model,
 		year,
 		kit,
+		tyreSize,
 		onChange,
 		submit,
 	};

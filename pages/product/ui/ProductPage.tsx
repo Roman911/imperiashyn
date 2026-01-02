@@ -16,7 +16,7 @@ interface Props {
 	product: Product;
 }
 
-export function ProductPage({ product }: Props) {
+export default function ProductPage({ product }: Props) {
 	const section = getProductSection(product.id.toString());
 	const breadcrumbs = getProductBreadcrumbs(section, product.name);
 

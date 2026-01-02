@@ -1,7 +1,11 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
 import { baseQuery } from '@/shared/api/baseQuery';
 import { baseEndpoints } from '@/config/api';
-import { BaseDataApi } from '@/entities/filters/api/filters.api.types';
+import type { BaseDataApi } from '@/entities/filters/api/filters.api.types';
+import { apiFetch } from '@/shared/api/fetcher';
+
+export const getBaseData = () =>
+	apiFetch<BaseDataApi>(baseEndpoints.baseData);
 
 export const baseDataApi = createApi({
 	reducerPath: 'baseDataApi',

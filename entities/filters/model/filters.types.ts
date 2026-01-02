@@ -23,12 +23,22 @@ export interface NumericItem {
 	p?: string;
 }
 
+export interface ValueItem {
+	value: string;
+	p: string;
+}
+
 export interface Year extends SelectOption<number> {}
 
 export interface FiltersBaseData {
 	auto: Auto[];
 	brand: Brand[];
+	diskBrand: Brand[];
 	cities: City[];
+
+	discDiameter: NumericItem[];
+	discKrepeg: ValueItem[];
+	discEt: ValueItem[];
 
 	tyreDiameter: NumericItem[];
 	tyreHeight: NumericItem[];

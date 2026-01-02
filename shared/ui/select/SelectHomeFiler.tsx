@@ -29,7 +29,6 @@ export function SelectHomeFiler({ name, label, options = [], isDisabled = false,
 	};
 
 	return <Autocomplete
-		variant='flat'
 		size='lg'
 		color='default'
 		className={ twMerge('max-w-full md:max-w-xs') }

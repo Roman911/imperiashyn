@@ -1,5 +1,4 @@
 import { Section } from '@/shared/types/section';
-import { FiltersBaseData } from '@/entities/filters/model/filters.types';
 import { BaseDataApi } from '@/entities/filters/api/filters.api.types';
 
 export interface SectionTiresProps {

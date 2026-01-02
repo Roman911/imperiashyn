@@ -1,21 +1,27 @@
 'use client';
 
 import { useState } from 'react';
+import { useLocale, useTranslations } from 'next-intl';
 import { Tab, Tabs } from '@heroui/tabs';
 import { twMerge } from 'tailwind-merge';
+
 import styles from './index.module.scss';
 
-import { baseDataApi } from '@/entities/base-data/api/baseData.api';
-import { DisksFilter, FilterByCar, TiresFilter, } from '@/features/filters';
-import { mapBaseData } from '@/entities/filters/lib/mapBaseData';
-import { useTranslations } from 'next-intl';
-import { Section } from '@/shared/types/section';
+import { ByCar } from '@/features/catalog-filter-by-car';
+import { TiresFilters } from './TiresFilters';
+import { DisksFilters } from './DisksFilters';
 
-export function HomeFilters() {
+import { Section } from '@/shared/types/section';
+import type { FiltersBaseData } from '@/entities/filters/model/filters.types';
+
+interface Props {
+	filters?: FiltersBaseData;
+}
+
+export function HomeFilters({ filters }: Props) {
+	const locale = useLocale();
 	const t = useTranslations('filters');
 	const [ selected, setSelected ] = useState<Section>(Section.Tires);
-	const { data } = baseDataApi.useFetchBaseDataQuery();
-	const filters = data ? mapBaseData(data) : undefined;
 
 	return (
 		<section
@@ -40,14 +46,16 @@ export function HomeFilters() {
 						tabContent: 'text-gray-200/80'
 				}}
 				>
-					<Tab key={ Section.Tires } title={ t(Section.Tires) }>
-						<TiresFilter filters={ filters }/>
+					<Tab key={ Section.Tires } title={ t(Section.Tires) } >
+						<TiresFilters filters={ filters } locale={ locale } />
 					</Tab>
-					<Tab key={ Section.Disks } title={ t(Section.Disks) }>
-						<DisksFilter filters={ filters }/>
+					<Tab key={ Section.Disks } title={ t(Section.Disks) } >
+						<DisksFilters filters={ filters } locale={ locale } />
 					</Tab>
-					<Tab key={ Section.Car } title={ t('by car') }>
-						<FilterByCar filters={ filters }/>
+					<Tab key={ Section.Car } title={ t('by car') } >
+						<div className='grid gap-2.5 md:mt-7 grid-cols-1 md:grid-cols-3 lg:grid-cols-5'>
+							<ByCar isHomeFilter car={ 'car-' } section={ Section.Tires } />
+						</div>
 					</Tab>
 				</Tabs>
 			</div>

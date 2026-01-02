@@ -12,9 +12,10 @@ export function TypeCarFilter({ onClose }: Props) {
 
 	return (
 		<section className="grid grid-cols-1 justify-items-start">
-			{ TYPE_CAR.map(item => {
+			{ TYPE_CAR.map((item, index) => {
 				return (
 					<Link
+						key={ index }
 						href={ item.href }
 						onClose={ onClose }
 						vehicleType={ item.icon }

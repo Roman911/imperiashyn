@@ -20,7 +20,11 @@ export interface CityApi {
 export interface BaseDataApi {
 	auto: { label: string; value: number }[];
 	brand: { label: string; sort_order: string; value: number }[];
+	brand_disc: { label: string; sort_order: string; value: number }[];
 	citys: CityApi[];
+	disc_diameter: ItemApi[];
+	krip: { value: string; p: string }[];
+	et: { value: string; p: string }[];
 	tyre_diameter: ItemApi[];
 	tyre_height: ItemApi[];
 	tyre_width: ItemApi[];

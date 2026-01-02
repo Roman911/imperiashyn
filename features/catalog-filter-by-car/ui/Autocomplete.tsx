@@ -1,4 +1,4 @@
-import { Dispatch, FC, SetStateAction, useEffect, useState } from 'react';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { Autocomplete as AutocompleteUI, AutocompleteItem } from '@heroui/react';
 
@@ -12,9 +12,10 @@ interface SelectProps {
 	options: Options[] | undefined;
 	onChange: (name: string, value: number | string | null, label?: number | string | null) => void;
 	defaultValue?: string;
+	isHomeFilter?: boolean;
 }
 
-export function Autocomplete({ name, label, options = [], isDisabled = false, onChange, setState, defaultValue }: SelectProps) {
+export function Autocomplete({ name, label, options = [], isDisabled = false, onChange, setState, defaultValue, isHomeFilter }: SelectProps) {
 	const t = useTranslations('select');
 	const [ selectedKey, setSelectedKey ] = useState<string | number | null>(defaultValue ?? null);
 
@@ -35,13 +36,13 @@ export function Autocomplete({ name, label, options = [], isDisabled = false, on
 
 	return (
 		<AutocompleteUI
-			size="sm"
+			size={ isHomeFilter ? 'lg' : "sm" }
 			radius="sm"
 			selectedKey={ selectedKey }
 			onInputChange={ handleInputChange }
 			className="max-w-full md:max-w-full"
 			classNames={ { listboxWrapper: 'rounded-xs' } }
-			label={ label }
+			label={ isHomeFilter ? <span className='text-black dark:text-white font-semibold'>{ label }</span> : label }
 			isDisabled={ isDisabled }
 			defaultItems={ options }
 			onSelectionChange={ handleChange }
@@ -53,4 +54,4 @@ export function Autocomplete({ name, label, options = [], isDisabled = false, on
 			{ (item) => <AutocompleteItem key={ item.value }>{ item.label }</AutocompleteItem> }
 		</AutocompleteUI>
 	);
-};
+}

@@ -49,54 +49,35 @@ export const getFilters = ({ locale, section, filters }: Props) => {
 			options: filters?.brand.map(item => ({ value: item.value, label: item.label }))
 		});
 	} else if(section === Section.Disks) {
-	// 	filterConfigs.push({
-	// 		label: 'diameter',
-	// 		name: 'radius',
-	// 		focusValue: `R${14}`,
-	// 		options: data?.disc_diameter?.map(item => ({ value: item.value, label: `R${item.value}`, p: item.p }))
-	// 	});
-	//
-	// 	filterConfigs.push({
-	// 		label: 'fasteners',
-	// 		name: 'krepeg',
-	// 		focusValue: '',
-	// 		options: data?.krip?.map(item => ({ value: item.value, label: item.value, p: item.p }))
-	// 	});
-	//
-	// 	filterConfigs.push({
-	// 		label: 'et from',
-	// 		name: 'etMin',
-	// 		focusValue: '',
-	// 		options: data?.et?.map(item => ({ value: item.value, label: item.value, p: item.p }))
-	// 	});
-	//
-	// 	filterConfigs.push({
-	// 		label: 'et to',
-	// 		name: 'etMax',
-	// 		focusValue: '',
-	// 		options: data?.et?.map(item => ({ value: item.value, label: item.value, p: item.p }))
-	// 	});
-	//
-	// 	filterConfigs.push({
-	// 		label: 'brand',
-	// 		name: 'brand',
-	// 		focusValue: '',
-	// 		options: data?.brand_disc?.map(item => ({ value: item.value, label: item.label }))
-	// 	});
-	//
-	// 	filterConfigs.push({
-	// 		label: 'year',
-	// 		name: 'year',
-	// 		focusValue: '',
-	// 		options: data?.tyre_year?.map(item => ({ value: item.value, label: `${item.label}` }))
-	// 	});
-	// } else if(section === Section.Battery) {
-	// 	filterConfigs.push({
-	// 		label: 'brand',
-	// 		name: 'brand',
-	// 		focusValue: '',
-	// 		options: data?.brand_disc?.map(item => ({ value: item.value, label: item.label }))
-	// 	});
+		filterConfigs.push({
+			label: 'brand',
+			name: 'brand',
+			options: filters?.diskBrand.map(item => ({ value: item.value, label: item.label }))
+		});
+
+		filterConfigs.push({
+			label: 'diameter',
+			name: 'radius',
+			options: filters?.discDiameter.map(item => ({ value: item.value, label: `R${item.value}`, p: item.p }))
+		});
+
+		filterConfigs.push({
+			label: 'fasteners',
+			name: 'krepeg',
+			options: filters?.discKrepeg.map(item => ({ value: item.value, label: item.value, p: item.p }))
+		});
+
+		filterConfigs.push({
+			label: 'et from',
+			name: 'etMin',
+			options: filters?.discEt.map(item => ({ value: item.value, label: item.value, p: item.p }))
+		});
+
+		filterConfigs.push({
+			label: 'et to',
+			name: 'etMax',
+			options: filters?.discEt.map(item => ({ value: item.value, label: item.value, p: item.p }))
+		});
 	}
 
 	return filterConfigs;
