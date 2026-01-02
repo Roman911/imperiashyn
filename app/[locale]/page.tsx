@@ -5,8 +5,12 @@ import { AdditionalFilter } from '@/widgets/additional-home-filter';
 import { TopBrands } from '@/widgets/top-brands';
 import { Support } from '@/widgets/support';
 import { Banner } from '@/entities/banner';
+import { TextSeo } from '@/widgets/text-seo';
+import { Locale } from '@/shared/types/locale';
 
-export default async function Home() {
+export default async function Home({ params }: { params: Promise<{ locale: Locale }> }) {
+	const { locale } = await params;
+
 	return (
 		<>
 			<HomeFilters />
@@ -16,6 +20,7 @@ export default async function Home() {
 				<AdditionalFilter />
 				<Support />
 				<TopBrands />
+				<TextSeo locale={ locale } />
 			</Layout>
 		</>
 	)
