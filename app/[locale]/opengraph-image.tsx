@@ -33,6 +33,7 @@ export default async function OpenGraphImage({ params }: { params: { locale: Loc
 					width={ 180 }
 					height={ 60 }
 					style={ { marginBottom: 40 } }
+					alt=""
 				/>
 
 				<h1 style={ { fontSize: 64, fontWeight: 800, lineHeight: 1.1 } }>

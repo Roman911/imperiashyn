@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import { useTranslations } from 'next-intl';
+import { twMerge } from 'tailwind-merge';
 import { Form, Modal, ModalBody, ModalContent, ModalHeader, useDisclosure } from '@heroui/react';
 
 import { PhoneInput } from '@/shared/ui/phone-input';
@@ -12,11 +13,12 @@ import { Input } from '@/shared/ui/input/Input';
 interface Props {
 	productId?: number;
 	quantity: number;
+	color?: 'default' | 'primary';
 }
 
-export function CallbackModal({ productId, quantity }: Props) {
+export function CallbackModal({ productId, quantity, color='default' }: Props) {
 	const t = useTranslations('callbackModal');
-	const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
+	const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
 	const {
 		phoneRef,
@@ -36,12 +38,12 @@ export function CallbackModal({ productId, quantity }: Props) {
 		<>
 			<Button
 				onPress={ onOpen }
-				variant='light'
-				size='md'
-				color='default'
-				className='text-white font-semibold h-6'
+				variant={ color === 'default' ? 'light' : 'solid' }
+				size={ color === 'default' ? 'md' : 'lg' }
+				color={ color }
+				className={ twMerge('text-white font-semibold', color === 'default' && 'h-6') }
 			>
-				Замовити дзвінок
+				{ t('callback') }
 			</Button>
 
 			<Modal isOpen={ isOpen } onOpenChange={ onOpenChange } placement="top-center">
