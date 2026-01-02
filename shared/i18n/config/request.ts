@@ -23,6 +23,7 @@ export default getRequestConfig(async({ requestLocale }) => {
 		navigation: locale === Locale.UK ? (await import("@/features/navigation/locales/uk/navigation.json")).default : (await import(`@/features/navigation/locales/${ locale }/navigation.json`)).default,
 		headerMenuFilter: locale === Locale.UK ? (await import("@/features/header-menu-filter/locales/uk/header-menu-filter.json")).default : (await import(`@/features/header-menu-filter/locales/${ locale }/header-menu-filter.json`)).default,
 		carType: locale === Locale.UK ? (await import("@/widgets/navigation/locales/uk/car-type.json")).default : (await import(`@/widgets/navigation/locales/${ locale }/car-type.json`)).default,
+		callbackModal: locale === Locale.UK ? (await import("@/entities/callback/locales/uk/callback.json")).default : (await import(`@/entities/callback/locales/${ locale }/callback`)).default,
 	};
 
 	return { locale, messages };

@@ -4,7 +4,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 
 import { buildMetadata } from '@/shared/lib/seo/buildMetadata';
-import { getHomeSeo } from '@/pages/home/model/seo';
+import { getHomeSeo } from '@/entities/home/model/seo';
 
 import { Header } from '@/widgets/header';
 import { getAliasAll } from "@/entities/alias/api/alias.api";
@@ -15,12 +15,13 @@ import { Footer } from '@/widgets/footer';
 import { Locale } from '@/shared/types/locale';
 
 export async function generateMetadata({ params, }: { params: { locale: Locale, section: string } }): Promise<Metadata> {
-	const seo = await getHomeSeo(params.locale);
+	const { locale } = await params;
+	const seo = await getHomeSeo(locale);
 
 	return buildMetadata({
 		title: seo.title,
 		description: seo.description,
-		ogImagePath: `/${params.locale}/opengraph-image`,
+		ogImagePath: `/${locale}/opengraph-image`,
 	});
 }
 

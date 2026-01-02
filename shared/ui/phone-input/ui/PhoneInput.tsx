@@ -1,6 +1,6 @@
 'use client';
 
-import { forwardRef, useState } from 'react';
+import { Dispatch, forwardRef, SetStateAction, useState } from 'react';
 import { PatternFormat } from 'react-number-format';
 import { useTranslations } from 'next-intl';
 import { Input } from '@heroui/react';
@@ -8,7 +8,7 @@ import { normalizePhone } from '@/shared/lib/phone/normalizePhone';
 
 interface PhoneInputProps {
 	error?: string | null;
-	onClearError?: () => void;
+	onClearError?: Dispatch<SetStateAction<string | null>>;
 }
 
 export const PhoneInput = forwardRef<HTMLInputElement, PhoneInputProps>(
@@ -17,7 +17,7 @@ export const PhoneInput = forwardRef<HTMLInputElement, PhoneInputProps>(
 		const [ value, setValue ] = useState<string>('');
 
 		const handleChange = ({ value }: { value: string }) => {
-			if(error) onClearError?.();
+			if(error) onClearError?.(null);
 			setValue(normalizePhone(value));
 		};
 
@@ -35,6 +35,7 @@ export const PhoneInput = forwardRef<HTMLInputElement, PhoneInputProps>(
 				errorMessage={ error ? t(error) : undefined }
 				onValueChange={ handleChange }
 				name="phone"
+				variant='bordered'
 				aria-label="phone-input"
 			/>
 		);

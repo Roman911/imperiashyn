@@ -1,8 +1,7 @@
 import { ImageResponse } from 'next/og';
-import { getHomeSeo } from '@/pages/home/model/seo';
-import { Locale } from '@/shared/types/locale';
 
-export const runtime = 'edge';
+import { getHomeSeo } from '@/entities/home/model/seo';
+import { Locale } from '@/shared/types/locale';
 
 export const size = {
 	width: 1200,
@@ -11,11 +10,7 @@ export const size = {
 
 export const contentType = 'image/png';
 
-export default async function OpenGraphImage({
-																							 params,
-																						 }: {
-	params: { locale: Locale };
-}) {
+export default async function OpenGraphImage({ params }: { params: { locale: Locale } }) {
 	const seo = await getHomeSeo(params.locale);
 
 	return new ImageResponse(

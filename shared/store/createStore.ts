@@ -5,6 +5,7 @@ import { deliveryApi } from '@/entities/delivery/api/delivery.api';
 import { orderApi } from '@/entities/order/api/order.api';
 import { supportApi } from '@/entities/support/api/support.api';
 import { autoDataApi } from '@/features/catalog-filter-by-car/api/auto-data.api';
+import { callbackApi } from '@/entities/callback/api/callback.api';
 
 import progressReducer from '@/features/progress/model/progress.slice';
 import bookmarksReducer from '@/features/bookmarks/toggle/lib/storage';
@@ -21,6 +22,7 @@ export const createStore = () =>
 			[orderApi.reducerPath]: orderApi.reducer,
 			[supportApi.reducerPath]: supportApi.reducer,
 			[autoDataApi.reducerPath]: autoDataApi.reducer,
+			[callbackApi.reducerPath]: callbackApi.reducer,
 			bookmarksReducer,
 			comparisonReducer,
 			progressReducer,
@@ -35,6 +37,7 @@ export const createStore = () =>
 				deliveryApi.middleware,
 				orderApi.middleware,
 				supportApi.middleware,
+				callbackApi.middleware,
 			),
 	});
 

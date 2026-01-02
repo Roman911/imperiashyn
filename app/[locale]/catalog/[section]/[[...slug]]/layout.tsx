@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { ReactNode } from 'react';
 
 import { Locale } from '@/shared/types/locale';
-import { getHomeSeo } from '@/pages/home/model/seo';
+import { getHomeSeo } from '@/entities/home/model/seo';
 import { buildMetadata } from '@/shared/lib/seo/buildMetadata';
 
 export async function generateMetadata({ params, }: { params: { locale: Locale, section: string, slug: string[] } }): Promise<Metadata> {
