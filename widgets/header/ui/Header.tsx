@@ -25,7 +25,7 @@ export function Header({ alias, settingsData }: Props) {
 			shouldHideOnScroll
 			isMenuOpen={ menu.isMenuOpen }
 			onMenuOpenChange={ menu.setIsMenuOpen }
-			classNames={{ wrapper: 'p-0 flex-col gap-0 h-46 md:h-40' }}
+			classNames={{ wrapper: 'p-0 flex-col gap-0 h-46 md:h-42' }}
 		>
 			<TopBar alias={ alias } settingsData={ settingsData } />
 			<MainBarLayout />
