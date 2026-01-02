@@ -12,9 +12,10 @@ interface Props {
 	car: string | null;
 	section: Section;
 	isHomeFilter?: boolean;
+	isAdditionalFilter?: boolean;
 }
 
-export function ByCar({ car, section, isHomeFilter }: Props) {
+export function ByCar({ car, section, isHomeFilter, isAdditionalFilter }: Props) {
 	const t = useTranslations('filters');
 	const { filter, auto, model, year, kit, tyreSize, onChange, submit } = useByCar(car, section);
 
@@ -64,7 +65,7 @@ export function ByCar({ car, section, isHomeFilter }: Props) {
 				size={ isHomeFilter ? 'lg' : 'md' }
 				color={ isHomeFilter ? 'secondary' : 'primary' }
 				isDisabled={ !tyreSize?.length }
-				className={ twMerge('w-full',  isHomeFilter ? "font-semibold h-16" : "mt-2 uppercase") }
+				className={ twMerge('w-full',  isHomeFilter ? "font-semibold h-16" : "mt-2 uppercase", isAdditionalFilter && 'md:col-span-2 mt-2') }
 			>
 				{ t('choose') }
 			</Button>

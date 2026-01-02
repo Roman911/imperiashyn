@@ -10,15 +10,16 @@ import { POPULAR_SIZE } from '@/widgets/home-filters/model/const';
 const popularSize = [ 'width', 'height', 'radius' ];
 
 interface SelectProps {
-	name: string
-	label: string
-	isDisabled?: boolean
-	options: SelectOption[] | undefined
-	onChange: (name: string, value: number | string | null, section: Section) => void
-	section: Section
+	name: string;
+	label: string;
+	isDisabled?: boolean;
+	options: SelectOption[] | undefined;
+	onChange: (name: string, value: number | string | null, section: Section) => void;
+	section: Section;
+	className?: string;
 }
 
-export function SelectHomeFiler({ name, label, options = [], isDisabled = false, onChange, section }: SelectProps) {
+export function SelectHomeFiler({ name, label, options = [], isDisabled = false, onChange, section, className }: SelectProps) {
 	const t = useTranslations('select');
 	const popularSizeOptions =
 		section === Section.Tires ? popularSize.includes(name) && POPULAR_SIZE[name]
@@ -31,7 +32,7 @@ export function SelectHomeFiler({ name, label, options = [], isDisabled = false,
 	return <Autocomplete
 		size='lg'
 		color='default'
-		className={ twMerge('max-w-full md:max-w-xs') }
+		className={ twMerge('max-w-full md:max-w-xs', className) }
 		label={ <span className='text-black dark:text-white font-semibold'>{ label }</span> }
 		isDisabled={ isDisabled }
 		onSelectionChange={ onSelectionChange }

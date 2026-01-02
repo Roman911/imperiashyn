@@ -3,6 +3,7 @@ import { HomeFilters } from '@/widgets/home-filters';
 import { HomeProducts } from '@/widgets/home-products';
 import { Support } from '@/widgets/support';
 import { Banner } from '@/entities/banner';
+import { AdditionalFilter } from '@/widgets/additional-home-filter/ui/AdditionalFilter';
 
 export default async function Home() {
 	return (
@@ -11,6 +12,7 @@ export default async function Home() {
 			<Layout>
 				<HomeProducts />
 				<Banner />
+				<AdditionalFilter />
 				<Support />
 			</Layout>
 		</>
