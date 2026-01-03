@@ -9,7 +9,7 @@ import { ProductApi } from '@/entities/products/api/types';
 export const ListboxWrapper = ({ children, ref }: { children: ReactNode, ref: RefObject<HTMLDivElement | null> }) => (
 	<div
 		ref={ ref }
-		className="absolute w-full max-w-[600] border-small px-6 py-4 rounded-small bg-zinc-700">
+		className="absolute w-full max-w-[600] border-small px-6 py-4 rounded-small bg-zinc-700 z-10">
 		{ children }
 	</div>
 );

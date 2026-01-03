@@ -15,11 +15,7 @@ export default async function Page({ params }: { params: Promise<ProductPagePara
 	const { product } = await params;
 
 	const match = product.match(/(\d+)$/);
-	const productId = match?.[1];
-
-	if(!productId) {
-		throw new Error('Invalid product id');
-	}
+	const productId = match ? match[1] : '';
 
 	const productResponse = await getProduct(productId);
 	const section = getProductSection(productResponse.id.toString());

@@ -1,22 +1,9 @@
-import type { Metadata } from 'next'
-
 import { getAliasById } from '@/entities/alias/api/alias.api';
 import { Locale, LocaleCode } from '@/shared/types/locale';
 import { Breadcrumbs } from '@/shared/ui/breadcrumbs';
 import { Title } from '@/shared/ui/title';
 import { HtmlContent } from '@/shared/lib/sanitizeHtml';
 import { Layout } from '@/shared/ui/layout/Layout';
-
-export async function generateMetadata({ params }: { params: Promise<{ locale: Locale, id: string }> }): Promise<Metadata> {
-	const { locale, id } = await params;
-	const lang = locale === Locale.UK ? LocaleCode.UA : Locale.RU;
-	const alias = await getAliasById(id);
-
-	return {
-		title: alias[id].description[lang].meta_title,
-		description: alias[id].description[lang].meta_description,
-	}
-}
 
 export default async function Pages({ params }: { params: Promise<{ locale: Locale, id: string }> }) {
 	const { locale, id } = await params;

@@ -14,7 +14,7 @@ import { ProgressBar } from '@/widgets/progress';
 import { Footer } from '@/widgets/footer';
 import { Locale } from '@/shared/types/locale';
 
-export async function generateMetadata({ params, }: { params: { locale: Locale, section: string } }): Promise<Metadata> {
+export async function generateMetadata({ params, }: { params: { locale: Locale } }): Promise<Metadata> {
 	const { locale } = await params;
 	const seo = await getHomeSeo(locale);
 
@@ -22,6 +22,7 @@ export async function generateMetadata({ params, }: { params: { locale: Locale, 
 		title: seo.title,
 		description: seo.description,
 		ogImagePath: `/${locale}/opengraph-image`,
+		canonical: `${ locale === Locale.UK ? '/' : `/${ locale }` }`,
 	});
 }
 

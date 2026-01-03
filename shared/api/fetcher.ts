@@ -1,3 +1,5 @@
+import { redirect } from 'next/navigation';
+
 import { DEFAULT_HEADERS } from "./headers";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
@@ -12,7 +14,7 @@ export async function apiFetch<T>(
 	});
 
 	if(!res.ok) {
-		throw new Error(`API error: ${ res.status }`);
+		redirect('/404');
 	}
 
 	return res.json();
