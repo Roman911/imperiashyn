@@ -2,16 +2,19 @@ import { Metadata } from 'next';
 import { ReactNode } from 'react';
 
 import { Locale } from '@/shared/types/locale';
-import { getHomeSeo } from '@/entities/home/model/seo';
+import { getCatalogSeo } from '@/entities/catalog/model/seo';
 import { buildMetadata } from '@/shared/lib/seo/buildMetadata';
+import { Section } from '@/shared/types/section';
 
-export async function generateMetadata({ params, }: { params: { locale: Locale, section: string, slug: string[] } }): Promise<Metadata> {
-	const seo = await getHomeSeo(params.locale);
+export async function generateMetadata({ params, }: { params: { locale: Locale, section: Section, slug?: string[] } }): Promise<Metadata> {
+	const { locale, section, slug } = await params;
+	const seo = await getCatalogSeo(locale, section, slug);
 
 	return buildMetadata({
 		title: seo.title,
 		description: seo.description,
-		ogImagePath: `/${params.locale}/opengraph-image`,
+		ogImagePath: `/${locale}/opengraph-image`,
+		canonical: `${ locale === Locale.UK ? '' : `/${ locale }` }/catalog/${section}/${slug ? slug.join('/') : ''}`,
 	});
 }
 
