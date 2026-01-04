@@ -5,6 +5,7 @@ export function Input(props: InputProps) {
 		<InputUI
 			{ ...props }
 			size='lg'
+			radius='sm'
 			variant='bordered'
 		/>
 	)

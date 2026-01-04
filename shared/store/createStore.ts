@@ -3,7 +3,6 @@ import { productApi } from '@/entities/products/api/product.api';
 import { baseDataApi } from '@/entities/base-data/api/baseData.api';
 import { deliveryApi } from '@/entities/delivery/api/delivery.api';
 import { orderApi } from '@/entities/order/api/order.api';
-import { supportApi } from '@/entities/support/api/support.api';
 import { autoDataApi } from '@/features/catalog-filter-by-car/api/auto-data.api';
 import { callbackApi } from '@/entities/callback/api/callback.api';
 
@@ -20,7 +19,6 @@ export const createStore = () =>
 			[baseDataApi.reducerPath]: baseDataApi.reducer,
 			[deliveryApi.reducerPath]: deliveryApi.reducer,
 			[orderApi.reducerPath]: orderApi.reducer,
-			[supportApi.reducerPath]: supportApi.reducer,
 			[autoDataApi.reducerPath]: autoDataApi.reducer,
 			[callbackApi.reducerPath]: callbackApi.reducer,
 			bookmarksReducer,
@@ -36,7 +34,6 @@ export const createStore = () =>
 				baseDataApi.middleware,
 				deliveryApi.middleware,
 				orderApi.middleware,
-				supportApi.middleware,
 				callbackApi.middleware,
 			),
 	});

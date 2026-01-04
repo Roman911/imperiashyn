@@ -35,6 +35,7 @@ export const PhoneInput = forwardRef<HTMLInputElement, PhoneInputProps>(
 				errorMessage={ error ? t(error) : undefined }
 				onValueChange={ handleChange }
 				name="phone"
+				radius='sm'
 				variant='bordered'
 				aria-label="phone-input"
 			/>

@@ -24,7 +24,7 @@ export function DisksFilters({ locale, filters, isAdditionalFilter }: TiresFilte
 	});
 
 	return (
-		<div className={ twMerge("grid gap-2.5 md:mt-7 grid-cols-1 md:grid-cols-3 lg:grid-cols-6", isAdditionalFilter && 'md:grid-cols-6') }>
+		<div className={ twMerge("grid gap-2.5 md:mt-7 grid-cols-1 md:grid-cols-3 lg:grid-cols-6", isAdditionalFilter && 'md:grid-cols-6 md:mt-4') }>
 			{ filtersDisks.map((item, index) => (
 				<SelectHomeFiler
 					key={ item.name }

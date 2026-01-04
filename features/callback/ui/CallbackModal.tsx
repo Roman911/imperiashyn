@@ -46,7 +46,12 @@ export function CallbackModal({ productId, quantity, color='default' }: Props) {
 				{ t('callback') }
 			</Button>
 
-			<Modal isOpen={ isOpen } onOpenChange={ onOpenChange } placement="top-center">
+			<Modal
+				isOpen={ isOpen }
+				onOpenChange={ onOpenChange }
+				placement="top-center"
+				radius='sm'
+			>
 				<ModalContent>
 					<>
 						<ModalHeader>
@@ -68,11 +73,8 @@ export function CallbackModal({ productId, quantity, color='default' }: Props) {
 
 								<Button
 									type="submit"
-									color="primary"
-									radius="full"
-									size="lg"
 									isLoading={ isLoading }
-									className="uppercase font-bold ml-auto"
+									className="ml-auto"
 								>
 									{ t('send') }
 								</Button>
