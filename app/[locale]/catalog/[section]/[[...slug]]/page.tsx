@@ -4,6 +4,7 @@ import { Layout } from '@/shared/ui/layout/Layout';
 import { FilterAlt } from '@/features/catalog/filter-alt';
 import { getFilterData } from '@/features/catalog/filter-alt/api/filter.api';
 import { CatalogHeader, CatalogToolbar } from '@/widgets/catalog';
+import { SelectionByCar } from '@/features/catalog';
 
 export default async function Page({ params }: { params: Promise<{ locale: Locale, section: Section, slug?: string[] }> }) {
 	const { locale, section, slug } = await params;
@@ -18,6 +19,7 @@ export default async function Page({ params }: { params: Promise<{ locale: Local
 				<FilterAlt filterData={ filterData } section={ section } car={ car } slug={ slug } />
 				<div className='flex-1 -mt-8 lg:-mt-12'>
 					<CatalogToolbar car={ car } section={ section } slug={ slug } />
+					<SelectionByCar car={ car } section={ section } />
 				</div>
 			</div>
 		</Layout>

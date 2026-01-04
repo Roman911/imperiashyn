@@ -19,8 +19,6 @@ export function buildCatalogBreadcrumbs({ section, params, brandLabel, t }: Para
 		},
 	];
 
-	console.log(params);
-
 	if(!params) {
 		return breadcrumbs;
 	}

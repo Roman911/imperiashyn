@@ -31,14 +31,16 @@ interface Kits {
 }
 
 export interface KitTyreSize {
-	value: number
 	kits: Kits
-	width: number
-	height: number
-	diameter: number
-	type: number
 	axle: number
 	axle_group: null
+	value: number;
+	type: 1 | 2;
+	width: number;
+	height: number;
+	diameter: number;
+	brand?: string;
+	model?: string;
 }
 
 export interface KitDiskSize {
@@ -47,7 +49,7 @@ export interface KitDiskSize {
 	width: number
 	et: number
 	diameter: number
-	type: number
+	type: 1 | 2;
 	axle: number
 	axle_group: null
 }

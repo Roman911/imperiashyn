@@ -7,7 +7,6 @@ import { baseDataApi } from '@/entities/base-data/api/baseData.api';
 import { autoDataApi } from '../api/auto-data.api';
 
 import { parseCarSlug } from '../lib/parseCarSlug';
-import { buildCatalogLink } from '../lib/buildCatalogLink';
 import { CarFilters } from './types';
 
 export function useByCar(car: string | null, section: Section) {
@@ -22,10 +21,6 @@ export function useByCar(car: string | null, section: Section) {
 			`${filter.model}/${filter.year}`,
 			{ skip: !filter.model || !filter.year }
 		);
-	const { data: tyreSize } =
-		autoDataApi.useFetchKitTyreSizeQuery(`${filter.modification}`, { skip: !filter.modification });
-	const { data: diskSize } =
-		autoDataApi.useFetchKitDiskSizeQuery(`${filter.modification}`, { skip: !filter.modification });
 
 	useEffect(() => {
 		setFilter(parseCarSlug(car));
@@ -40,25 +35,9 @@ export function useByCar(car: string | null, section: Section) {
 
 	const submit = () => {
 		const brandLabel = auto?.auto.find(item => item.value === filter.brand)?.label.toLowerCase() ?? '';
-		const href = buildCatalogLink({
-			section,
-			brandLabel,
-			filter,
-			tyreSize: tyreSize?.[0],
-			diskSize: diskSize?.[0]
-				? {
-					width: diskSize[0].width,
-					diameter: diskSize[0].diameter,
-					et: diskSize[0].et,
-					bolt_count: diskSize[0].kits.bolt_count,
-					pcd: diskSize[0].kits.pcd,
-					dia: diskSize[0].kits.dia,
-				}
-				: undefined,
-		});
 
 		dispatch(setProgress(true));
-		router.push(href);
+		router.push(`/catalog/${section}/car-${ brandLabel }-${ filter.year }-${ filter.brand }-${ filter.model }-${ filter.modification }`);
 	};
 
 	return {
@@ -67,7 +46,7 @@ export function useByCar(car: string | null, section: Section) {
 		model,
 		year,
 		kit,
-		tyreSize,
+		modification: filter.modification,
 		onChange,
 		submit,
 	};

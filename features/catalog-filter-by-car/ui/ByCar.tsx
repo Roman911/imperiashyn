@@ -17,7 +17,7 @@ interface Props {
 
 export function ByCar({ car, section, isHomeFilter, isAdditionalFilter }: Props) {
 	const t = useTranslations('filters');
-	const { filter, auto, model, year, kit, tyreSize, onChange, submit } = useByCar(car, section);
+	const { filter, auto, model, year, kit, modification, onChange, submit } = useByCar(car, section);
 
 	return (
 		<>
@@ -64,7 +64,7 @@ export function ByCar({ car, section, isHomeFilter, isAdditionalFilter }: Props)
 				onPress={ submit }
 				size={ isHomeFilter ? 'lg' : 'md' }
 				color={ isHomeFilter ? 'secondary' : 'primary' }
-				isDisabled={ !tyreSize?.length }
+				isDisabled={ modification === 0 }
 				className={ twMerge('w-full',  isHomeFilter ? "font-semibold h-16" : "mt-2 uppercase", isAdditionalFilter && 'md:col-span-2 mt-2') }
 			>
 				{ t('choose') }
