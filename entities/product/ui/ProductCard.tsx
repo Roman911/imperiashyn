@@ -2,7 +2,6 @@
 
 import { JSX } from 'react';
 import { Card, CardBody, CardFooter } from '@heroui/react';
-import { Product } from '@/entities/products/model';
 import { ProductIcons } from './ProductIcons';
 import { ActionsBlock } from '@/entities/product/ui/ActionsBlock';
 import { Section } from '@/shared/types/section';
@@ -13,11 +12,12 @@ import { Rating } from '@/entities/rating';
 import { ProductPrice } from '@/entities/product/ui/Price';
 import { AddToCart } from '@/features/add-to-cart';
 import { ProductName } from '@/entities/product/ui/ProductName';
+import { ProductApi } from '@/entities/products/api/types';
 
 const cargo = [ '3', '4', '5', '6', '9', '10', '11' ];
 
 interface Props {
-	item: Product
+	item: ProductApi
 }
 
 export function ProductCard({ item }: Props): JSX.Element {

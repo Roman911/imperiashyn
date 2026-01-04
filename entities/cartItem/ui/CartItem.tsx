@@ -9,7 +9,7 @@ interface Props {
 	default_photo: string;
 	full_name: string;
 	page_url: string;
-	sku: number;
+	sku: string;
 	price: number;
 	maxQuantity: number;
 }

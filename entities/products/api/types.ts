@@ -1,4 +1,5 @@
-// entities/products/api/types.ts
+export type SeasonType = '1' | '2' | '3';
+export type VehicleType = '1' | '2' | '3' | '7' | '8' | '9';
 
 export interface ModelApi {
 	name: string;
@@ -24,13 +25,13 @@ export interface ProductApi {
 	full_name: string;
 	default_photo: string;
 	group: number;
-	sku: number;
+	sku: string;
 	product_id: number;
 	trc_id: number;
 	min_price: number;
 	max_price: number;
-	season: string;
-	vehicle_type: string;
+	season: SeasonType;
+	vehicle_type: VehicleType;
 	popularity: number;
 	model_id: number;
 	brand: number;
@@ -70,3 +71,31 @@ export interface ProductsResponseApi {
 		products: ProductApi[];
 	};
 }
+
+interface Item {
+	value: string
+	p: string
+	numeric?: number
+}
+
+interface ItemS {
+	value: number
+	label: string
+	sort_order: string
+}
+
+export interface AkumProps {
+	brand_akum: ItemS[]
+	dovzina: Item[]
+	jemnist: Item[]
+	napruga: Item[]
+	obslugovuvanist: []
+	poliarnist: Item[]
+	['polozennia-klem']: []
+	['puskovii-strum']: Item[]
+	sirina: Item[]
+	['tip-elektrolitu']: Item[]
+	['tip-korpusu']: Item[]
+	visota: Item[]
+}
+

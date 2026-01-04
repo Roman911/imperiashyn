@@ -1,9 +1,9 @@
 import { twMerge } from 'tailwind-merge';
-import { Product } from '@/entities/products/model';
 import { ProductCard } from '@/entities/product/ui/ProductCard';
+import { ProductApi } from '@/entities/products/api/types';
 
 interface Props {
-	products: Product[];
+	products: ProductApi[];
 	classnames?: string;
 }
 

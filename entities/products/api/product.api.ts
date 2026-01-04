@@ -1,7 +1,7 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
 import { baseQuery } from '@/shared/api/baseQuery';
 import { API_CONSTANTS, productEndpoints } from '@/config/api';
-import { ProductsResponseApi } from './types';
+import { AkumProps, ProductsResponseApi } from './types';
 
 export const productApi = createApi({
 	reducerPath: 'productApi',
@@ -16,6 +16,11 @@ export const productApi = createApi({
 				url: productEndpoints.products(id),
 				method: API_CONSTANTS.METHODS.POST,
 				body: { start, length },
+			}),
+		}),
+		fetchDataAkum: build.query<AkumProps, void>({
+			query: () => ({
+				url: productEndpoints.dataAkum,
 			}),
 		}),
 
@@ -37,6 +42,7 @@ export const productApi = createApi({
 
 export const {
 	useFetchProductsQuery,
+	useFetchDataAkumQuery,
 	// useFetchProductQuery,
 	useCreateCommentMutation,
 } = productApi;

@@ -1,11 +1,11 @@
 import { apiFetch } from '@/shared/api/fetcher';
 import { ApiResponse } from '@/shared/api/types';
-import { Product } from '../../products/model';
 import { API_CONSTANTS, productEndpoints } from '@/config/api';
+import { ProductApi } from '@/entities/products/api/types';
 
 export interface ProductsResponse {
 	total_count: number;
-	products: Product[];
+	products: ProductApi[];
 }
 
 export const getProductsApi = (params: {
