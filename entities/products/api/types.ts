@@ -62,6 +62,7 @@ export interface ProductApi {
 	model: ModelApi;
 	best_offer: BestOfferApi;
 	labels: unknown[];
+	studded: boolean;
 }
 
 export interface ProductsResponseApi {

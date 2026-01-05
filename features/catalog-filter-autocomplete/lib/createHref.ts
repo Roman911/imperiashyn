@@ -18,5 +18,5 @@ export function createHref({ section, checkboxKey, value, filteredSlug, clear }:
 		return `${ base }${ filteredSlug.join('/') }`;
 	}
 
-	return `${ base }${ keyFull }/${ filteredSlug.join('/') }`;
+	return `${ base }${ keyFull }/${ checkboxKey === 's-' ? filteredSlug.filter(item => !/^stud-\d+$/.test(item)).join('/') : filteredSlug.join('/') }`;
 }

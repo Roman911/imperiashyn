@@ -8,6 +8,7 @@ import { productApi } from '@/entities/products/api/product.api';
 import { getSeasonLabel } from '@/entities/filters/lib/seasonLabel';
 import { getVehicleTypeLabel } from '@/entities/filters/lib/vehicleTypeLabel';
 import { getBrandLabel } from '@/entities/filters/lib/brandLabel';
+import { getStudLabel } from '@/entities/filters/lib/studLabel';
 
 export function useActiveFilters(section: Section) {
 	const t = useTranslations('filters');
@@ -24,6 +25,10 @@ export function useActiveFilters(section: Section) {
 				return getVehicleTypeLabel(value, t);
 			case 'b':
 				return getBrandLabel(value, section, data, dataAkum) || value;
+			case 'd':
+				return `R${ value }`;
+			case 'stud':
+				return getStudLabel(value, t);
 			// case 'm':
 			// 	return manufModels?.find(m => m.value === +value)?.label || value;
 			default:

@@ -7,10 +7,11 @@ import { twMerge } from 'tailwind-merge';
 interface Props {
 	season: SeasonType;
 	vehicleType: VehicleType;
+	studded: boolean;
 	isProductCard?: boolean;
 }
 
-export function ProductIcons({ season, vehicleType, isProductCard }: Props) {
+export function ProductIcons({ season, vehicleType, studded, isProductCard }: Props) {
 	const seasonIcon = getSeasonIcon(season);
 	const VehicleIcon = getVehicleIcon(vehicleType);
 
@@ -26,6 +27,7 @@ export function ProductIcons({ season, vehicleType, isProductCard }: Props) {
 				/>
 			) }
 			{ VehicleIcon && <VehicleIcon className="text-gray-400"/> }
+			{ studded && <Image src="/icons/spiked.svg" alt="" width={ 24 } height={ 24 } priority/> }
 		</div>
 	);
 }

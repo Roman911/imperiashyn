@@ -25,7 +25,7 @@ export function ActiveFilters({ slug, section, className }: ActiveFiltersProps) 
 				const [ key, raw ] = item.split('-');
 				return decodeURIComponent(raw)
 					.split(',')
-					.filter(item => ignoreKeys.includes(item))
+					.filter(item => !ignoreKeys.includes(item))
 					.map(value => (
 						<Button
 							key={ `${ key }-${ value }` }

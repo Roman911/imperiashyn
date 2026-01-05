@@ -20,7 +20,7 @@ export interface Product {
 	maxPrice: number;
 	availableQuantity: number;
 
-	season: 'summer' | 'winter' | 'all';
+	season: 'summer' | 'winter' | 'all season';
 	width: string;
 	height: string;
 	diameter: string;

@@ -2,9 +2,8 @@ import { Section } from '@/shared/types/section';
 import { BaseDataApi } from '@/entities/filters/api/filters.api.types';
 
 export interface SectionTiresProps {
-	car: string | null;
+	car?: string | null;
 	filterData?: BaseDataApi;
-	onChange?: (id: string, name: string, value: string[]) => void;
 	slug?: string[];
 }
 

@@ -7,6 +7,7 @@ import { Link } from '@/shared/i18n/navigation';
 import { useNavigationProgress } from '@/shared/hooks/useNavigationProgress';
 import { MAIN_NAVIGATION } from '@/features/navigation/model/navigation.config';
 import { DiskFilter, TireFilter } from '@/features/header-menu-filter';
+import { Fragment } from 'react';
 
 interface Props {
 	closeAll: () => void;
@@ -47,9 +48,8 @@ export function HeaderMobileMenu({ closeAll }: Props) {
 			</Accordion>
 			<Divider />
 			{ MAIN_NAVIGATION.map((item, index) => (
-				<>
+				<Fragment key={ index }>
 					<NavbarMenuItem
-						key={ index }
 						className='py-2 px-2 block uppercase font-bold'
 					>
 						<Link
@@ -60,7 +60,7 @@ export function HeaderMobileMenu({ closeAll }: Props) {
 						</Link>
 					</NavbarMenuItem>
 					<Divider />
-				</>
+				</Fragment>
 			)) }
 		</NavbarMenu>
 	);

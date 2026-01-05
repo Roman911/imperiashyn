@@ -6,6 +6,7 @@ export function groupProductsBySection(
 ): GroupedIds {
 	return products.reduce<GroupedIds>(
 		(acc, { id, section }) => {
+			if(!acc[section]) acc[section] = [];
 			acc[section].push(id);
 			return acc;
 		},

@@ -1,14 +1,14 @@
 import { ProductApi } from '../api/types';
 import { Product } from './types';
 
-export function mapSeason(season: string): 'summer' | 'winter' | 'all' {
+export function mapSeason(season: string): 'summer' | 'winter' | 'all season' {
 	switch(season) {
 		case '1':
 			return 'summer';
 		case '2':
 			return 'winter';
 		default:
-			return 'all';
+			return 'all season';
 	}
 }
 

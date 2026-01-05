@@ -68,5 +68,8 @@
   "type of electrolyte": "Тип электролита",
   "body type": "Тип корпусу",
   "by car": "По авто",
-  "by parameters": "По параметрам"
+  "by parameters": "По параметрам",
+  "stud": "Шипованные",
+  "studding": "Шиповка",
+  "no stud": "Не шипованные"
 }

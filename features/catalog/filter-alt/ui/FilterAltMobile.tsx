@@ -1,36 +1,39 @@
-import { FC } from 'react';
-import { twMerge } from 'tailwind-merge';
-import { FilterAltProps } from '../model/types';
+'use client';
+
+import { Drawer, DrawerBody, DrawerContent, useDisclosure, } from "@heroui/react";
+
 import { FilterContent } from '@/features/catalog/filter-alt/ui/FilterContent';
+import { Button } from '@/shared/ui/button';
 
-interface Props extends FilterAltProps {
-	isOpen: boolean;
-	onClose: () => void;
-}
+import { FilterAltProps } from '../model/types';
 
-export const FilterAltMobile: FC<Props> = ({ isOpen, onClose, ...props }) => (
-	<>
-		<div
-			className={ twMerge(
-				'fixed inset-0 bg-overlay/50 hidden',
-				isOpen && 'block'
-			) }
-		/>
+export function FilterAltMobile({ ...props }: FilterAltProps) {
+	const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
-		<div
-			className={ twMerge(
-				'fixed inset-0 bg-white dark:bg-[#18181b] hidden z-50',
-				isOpen && 'block'
-			) }
-		>
-			<button
-				className="absolute top-2 right-2"
-				onClick={ onClose }
+	return (
+		<>
+			<Button
+				variant='light'
+				onPress={ onOpen }
 			>
-				{/*<Icons.CloseIcon className="w-4 h-4"/>*/}
-			</button>
-
-			<FilterContent { ...props } />
-		</div>
-	</>
-);
+				Open Drawer
+			</Button>
+			<Drawer
+				isOpen={ isOpen }
+				onOpenChange={ onOpenChange }
+				placement='left'
+				radius='none'
+			>
+				<DrawerContent>
+					{ () => (
+						<>
+							<DrawerBody>
+								<FilterContent { ...props } />
+							</DrawerBody>
+						</>
+					) }
+				</DrawerContent>
+			</Drawer>
+		</>
+	)
+}

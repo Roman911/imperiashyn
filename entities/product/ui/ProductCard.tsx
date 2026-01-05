@@ -21,7 +21,7 @@ interface Props {
 }
 
 export function ProductCard({ item }: Props): JSX.Element {
-	const { default_photo, full_name, sku, min_price, season, vehicle_type, page_url, best_offer, group, model } = item;
+	const { default_photo, full_name, sku, min_price, season, vehicle_type, page_url, best_offer, group, model, studded } = item;
 	const section = item.vehicle_type ? Section.Tires : item.diameter ? Section.Disks : Section.Battery;
 	const sectionNew = section === Section.Tires ? cargo.includes(item.vehicle_type) ? Section.Cargo : Section.Tires : section;
 
@@ -32,7 +32,7 @@ export function ProductCard({ item }: Props): JSX.Element {
 		>
 			<CardBody>
 				<div className='relative min-h-32 sm:min-h-52 text-center'>
-					<ProductIcons isProductCard season={ season } vehicleType={ vehicle_type } />
+					<ProductIcons isProductCard season={ season } vehicleType={ vehicle_type } studded={ studded } />
 					<ActionsBlock sectionNew={ sectionNew } group={ group }/>
 					<ProductImage default_photo={ default_photo } images={ model.model_images } full_name={ full_name }/>
 				</div>
