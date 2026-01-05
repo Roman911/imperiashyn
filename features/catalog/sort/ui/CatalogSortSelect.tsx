@@ -38,7 +38,7 @@ export function CatalogSortSelect({ section, slug }: Props) {
 			label={ t('sorting') }
 			selectedKeys={ currentOrder ? [ currentOrder ] : [] }
 			onSelectionChange={ handleChange }
-			classNames={{ base: 'max-w-64', label: 'font-bold uppercase' }}
+			classNames={{ base: 'max-w-60 lg:max-w-64', label: 'font-bold uppercase' }}
 		>
 			{ SORT_OPTIONS.map(option => (
 				<SelectItem

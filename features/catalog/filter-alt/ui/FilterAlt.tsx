@@ -4,7 +4,7 @@ import { FilterAltDesktop } from './FilterAltDesktop';
 
 export function FilterAlt(props: FilterAltProps) {
 	return (
-		<div className="w-72">
+		<>
 			<div className="hidden lg:block">
 				<FilterAltDesktop { ...props } />
 			</div>
@@ -14,6 +14,6 @@ export function FilterAlt(props: FilterAltProps) {
 					{ ...props }
 				/>
 			</div>
-		</div>
+		</>
 	);
 }

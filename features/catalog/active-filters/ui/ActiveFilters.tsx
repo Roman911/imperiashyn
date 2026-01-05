@@ -11,7 +11,7 @@ import { removeSlugValue } from '../model/normalizeSlug';
 import { useActiveFilters } from '../model/useActiveFilters';
 import { ActiveFiltersProps } from '../model/types';
 
-const ignoreKeys = ['car'];
+const ignoreKeys = ['car', 'p'];
 
 export function ActiveFilters({ slug, section, className }: ActiveFiltersProps) {
 	const t = useTranslations('filters');
@@ -23,9 +23,9 @@ export function ActiveFilters({ slug, section, className }: ActiveFiltersProps) 
 		<div className={ twMerge('mb-3 flex-wrap justify-end gap-2 p-4 lg:p-0', className) }>
 			{ slug.map(item => {
 				const [ key, raw ] = item.split('-');
+				if(ignoreKeys.includes(key)) return null;
 				return decodeURIComponent(raw)
 					.split(',')
-					.filter(item => !ignoreKeys.includes(item))
 					.map(value => (
 						<Button
 							key={ `${ key }-${ value }` }

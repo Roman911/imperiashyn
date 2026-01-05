@@ -15,11 +15,11 @@ export function FilterContent({ filterData, section, car, slug }: FilterAltProps
 	const t = useTranslations('filters');
 
 	return (
-		<div className="filter h-screen lg:h-auto w-[calc(100%-70px)] lg:w-64 mr-6 lg:pt-0 bg-white lg:bg-transparent">
+		<div className="filter h-screen lg:h-auto lg:w-64 lg:mr-6 lg:pt-0 bg-white lg:bg-transparent">
 			{ section !== Section.Battery && (
 				<SwitchTabs section={ section } car={ car }/>
 			) }
-			<div className='relative h-[calc(100%-50px)] pb-32 lg:pb-4 px-4 pt-4 bg-white border border-gray-200 overflow-y-auto md:overflow-y-visible flex flex-col gap-3'>
+			<div className='relative h-[calc(100%-50px)] pb-32 lg:pb-4 lg:px-4 pt-4 bg-white lg:border lg:border-gray-200 overflow-y-auto md:overflow-y-visible flex flex-col gap-3'>
 				{ section !== Section.Battery && <SwitchTabsByParams section={ section } car={ car }/> }
 				{ car && <ByCar car={ car } section={ Section.Tires } /> }
 				{ section === Section.Tires && (

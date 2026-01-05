@@ -29,9 +29,9 @@ export default async function Page({ params }: { params: Promise<{ locale: Local
 	return (
 		<Layout size='lg'>
 			<CatalogHeader section={ section } slug={ slug } />
-			<div className='py-5 lg:flex lg:gap-10'>
+			<div className='lg:py-5 lg:flex'>
 				<FilterAlt filterData={ filterData } section={ section } car={ car } slug={ slug } />
-				<div className='flex-1 -mt-8 lg:-mt-12'>
+				<div className='flex-1 -mt-10 lg:-mt-14'>
 					<CatalogToolbar car={ car } section={ section } slug={ slug } />
 					<SelectionByCar car={ car } section={ section } />
 					<ActiveFilters section={ section } slug={ slug } className='hidden lg:flex' />
