@@ -15,6 +15,8 @@ export function mapSeason(season: string): 'summer' | 'winter' | 'all season' {
 export function mapProductFromApi(api: ProductApi): Product {
 	const offer = api.offers[0];
 
+	console.log(api);
+
 	return {
 		id: api.id,
 		sku: api.offer_group.sku,
@@ -25,6 +27,7 @@ export function mapProductFromApi(api: ProductApi): Product {
 		images: api.photos.urls,
 		brandImage: api.model.brand_image,
 		brandName: api.brand.name,
+		studded: api.offer_group.studded,
 
 		price: Number(offer?.price ?? api.min_price),
 		maxPrice: api.max_price,
@@ -35,6 +38,7 @@ export function mapProductFromApi(api: ProductApi): Product {
 		height: api.offer_group.height,
 		diameter: api.offer_group.diameter,
 		vehicleType: api.offer_group.vehicle_type,
+		offers: api.offers,
 
 		disabled: api.disabled,
 

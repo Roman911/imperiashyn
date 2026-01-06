@@ -1,4 +1,5 @@
 import { VehicleType } from '@/entities/products/model';
+import { ProductOffer } from '@/entities/product/api/types';
 
 export interface Images {
 	small: string;
@@ -15,6 +16,8 @@ export interface Product {
 	images: Images[];
 	brandImage: string;
 	brandName: string;
+	studded: boolean;
+	offers: ProductOffer[];
 
 	price: number;
 	maxPrice: number;

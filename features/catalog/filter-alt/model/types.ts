@@ -12,6 +12,7 @@ export interface FilterAltProps {
 	section: Section;
 	car: string | null;
 	slug?: string[];
+	isProductPage?: boolean;
 }
 
 export interface IFilter {
