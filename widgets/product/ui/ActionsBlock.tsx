@@ -15,13 +15,13 @@ import {
 	ViberShareButton
 } from 'next-share';
 import { addToast } from '@heroui/toast';
+
 import * as Icons from '@/shared/ui/icons';
+import { Button } from '@/shared/ui/button';
+import { Link } from '@/shared/i18n/navigation';
 import { CallbackModal } from '@/features/callback';
 import { AddToBookmarksButton } from '@/features/bookmarks/toggle';
 import { AddToComparisonButton } from '@/features/comparison/toggle/ui/AddToComparsionButton';
-import { Button } from '@/shared/ui/button';
-import { Link } from '@/shared/i18n/navigation';
-import { CalculatorIcon } from '@/shared/ui/icons';
 
 interface Props {
 	id: number

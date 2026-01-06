@@ -20,6 +20,8 @@ import type { ConfigSettings } from '@/shared/types/settings';
 import { InfoBlock } from '@/widgets/info-block';
 import { Product } from '@/entities/product/model/types';
 import { DeliveryCalculation } from '@/widgets/delivery-calculation';
+import { BuyActions } from '@/widgets/product/ui/BuyActions';
+import './index.scss';
 
 interface Props {
 	locale: Locale;
@@ -140,7 +142,7 @@ export function ProductPage({ locale, productSlug, productData, settingsData, se
 						<Quantity id={ 0 } quantity={ quantity } offerQuantity={ availableQuantity } price={ price } onChange={ onChange } setQuantity={ onSetQuantity }/>
 						<DeliveryCalculation offer_id={ offerId } quantity={ quantity } setQuantity={ setQuantity } price={ price } />
 					</div>
-					{/*<BuyActions offerId={ +offerId } quantity={ quantity } section={ section } onSubmit={ onSubmit } data={ data } />*/}
+					<BuyActions id={ offerId } quantity={ quantity } section={ section } />
 				</div>
 				{/*<CharacteristicsBlock locale={ locale } productData={ productData } section={ section } />*/}
 			</div>

@@ -1,4 +1,4 @@
-import { FC, Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction } from 'react';
 import { Radio, RadioGroup } from '@heroui/react';
 import { Locale } from '@/shared/types/locale';
 import { CountryInfo } from '@/entities/country';

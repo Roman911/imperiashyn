@@ -40,7 +40,7 @@ export default function ContactsDropdown({ phones, isInfoBlock }: ContactsDropdo
 				{ phones.map(({ phone, url, operator }) => (
 					<DropdownItem
 						key={ phone }
-						href={ `tel:${ phone }` }
+						href={ `tel:${ url }` }
 						startContent={
 							<Image
 								width={ 20 }

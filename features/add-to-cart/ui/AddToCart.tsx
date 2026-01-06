@@ -11,9 +11,10 @@ interface Props {
 	id: number;
 	quantity: number;
 	section: Section;
+	isProductPage?: boolean;
 }
 
-export function AddToCart({ id, quantity, section }: Props) {
+export function AddToCart({ id, quantity, section, isProductPage }: Props) {
 	const { isOpen, onOpen, onClose } = useDisclosure();
 	const { addToCart } = useAddToCart({ id, quantity, section });
 	const { cartItems } = useAppSelector(state => state.cartReducer);
@@ -26,7 +27,7 @@ export function AddToCart({ id, quantity, section }: Props) {
 
 	return (
 		<>
-			<AddToCartButton onClick={ handleClick } inCart={ inCart } />
+			<AddToCartButton onClick={ handleClick } inCart={ inCart } isProductPage={ isProductPage } />
 			<AddToCartDrawer isOpen={ isOpen } onClose={ onClose } cartItems={ cartItems } />
 		</>
 	);
