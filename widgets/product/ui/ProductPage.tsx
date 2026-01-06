@@ -6,14 +6,12 @@ import { useTranslations } from 'next-intl';
 
 import { Locale } from '@/shared/types/locale';
 import { Section } from '@/shared/types/section';
-import { twMerge } from 'tailwind-merge';
 import { ProductIcons } from '@/entities/product/ui/ProductIcons';
 import { ImageGallery } from '@/entities/ImageGallery/ui/ImageGallery';
 import { Article } from '@/shared/ui/article';
 import { Rating } from '@/entities/rating';
 import { ActionsBlock } from '@/widgets/product/ui/ActionsBlock';
 import { Offers } from '@/widgets/product/ui/Offers';
-import { SetQuantity } from '@/features/cart/set-quantity';
 import { Quantity } from '@/widgets/product/ui/Quantity';
 import type { ConfigSettings } from '@/shared/types/settings';
 import { InfoBlock } from '@/widgets/info-block';
@@ -22,6 +20,7 @@ import { DeliveryCalculation } from '@/widgets/delivery-calculation';
 import { BuyActions } from '@/widgets/product/ui/BuyActions';
 import './index.scss';
 import { CharacteristicsBlock } from '@/widgets/product/characteristics';
+import { OtherModelSizes } from '@/widgets/product/other-model-sizes/ui/OtherModelSizes';
 
 interface Props {
 	locale: Locale;
@@ -136,6 +135,9 @@ export function ProductPage({ locale, productSlug, productData, settingsData, se
 					<BuyActions id={ offerId } quantity={ quantity } section={ section } offerItem={ offers.find(offer => offer.offer_id === offerId) } />
 				</div>
 				<CharacteristicsBlock locale={ locale } product={ productData } section={ section } />
+				{ section !== Section.Battery &&
+					<OtherModelSizes brand={ productData.brandId } model={ productData.modelId } diameter={ productData.offerGroup.diameter } section={ section } vehicle_type={ productData.vehicleType } />
+				}
 			</div>
 			<InfoBlock settingsData={ settingsData } />
 		</section>
