@@ -9,14 +9,14 @@ interface ContactsProps {
 	className?: string
 }
 
-export function Contacts({ settingsData }: ContactsProps) {
+export function Contacts({ settingsData, isInfoBlock }: ContactsProps) {
 	const lang = useLanguage();
 	const phones = settingsData.locales[lang].phones;
 
 	return (
 		<div className='relative flex items-center gap-2'>
-			<Dropdown phones={ phones }/>
-			<CallbackModal quantity={ 1 } />
+			<Dropdown isInfoBlock={ isInfoBlock } phones={ phones } />
+			{ !isInfoBlock && <CallbackModal quantity={ 1 } /> }
 		</div>
 	);
 }

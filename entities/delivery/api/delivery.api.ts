@@ -17,10 +17,23 @@ export const deliveryApi = createApi({
 		fetchNpWarehouses: build.query<any, string>({
 			query: ref => deliveryEndpoints.novaPoshta.warehouses(ref),
 		}),
+
+		fetchNpDocumentPrice: build.query<{ AssessedCost: number, Cost: number }[], {
+			offer_id: number | undefined;
+			ref: string;
+			count: number;
+		}>({
+			query: (params) => ({
+				url: deliveryEndpoints.novaPoshta.documentPrice,
+				method: API_CONSTANTS.METHODS.POST,
+				body: JSON.stringify(params),
+			}),
+		}),
 	}),
 });
 
 export const {
 	useFetchNpAllCityQuery,
 	useFetchNpWarehousesQuery,
+	useFetchNpDocumentPriceQuery
 } = deliveryApi;

@@ -31,7 +31,7 @@ interface Props {
 }
 
 export function ActionsBlock({ id, className, section, quantity }: Props) {
-	const t = useTranslations('ActionBlock');
+	const t = useTranslations('common');
 	const pathname = usePathname();
 	const url = process.env.ACCESS_ORIGIN + pathname;
 
@@ -46,8 +46,8 @@ export function ActionsBlock({ id, className, section, quantity }: Props) {
 	return (
 		<div className={ twMerge('gap-1.5 h-full', className) }>
 			<CallbackModal productId={ id } quantity={ quantity } isProductPage={ true } />
-			<AddToBookmarksButton id={ id } section={ section } isProduct={ true } />
-			<AddToComparisonButton id={ id } section={ section } isProduct={ true } />
+			<AddToBookmarksButton id={ id } section={ section } isActiveBlock={ true } />
+			<AddToComparisonButton id={ id } section={ section } isActiveBlock={ true } />
 			<Button
 				as={ Link }
 				variant='light'
@@ -60,7 +60,7 @@ export function ActionsBlock({ id, className, section, quantity }: Props) {
 			<div className='w-12 h-12 p-3 bg-blue-50 rounded-full group cursor-pointer relative hover:text-primary'>
 				<Icons.ShareIcon className='fill-gray-500' />
 				<div
-					className='absolute top-10 left-0 bg-white rounded shadow-md py-4 px-6 hidden group-hover:flex flex-col gap-4 z-10'>
+					className='absolute top-10 left-0 bg-white rounded shadow-md py-4 px-6 hidden group-hover:flex flex-col gap-4 z-20'>
 					<FacebookShareButton url={ url }>
 						<div className='flex items-center gap-x-2'>
 							<FacebookIcon size={ 26 } round/>

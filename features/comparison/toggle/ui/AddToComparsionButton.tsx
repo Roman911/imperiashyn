@@ -9,9 +9,10 @@ interface Props {
 	id: number;
 	section: string;
 	isProduct?: boolean;
+	isActiveBlock?: boolean;
 }
 
-export function AddToComparisonButton({ id, section, isProduct }: Props) {
+export function AddToComparisonButton({ id, section, isProduct, isActiveBlock }: Props) {
 	const { isComparison, toggle } = useToggleComparison({ id, section });
 
 	return (
@@ -24,8 +25,8 @@ export function AddToComparisonButton({ id, section, isProduct }: Props) {
 			className={ twMerge(
 				'text-gray-500 hover:text-primary',
 				isComparison && 'text-primary',
-				isProduct &&
-				'bg-gray-100/60 w-12 h-12 p-3'
+				isProduct && 'bg-gray-100/40 w-12 h-12 p-3',
+				isActiveBlock && 'bg-blue-50 hover:bg-gray-100/60 w-12 h-12 p-3'
 			) }
 		>
 			<Icons.LibraIcon />

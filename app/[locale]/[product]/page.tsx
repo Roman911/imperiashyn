@@ -9,6 +9,7 @@ import { Section } from '@/shared/types/section';
 import { Layout } from '@/shared/ui/layout/Layout';
 import { Breadcrumbs } from '@/shared/ui/breadcrumbs';
 import { FilterAlt } from '@/features/catalog/filter-alt';
+import { mapSettings } from '@/entities/settings/model/mapper';
 
 export default async function Page({ params }: { params: Promise<{ locale: Locale, product: string }> }) {
 	const { locale, product } = await params;
@@ -16,6 +17,7 @@ export default async function Page({ params }: { params: Promise<{ locale: Local
 	const productId = parseProductId(product);
 	const productData = await getProduct(productId);
 	const settings = await getSettings();
+	const settingsData = mapSettings(settings);
 	const filterData = await getFilterData(`?typeproduct=${ section === Section.Disks ? 3 : section === Section.Battery ? 4 : section === Section.Cargo ? 2 : 1 }`);
 
 	const path = [
@@ -40,7 +42,7 @@ export default async function Page({ params }: { params: Promise<{ locale: Local
 					locale={ locale }
 					productSlug={ productId }
 					productData={ productData }
-					settings={ settings }
+					settingsData={ settingsData }
 					section={ section }
 				/>
 			</div>

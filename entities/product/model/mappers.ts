@@ -15,8 +15,6 @@ export function mapSeason(season: string): 'summer' | 'winter' | 'all season' {
 export function mapProductFromApi(api: ProductApi): Product {
 	const offer = api.offers[0];
 
-	console.log(api);
-
 	return {
 		id: api.id,
 		sku: api.offer_group.sku,

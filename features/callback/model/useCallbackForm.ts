@@ -35,7 +35,6 @@ export function useCallbackForm({ productId, quantity }: CallbackPayload) {
 		}).unwrap();
 
 		if(res.result) {
-			console.log(res);
 			addToast({
 				title: t('sent message'),
 				description: t('our manager'),

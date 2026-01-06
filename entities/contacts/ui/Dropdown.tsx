@@ -6,12 +6,16 @@ import { Dropdown as DropdownUI, DropdownItem, DropdownMenu, DropdownTrigger } f
 import { Button } from '@/shared/ui/button';
 import { ChevronDownIcon, PhoneIcon } from '@/shared/ui/icons';
 import type { Phone as PhoneType } from '@/shared/types/settings';
+import { twMerge } from 'tailwind-merge';
+import { useTranslations } from 'next-intl';
 
 interface ContactsDropdownProps {
 	phones: PhoneType[];
+	isInfoBlock?: boolean
 }
 
-export default function ContactsDropdown({ phones }: ContactsDropdownProps) {
+export default function ContactsDropdown({ phones, isInfoBlock }: ContactsDropdownProps) {
+	const t = useTranslations('common');
 	const mainPhone = phones[0];
 
 	return (
@@ -20,14 +24,14 @@ export default function ContactsDropdown({ phones }: ContactsDropdownProps) {
 				<Button
 					size="sm"
 					variant="light"
-					className="text-white text-sm h-10 md:h-8 px-0"
+					className={ twMerge("text-sm h-10 md:h-8 px-0", isInfoBlock ? 'text-black' : 'text-white') }
 					startContent={ <div className='bg-blue-500 lg:bg-transparent p-2 lg:p-0 rounded-full'>
 						<PhoneIcon size={ 21 } className="md:text-primary"/>
 					</div> }
-					endContent={ <ChevronDownIcon size={ 10 } className="stroke-white"/> }
+					endContent={ <ChevronDownIcon size={ 10 } className={ isInfoBlock ? 'stroke-black' : 'stroke-white' }/> }
 				>
-					<span className="hidden md:inline font-bold">
-						{ mainPhone.phone }
+					<span className={ twMerge("hidden md:inline font-bold uppercase", ) }>
+						{ isInfoBlock ? t('phones') : mainPhone.phone }
 					</span>
 				</Button>
 			</DropdownTrigger>

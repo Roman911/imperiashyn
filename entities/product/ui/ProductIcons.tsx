@@ -5,7 +5,7 @@ import type { SeasonType, VehicleType } from '../../products/model';
 import { twMerge } from 'tailwind-merge';
 
 interface Props {
-	season: SeasonType;
+	season: 'summer' | 'winter' | 'all season' | SeasonType;
 	vehicleType: VehicleType;
 	studded: boolean;
 	isProductCard?: boolean;

@@ -11,6 +11,7 @@ import bookmarksReducer from '@/features/bookmarks/toggle/lib/storage';
 import comparisonReducer from '@/features/comparison/toggle/lib/storage';
 import cartReducer from '@/entities/cart/model/cart.slice';
 import filterReducer from '@/features/catalog/filter-alt/model/filter.slice';
+import deliveryReducer from '@/entities/delivery/model/delivery.slice';
 
 export const createStore = () =>
 	configureStore({
@@ -26,6 +27,7 @@ export const createStore = () =>
 			progressReducer,
 			cartReducer,
 			filterReducer,
+			deliveryReducer,
 		},
 		middleware: getDefault =>
 			getDefault().concat(

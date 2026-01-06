@@ -19,8 +19,6 @@ export function Offers({ locale, offerId, offers, setOfferId, setQuantity }: Pro
 		setQuantity(1);
 	}
 
-	console.log(offerId);
-
 	return (
 		<div className='offers mt-4 lg:mt-8 mb-5'>
 			<RadioGroup color='primary' value={ `${ offerId }` } onValueChange={ handleChange } size='lg'>
@@ -28,7 +26,7 @@ export function Offers({ locale, offerId, offers, setOfferId, setQuantity }: Pro
 					return <Radio color='primary' key={ item.offer_id } value={ `${item.offer_id}` } classNames={{
 						control: 'h-3 w-3',
 						labelWrapper: 'w-full'
-					}} className='bg-white dark:gray-800 lg:bg-transparent border lg:border-0 rounded-full ml-0 mt-2 lg:mt-0 w-full max-w-full'
+					}} className='bg-white lg:bg-transparent border lg:border-0 rounded-full ml-0 mt-2 lg:mt-0 w-full max-w-full'
 					>
 						<div
 							className='grid-cols-12 grid lg:grid-cols-10 w-full gap-1 items-center lg:min-w-[460]'
