@@ -1,5 +1,5 @@
 import { VehicleType } from '@/entities/products/model';
-import { ProductOffer } from '@/entities/product/api/types';
+import { ProductOffer, ProductOfferGroup } from '@/entities/product/api/types';
 
 export interface Images {
 	small: string;
@@ -14,16 +14,23 @@ export interface Product {
 	imageSmall: string;
 	imageBig: string;
 	images: Images[];
+	brandId: number;
 	brandImage: string;
 	brandName: string;
+	modelId: number;
+	modelName: string;
 	studded: boolean;
+	descriptionUa: string | null;
+	descriptionRu: string | null;
 	offers: ProductOffer[];
+	offerGroup: ProductOfferGroup;
 
 	price: number;
 	maxPrice: number;
 	availableQuantity: number;
 
 	season: 'summer' | 'winter' | 'all season';
+	seasonNum: string;
 	width: string;
 	height: string;
 	diameter: string;

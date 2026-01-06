@@ -33,12 +33,12 @@ export function DeliveryCalculation({ offer_id, quantity, price, setQuantity }: 
 	} = useDeliveryCalculation(setQuantity);
 
 	return (
-		<>
+		<div className='delivery-calculation'>
 			<Button
 				variant="bordered"
 				onPress={ onOpen }
 				color='default'
-				className="delivery-calculation bg-white text-black text-base mt-6 font-semibold w-full md:w-72"
+				className="delivery-calculation bg-white text-black text-base font-semibold w-full md:w-72"
 			>
 				<Image src="/icons/truck.svg" width={ 48 } height={ 32 } alt=""/>
 				{ t('delivery calculation') }
@@ -107,6 +107,6 @@ export function DeliveryCalculation({ offer_id, quantity, price, setQuantity }: 
 					) }
 				</ModalContent>
 			</Modal>
-		</>
+		</div>
 	);
 }

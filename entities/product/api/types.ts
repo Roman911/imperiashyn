@@ -99,6 +99,14 @@ export interface ProductOfferGroup {
 
 	vehicle_type: VehicleType;
 
+	krep_pcd1: string;
+	et: string;
+	dia: string;
+	color: string;
+	color_id: string;
+	typedisc: string;
+	id_typedisc: string;
+
 	reinforce: boolean;
 	run_flat: boolean;
 	offroad: boolean;

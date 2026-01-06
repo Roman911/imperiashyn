@@ -15,13 +15,13 @@ import { ActionsBlock } from '@/widgets/product/ui/ActionsBlock';
 import { Offers } from '@/widgets/product/ui/Offers';
 import { SetQuantity } from '@/features/cart/set-quantity';
 import { Quantity } from '@/widgets/product/ui/Quantity';
-import { CharacteristicsBlock } from '@/widgets/product/ui/CharacteristicsBlock';
 import type { ConfigSettings } from '@/shared/types/settings';
 import { InfoBlock } from '@/widgets/info-block';
 import { Product } from '@/entities/product/model/types';
 import { DeliveryCalculation } from '@/widgets/delivery-calculation';
 import { BuyActions } from '@/widgets/product/ui/BuyActions';
 import './index.scss';
+import { CharacteristicsBlock } from '@/widgets/product/characteristics';
 
 interface Props {
 	locale: Locale;
@@ -52,13 +52,6 @@ export function ProductPage({ locale, productSlug, productData, settingsData, se
 		vehicleType,
 		offers
 	} = productData;
-
-	// useEffect(() => {
-	// 	const storage = getFromStorage('reducerRecentlyViewed');
-	// 	const updatedStorage = storage.filter((item: { id: number, section: Section }) => item.id !== Number(idProduct));
-	// 	const deleteElement = updatedStorage.length === 4 ? updatedStorage.slice(1, 3) : updatedStorage;
-	// 	addToStorage('reducerRecentlyViewed', [ ...deleteElement, { id: idProduct, section: section } ]);
-	// }, [id, idProduct, section]);
 
 	useEffect(() => {
 		if(productData) setOfferId(offers[0].offer_id);
@@ -102,7 +95,7 @@ export function ProductPage({ locale, productSlug, productData, settingsData, se
 							name={ name }
 						/>
 					</div>
-
+					<ActionsBlock className='flex md:hidden' id={ id } section={ section } quantity={ quantity } />
 					<div className="flex-1 md:ml-6 xl:ml-10">
 						<h1 className="text-2xl font-bold mt-8 md:mt-0">
 							{ name }
@@ -137,14 +130,12 @@ export function ProductPage({ locale, productSlug, productData, settingsData, se
 						{ offerId !== 0 && <Offers locale={ locale } offerId={ offerId } offers={ offers } setOfferId={ setOfferId } setQuantity={ setQuantity } /> }
 					</div>
 				</div>
-				<div className='purchase-information grid justify-self-stretch mt-5 md:mt-10'>
-					<div className='mb-4 md:mb-0'>
-						<Quantity id={ 0 } quantity={ quantity } offerQuantity={ availableQuantity } price={ price } onChange={ onChange } setQuantity={ onSetQuantity }/>
-						<DeliveryCalculation offer_id={ offerId } quantity={ quantity } setQuantity={ setQuantity } price={ price } />
-					</div>
-					<BuyActions id={ offerId } quantity={ quantity } section={ section } />
+				<div className='purchase-information grid justify-self-stretch mt-5 md:mt-10 gap-3'>
+					<Quantity id={ 0 } quantity={ quantity } offerQuantity={ availableQuantity } price={ price } onChange={ onChange } setQuantity={ onSetQuantity }/>
+					<DeliveryCalculation offer_id={ offerId } quantity={ quantity } setQuantity={ setQuantity } price={ price } />
+					<BuyActions id={ offerId } quantity={ quantity } section={ section } offerItem={ offers.find(offer => offer.offer_id === offerId) } />
 				</div>
-				{/*<CharacteristicsBlock locale={ locale } productData={ productData } section={ section } />*/}
+				<CharacteristicsBlock locale={ locale } product={ productData } section={ section } />
 			</div>
 			<InfoBlock settingsData={ settingsData } />
 		</section>

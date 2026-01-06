@@ -4,6 +4,7 @@ import { useTranslations } from 'next-intl';
 
 import { Button } from '@/shared/ui/button';
 import * as Icons from '@/shared/ui/icons';
+import { twMerge } from 'tailwind-merge';
 
 interface Props {
 	inCart: boolean;
@@ -18,7 +19,7 @@ export function AddToCartButton({ inCart, onClick, isProductPage }: Props) {
 		<Button
 			onPress={ onClick }
 			aria-label="Add to cart"
-			className="min-w-16 md:min-w-24"
+			className={ twMerge(isProductPage ? 'w-full md:w-72' : "min-w-16 md:min-w-24") }
 			color={ inCart ? 'success' : 'primary' }
 			startContent={ inCart ? <Icons.CheckIcon /> : '' }
 		>

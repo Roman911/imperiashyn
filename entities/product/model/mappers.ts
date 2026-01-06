@@ -23,20 +23,28 @@ export function mapProductFromApi(api: ProductApi): Product {
 		imageSmall: api.photo.url_part,
 		imageBig: api.photo.url_part2,
 		images: api.photos.urls,
+		brandId: api.brand.id,
 		brandImage: api.model.brand_image,
 		brandName: api.brand.name,
 		studded: api.offer_group.studded,
+		descriptionUa: api.descr.ua.description,
+		descriptionRu: api.descr.ru.description,
+
+		modelId: api.model.id,
+		modelName: api.model.name,
 
 		price: Number(offer?.price ?? api.min_price),
 		maxPrice: api.max_price,
 		availableQuantity: offer?.quantity ?? 0,
 
 		season: mapSeason(api.model.season),
+		seasonNum: api.model.season,
 		width: api.offer_group.width,
 		height: api.offer_group.height,
 		diameter: api.offer_group.diameter,
 		vehicleType: api.offer_group.vehicle_type,
 		offers: api.offers,
+		offerGroup: api.offer_group,
 
 		disabled: api.disabled,
 
