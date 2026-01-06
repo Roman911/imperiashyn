@@ -1,5 +1,5 @@
 import { VehicleType } from '@/entities/products/model';
-import { ProductOffer, ProductOfferGroup } from '@/entities/product/api/types';
+import { ProductOffer, ProductOfferGroup, Review } from '@/entities/product/api/types';
 
 export interface Images {
 	small: string;
@@ -38,7 +38,8 @@ export interface Product {
 
 	disabled: boolean;
 
-	review: unknown[];
+	review: Review[];
+	trcId: number;
 }
 
 export interface ProductPageParams {

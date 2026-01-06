@@ -25,12 +25,12 @@ export default function ContactsDropdown({ phones, isInfoBlock }: ContactsDropdo
 					size="sm"
 					variant="light"
 					className={ twMerge("text-sm h-10 md:h-8 px-0", isInfoBlock ? 'text-black' : 'text-white') }
-					startContent={ <div className='bg-blue-500 lg:bg-transparent p-2 lg:p-0 rounded-full'>
-						<PhoneIcon size={ 21 } className="md:text-primary"/>
+					startContent={ <div className={ twMerge('p-2 lg:p-0 rounded-full', !isInfoBlock && 'bg-blue-500 lg:bg-transparent') }>
+						<PhoneIcon size={ 21 } className={ twMerge("md:text-primary", isInfoBlock && 'text-primary') }/>
 					</div> }
 					endContent={ <ChevronDownIcon size={ 10 } className={ isInfoBlock ? 'stroke-black' : 'stroke-white' }/> }
 				>
-					<span className={ twMerge("hidden md:inline font-bold uppercase", ) }>
+					<span className={ twMerge("font-bold uppercase", !isInfoBlock && 'hidden md:inline ') }>
 						{ isInfoBlock ? t('phones') : mainPhone.phone }
 					</span>
 				</Button>

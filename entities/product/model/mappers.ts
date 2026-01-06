@@ -49,6 +49,7 @@ export function mapProductFromApi(api: ProductApi): Product {
 		disabled: api.disabled,
 
 		review: api.review,
+		trcId: api.trc_id
 	};
 }
 

@@ -123,6 +123,23 @@ export interface ProductOfferGroup {
 	silent: boolean;
 }
 
+export interface Review {
+	review_id: number
+	score: number
+	status: number
+	model_id: number
+	product_id: number
+	trc_id: null
+	text: string
+	minus: null
+	plus: null
+	name: string
+	email: string
+	created_at: string
+	updated_at: string
+}
+
+
 export interface ProductModel {
 	id: number;
 	name: string;
@@ -161,7 +178,7 @@ export interface ProductApi {
 	offer_group: ProductOfferGroup;
 
 	labels: unknown[];
-	review: unknown[];
+	review: Review[];
 
 	descr: ProductDescription;
 }

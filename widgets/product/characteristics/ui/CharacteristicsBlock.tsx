@@ -9,6 +9,7 @@ import { Product } from '@/entities/product/model/types';
 
 import { MainCharacteristics } from './MainCharacteristics';
 import { DescriptionTab } from './DescriptionTab';
+import { Reviews } from '@/widgets/reviews/ui/Reviews';
 
 interface Props {
 	locale: Locale;
@@ -45,7 +46,7 @@ export function CharacteristicsBlock({ locale, product, section }: Props) {
 				</Tab>
 
 				<Tab key="reviews" title={ t('reviews') }>
-					{/*<Comments/>*/}
+					<Reviews reviews={ product.review } model_id={ product.modelId } product_id={ product.id } trc_id={ product.trcId } />
 				</Tab>
 			</Tabs>
 		</section>
