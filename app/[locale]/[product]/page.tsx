@@ -10,6 +10,7 @@ import { Layout } from '@/shared/ui/layout/Layout';
 import { Breadcrumbs } from '@/shared/ui/breadcrumbs';
 import { FilterAlt } from '@/features/catalog/filter-alt';
 import { mapSettings } from '@/entities/settings/model/mapper';
+import { SimilarProducts } from '@/widgets/product/similar-products/ui/SimilarProducts';
 
 export default async function Page({ params }: { params: Promise<{ locale: Locale, product: string }> }) {
 	const { locale, product } = await params;
@@ -46,6 +47,7 @@ export default async function Page({ params }: { params: Promise<{ locale: Local
 					section={ section }
 				/>
 			</div>
+			{ section !== Section.Battery && <SimilarProducts offerGroup={ productData.offerGroup } section={ section }/> }
 		</Layout>
 	);
 }
