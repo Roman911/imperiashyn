@@ -1,7 +1,6 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import { useInView } from 'react-intersection-observer';
 
 import { getStart, getTotalPages } from './pagination';
 import { productApi } from '@/entities/products/api/product.api';
@@ -32,11 +31,6 @@ export function useCatalogProducts({ searchParams, pageFrom, pageItem }: Params)
 
 	const canShowMore = offset + currentPage <= totalPages;
 
-	const { ref, inView } = useInView({
-		threshold: 1,
-		rootMargin: '200px',
-	});
-
 	return {
 		products: data?.data,
 		isLoading: isLoading,
@@ -45,8 +39,6 @@ export function useCatalogProducts({ searchParams, pageFrom, pageItem }: Params)
 		setOffset,
 		totalPages,
 		canShowMore,
-		inView,
-		ref,
 		currentPage,
 	};
 }

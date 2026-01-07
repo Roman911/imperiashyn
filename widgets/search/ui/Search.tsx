@@ -1,37 +1,28 @@
 'use client';
 
+import { useSearchParams } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 import { Spinner } from '@heroui/react';
-import { Locale, useTranslations } from 'next-intl';
 
-import { useCatalogProducts } from '../model/useCatalogProducts';
-import { Section } from '@/shared/types/section';
-import { Pagination } from './Pagination';
-import { ProductList } from '@/entities/product';
+import { useCatalogProducts } from '@/features/catalog/model/useCatalogProducts';
 import { NoResult } from '@/shared/ui/no-result';
+import { ProductList } from '@/entities/product';
 import { Button } from '@/shared/ui/button';
 
-interface Props {
-	searchParams: string;
-	pageFrom: number | null;
-	section: Section;
-	slug?: string[];
-	locale: Locale;
-	pageItem: number;
-}
+const itemsProduct = 12;
 
-export function CatalogProducts(props: Props) {
+export function Search() {
 	const t = useTranslations('catalog');
+	const searchParams = useSearchParams();
+	const search = searchParams.get('name');
 
 	const {
 		products,
 		isLoading,
 		isFetching,
-		offset,
 		setOffset,
 		canShowMore,
-		totalPages,
-		currentPage,
-	} = useCatalogProducts(props);
+	} = useCatalogProducts({ searchParams: `?name=${ search }`, pageItem: itemsProduct });
 
 	return (
 		<>
@@ -45,7 +36,7 @@ export function CatalogProducts(props: Props) {
 
 			{ !products && !isLoading && !isFetching && <NoResult description='no result' /> }
 			{ (products) && <ProductList
-				classnames='grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
+				classnames='grid-cols-1 md:grid-cols-2 lg:grid-cols-4'
 				products={ products.products }
 			/> }
 
@@ -61,16 +52,6 @@ export function CatalogProducts(props: Props) {
 					{ t('show more') }
 				</Button>
 			) }
-
-			{ products && totalPages > 1 && (
-				<div className="mt-10">
-					<Pagination
-						initialPage={ currentPage }
-						offset={ offset }
-						total={ totalPages }
-					/>
-				</div>
-			) }
 		</>
-	);
+	)
 }

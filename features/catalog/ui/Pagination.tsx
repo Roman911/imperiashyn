@@ -8,9 +8,9 @@ import { Button, Pagination as PaginationUI, PaginationItemRenderProps, Paginati
 import { Locale } from '@/shared/types/locale';
 
 interface Props {
-	initialPage: number
-	total: number
-	offset: number
+	initialPage: number;
+	total: number;
+	offset: number;
 }
 
 export function Pagination({ initialPage, total, offset }: Props) {

@@ -18,12 +18,12 @@ export const viewport: Viewport = {
 export default async function RootLayout({ children }: { children: ReactNode; }) {
 	return (
 		<html lang='uk' suppressHydrationWarning>
-		<GoogleTagManager gtmId={ process.env.NEXT_PUBLIC_GTM_ID || '' } />
 		<body className={ fontMontserrat.variable }>
 		<StoreProvider>
 			{ children }
 		</StoreProvider>
 		</body>
+		<GoogleTagManager gtmId={ process.env.NEXT_PUBLIC_GTM_ID || '' } />
 		</html>
 	);
 };
