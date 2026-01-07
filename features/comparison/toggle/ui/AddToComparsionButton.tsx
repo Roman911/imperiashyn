@@ -4,10 +4,11 @@ import { Button } from '@heroui/react';
 import { twMerge } from 'tailwind-merge';
 import * as Icons from '@/shared/ui/icons';
 import { useToggleComparison } from '../model/useToggleComparison';
+import { Section } from '@/shared/types/section';
 
 interface Props {
 	id: number;
-	section: string;
+	section: Section;
 	isProduct?: boolean;
 	isActiveBlock?: boolean;
 }

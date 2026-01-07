@@ -16,7 +16,7 @@ export function ProductName({ full_name, page_url }: Props) {
 			onClick={ () => {
 				dispatch(setProgress(true))
 			} }
-			className='font-bold after:absolute after:inset-0'
+			className='font-bold after:absolute after:inset-0 whitespace-normal'
 		>
 			{ full_name }
 		</Link>
