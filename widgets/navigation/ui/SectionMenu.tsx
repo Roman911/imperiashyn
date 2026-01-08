@@ -35,7 +35,7 @@ export function SectionMenu({ label, children, section }: Props) {
 				color="primary"
 				size="lg"
 				radius="none"
-				className="px-6 h-12 min-w-24 font-bold hover:bg-blue-600"
+				className="px-6 h-12 min-w-24 font-bold hover:bg-blue-600 normal-case"
 				onPress={ () => setIsOpen(prev => !prev) }
 				endContent={
 					<Icons.ChevronDownIcon

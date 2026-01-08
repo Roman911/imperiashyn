@@ -75,7 +75,7 @@ export function HeaderActions() {
 				variant='light'
 				isIconOnly
 				radius='sm'
-				href="/cart"
+				href="/order"
 				className='text-black'
 				onPress={ () => dispatch(showProgress()) }
 			>

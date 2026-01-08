@@ -1,13 +1,10 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
 
-interface Item {
-	id: number
-	section: string
-}
+import { ProductItem } from '@/entities/products/model/types';
 
 export interface BookmarksState {
-	bookmarksItems: Item[]
+	bookmarksItems: ProductItem[]
 }
 
 const initialState: BookmarksState = {
@@ -18,10 +15,10 @@ export const bookmarksSlice = createSlice({
 	name: 'bookmarks',
 	initialState,
 	reducers: {
-		addBookmarks: (state, actions: PayloadAction<Item>) => {
+		addBookmarks: (state, actions: PayloadAction<ProductItem>) => {
 			state.bookmarksItems.push(actions.payload);
 		},
-		addBookmarksFromStorage: (state, actions: PayloadAction<Item[]>) => {
+		addBookmarksFromStorage: (state, actions: PayloadAction<ProductItem[]>) => {
 			state.bookmarksItems = actions.payload;
 		},
 		removeBookmarks: (state, actions: PayloadAction<number>) => {

@@ -4,7 +4,7 @@ import { twMerge } from 'tailwind-merge';
 import { useTranslations } from 'next-intl';
 import { Autocomplete as AutocompleteUI, AutocompleteItem, AutocompleteSection, } from '@heroui/react';
 
-import { Link, useRouter } from '@/shared/i18n/navigation';
+import { useRouter } from '@/shared/i18n/navigation';
 import { SelectOption } from '@/shared/types/common';
 import { Section } from '@/shared/types/section';
 
@@ -60,14 +60,13 @@ export function Autocomplete({ name, label, options = [], section, checkboxKey, 
 					<AutocompleteSection title={ t('popular') }>
 						{ popularOptions.map(item => (
 							<AutocompleteItem
-								as={ Link }
 								key={ item.value }
-								href={ createHref({
+								onPress={ () => router.push(createHref({
 									section,
 									checkboxKey,
 									value: item.value,
 									filteredSlug,
-								}) }
+								})) }
 							>
 								{ item.label }
 							</AutocompleteItem>
@@ -77,14 +76,13 @@ export function Autocomplete({ name, label, options = [], section, checkboxKey, 
 					<AutocompleteSection title={ t('all') }>
 						{ options.map(item => (
 							<AutocompleteItem
-								as={ Link }
 								key={ item.value }
-								href={ createHref({
+								onPress={ () => router.push(createHref({
 									section,
 									checkboxKey,
 									value: `${item.value}`,
 									filteredSlug,
-								}) }
+								})) }
 							>
 								{ item.label }
 							</AutocompleteItem>
@@ -94,14 +92,13 @@ export function Autocomplete({ name, label, options = [], section, checkboxKey, 
 			) : (
 				options.map(item => (
 					<AutocompleteItem
-						as={ Link }
 						key={ item.value }
-						href={ createHref({
+						onPress={ () => router.push(createHref({
 							section,
 							checkboxKey,
 							value: `${item.value}`,
 							filteredSlug,
-						}) }
+						})) }
 					>
 						{ item.label }
 					</AutocompleteItem>

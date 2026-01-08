@@ -22,12 +22,13 @@ import { Link } from '@/shared/i18n/navigation';
 import { CallbackModal } from '@/features/callback';
 import { AddToBookmarksButton } from '@/features/bookmarks/toggle';
 import { AddToComparisonButton } from '@/features/comparison/toggle/ui/AddToComparsionButton';
+import { Section } from '@/shared/types/section';
 
 interface Props {
-	id: number
-	className: string
-	section: string
-	quantity: number
+	id: number;
+	className: string;
+	section: Section;
+	quantity: number;
 }
 
 export function ActionsBlock({ id, className, section, quantity }: Props) {

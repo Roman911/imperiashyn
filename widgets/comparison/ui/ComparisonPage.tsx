@@ -22,8 +22,6 @@ export default function Comparison() {
 		isLoading,
 	} = useComparisonProducts();
 
-	if(isLoading) return <Spinner/>;
-
 	const path = [
 		{ title: t('comparison'), href: '/comparison', translations: false },
 	];
@@ -38,6 +36,7 @@ export default function Comparison() {
 
 			{ hasItems ? (
 				<section className="mt-4 md:mt-8">
+					{ isLoading && <Spinner /> }
 					<ComparisonTabs
 						tires={ tires }
 						cargo={ cargo }

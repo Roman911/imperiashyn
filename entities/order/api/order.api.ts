@@ -6,6 +6,12 @@ export const orderApi = createApi({
 	reducerPath: 'orderApi',
 	baseQuery,
 	endpoints: build => ({
+		fetchOrdersParam: build.query({
+			query: () => ({
+				url: orderEndpoints.params,
+			}),
+		}),
+
 		createOrder: build.mutation({
 			query: data => ({
 				url: orderEndpoints.create,
