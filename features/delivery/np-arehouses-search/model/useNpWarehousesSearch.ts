@@ -38,16 +38,11 @@ export function useNpWarehousesSearch() {
 		);
 	};
 
-	const onInputChange = (value: string) => {
-		const cleaned = value.replace(/[^а-яА-ЯіїєґІЇЄҐ' ]/g, '');
-	};
-
 	return {
 		t,
 		data,
 		selectedKey,
 		warehousesOptions,
 		onSelect,
-		onInputChange,
 	};
 }

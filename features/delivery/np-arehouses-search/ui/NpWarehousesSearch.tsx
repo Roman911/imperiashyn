@@ -10,7 +10,6 @@ export function NpWarehousesSearch() {
 		selectedKey,
 		warehousesOptions,
 		onSelect,
-		onInputChange,
 	} = useNpWarehousesSearch();
 
 	if(!data) return null;
@@ -20,7 +19,6 @@ export function NpWarehousesSearch() {
 			variant='bordered'
 			radius="sm"
 			selectedKey={ selectedKey }
-			onInputChange={ onInputChange }
 			onSelectionChange={ onSelect }
 			label={ t('department') }
 			className="max-w-full"
