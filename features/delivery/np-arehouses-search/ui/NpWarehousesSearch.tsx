@@ -1,17 +1,17 @@
 'use client';
 
 import { Autocomplete, AutocompleteItem } from '@heroui/react';
-import { useNpCitySearch } from '../model/useNpCitySearch';
+import { useNpWarehousesSearch } from '../model/useNpWarehousesSearch';
 
-export function NpCitySearch() {
+export function NpWarehousesSearch() {
 	const {
 		t,
 		data,
 		selectedKey,
-		cityOptions,
+		warehousesOptions,
 		onSelect,
 		onInputChange,
-	} = useNpCitySearch();
+	} = useNpWarehousesSearch();
 
 	if(!data) return null;
 
@@ -22,10 +22,10 @@ export function NpCitySearch() {
 			selectedKey={ selectedKey }
 			onInputChange={ onInputChange }
 			onSelectionChange={ onSelect }
-			label={ t('city') }
+			label={ t('department') }
 			className="max-w-full"
 			classNames={ { listboxWrapper: 'rounded-xs' } }
-			defaultItems={ cityOptions }
+			defaultItems={ warehousesOptions }
 			listboxProps={ {
 				emptyContent: t('no options message'),
 			} }
