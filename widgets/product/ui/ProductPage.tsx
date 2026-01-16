@@ -21,6 +21,7 @@ import { BuyActions } from '@/widgets/product/ui/BuyActions';
 import './index.scss';
 import { CharacteristicsBlock } from '@/widgets/product/characteristics';
 import { OtherModelSizes } from '@/widgets/product/other-model-sizes/ui/OtherModelSizes';
+import { trackProductView } from '@/features/product-view/analytics/trackProductView';
 
 interface Props {
 	locale: Locale;
@@ -55,6 +56,16 @@ export function ProductPage({ locale, productSlug, productData, settingsData, se
 	useEffect(() => {
 		if(productData) setOfferId(offers[0].offer_id);
 	}, [ productData ]);
+
+	useEffect(() => {
+		trackProductView(
+			productData.id,
+			productData.name,
+			productData.brandName,
+			productData.modelName,
+			productData.price,
+			section);
+	}, []);
 
 	const onChange = (e: { target: HTMLInputElement }) => {
 		const value = e.target.value;

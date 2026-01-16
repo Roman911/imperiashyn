@@ -1,7 +1,10 @@
-import Dropdown from './Dropdown';
+'use client';
+
 import { useLanguage } from '@/shared/hooks/useLanguage';
 import type { ConfigSettings } from '@/shared/types/settings';
 import { CallbackModal } from '@/features/callback';
+
+import Dropdown from './Dropdown';
 
 interface ContactsProps {
 	settingsData: ConfigSettings

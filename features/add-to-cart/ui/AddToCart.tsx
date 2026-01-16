@@ -1,22 +1,26 @@
 'use client';
 
 import { useDisclosure } from '@heroui/react';
-import { useAddToCart } from '../model/useAddToCart';
-import { AddToCartButton } from './AddToCartButton';
+
 import { Section } from '@/shared/types/section';
 import { useAppSelector } from '@/shared/hooks/redux';
 import { AddToCartDrawer } from '@/features/cart/add-to-cart-drawer';
+import { ProductOffer } from '@/entities/product/api/types';
+
+import { useAddToCart } from '../model/useAddToCart';
+import { AddToCartButton } from './AddToCartButton';
 
 interface Props {
 	id: number;
 	quantity: number;
 	section: Section;
 	isProductPage?: boolean;
+	offerItem?: ProductOffer;
 }
 
-export function AddToCart({ id, quantity, section, isProductPage }: Props) {
+export function AddToCart({ id, quantity, section, isProductPage, offerItem }: Props) {
 	const { isOpen, onOpen, onClose } = useDisclosure();
-	const { addToCart } = useAddToCart({ id, quantity, section });
+	const { addToCart } = useAddToCart({ id, quantity, section, offerItem });
 	const { cartItems } = useAppSelector(state => state.cartReducer);
 	const inCart = cartItems.some(item => item.id === id);
 
