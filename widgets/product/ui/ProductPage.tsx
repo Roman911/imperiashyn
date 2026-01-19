@@ -31,7 +31,7 @@ interface Props {
 	section: Section;
 }
 
-export function ProductPage({ locale, productSlug, productData, settingsData, section }: Props) {
+export function ProductPage({ locale, productData, settingsData, section }: Props) {
 	const [ quantity, setQuantity ] = useState(1);
 	const [ offerId, setOfferId ] = useState(0);
 	const t = useTranslations('product');
@@ -40,6 +40,7 @@ export function ProductPage({ locale, productSlug, productData, settingsData, se
 		availableQuantity,
 		brandImage,
 		brandName,
+		modelName,
 		imageBig,
 		imageSmall,
 		images,
@@ -52,6 +53,12 @@ export function ProductPage({ locale, productSlug, productData, settingsData, se
 		vehicleType,
 		offers
 	} = productData;
+	const data = {
+		name: name,
+		brand: brandName,
+		model: modelName,
+		price: price,
+	}
 
 	useEffect(() => {
 		if(productData) setOfferId(offers[0].offer_id);
@@ -143,14 +150,14 @@ export function ProductPage({ locale, productSlug, productData, settingsData, se
 				<div className='purchase-information grid justify-self-stretch mt-5 md:mt-10 gap-3'>
 					<Quantity id={ 0 } quantity={ quantity } offerQuantity={ availableQuantity } price={ price } onChange={ onChange } setQuantity={ onSetQuantity }/>
 					<DeliveryCalculation offer_id={ offerId } quantity={ quantity } setQuantity={ setQuantity } price={ price } />
-					<BuyActions id={ offerId } quantity={ quantity } section={ section } offerItem={ offers.find(offer => offer.offer_id === offerId) } />
+					<BuyActions id={ offerId } quantity={ quantity } section={ section } offerItem={ offers.find(offer => offer.offer_id === offerId) } data={ data } />
 				</div>
 				<CharacteristicsBlock locale={ locale } product={ productData } section={ section } />
 				{ section !== Section.Battery &&
 					<OtherModelSizes brand={ productData.brandId } model={ productData.modelId } diameter={ productData.offerGroup.diameter } section={ section } vehicle_type={ productData.vehicleType } />
 				}
 			</div>
-			<InfoBlock settingsData={ settingsData } />
+			<InfoBlock settingsData={ settingsData } quantity={ quantity } />
 		</section>
 	);
 }

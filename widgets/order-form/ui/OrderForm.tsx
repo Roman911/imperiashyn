@@ -1,6 +1,6 @@
 'use client';
 
-import { FormEvent, useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 import { Form } from '@heroui/react';
 import { useTranslations } from 'next-intl';
 
@@ -16,6 +16,7 @@ import { Summary } from '@/widgets/order-summary/ui/Summary';
 import { Autocomplete } from '@/features/catalog-filter-by-car/ui/Autocomplete';
 import { HtmlContent } from '@/shared/lib/sanitizeHtml';
 import { NpWarehousesSearch } from '@/features/delivery/np-arehouses-search';
+import { trackBeginCheckout } from '@/features/checkout/analytics/trackBeginCheckout';
 
 export function OrderForm() {
 	const t = useTranslations('order');
@@ -26,6 +27,10 @@ export function OrderForm() {
 
 	const [ shippingMethod, setShippingMethod ] = useState<number | string | null>(1);
 	const [ paymentMethod, setPaymentMethod ] = useState<number | string | null>(1);
+
+	useEffect(() => {
+		trackBeginCheckout(products, cartItems)
+	}, [ products ])
 
 	const {
 		submit,

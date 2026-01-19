@@ -8,6 +8,7 @@ import { HtmlContent } from '@/shared/lib/sanitizeHtml';
 
 import { Contacts } from '@/entities/contacts';
 import { useInfoBlock } from '../model/useInfoBlock';
+import { CallbackModal } from '@/features/callback';
 
 const LINKS = [
 	{
@@ -29,9 +30,10 @@ const LINKS = [
 
 interface Props {
 	settingsData: ConfigSettings;
+	quantity: number;
 }
 
-export function InfoBlock({ settingsData }: Props) {
+export function InfoBlock({ settingsData, quantity }: Props) {
 	const { t, address, openHours } = useInfoBlock(settingsData);
 
 	return (
@@ -53,6 +55,8 @@ export function InfoBlock({ settingsData }: Props) {
 						<span className="underline">{ t(link.label) }</span>
 					</Button>
 				)) }
+
+				<CallbackModal quantity={ quantity } color='primary' />
 
 				<Divider className='my-4'/>
 

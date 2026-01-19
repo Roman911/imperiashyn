@@ -1,15 +1,15 @@
-import { Section } from '@/shared/types/section';
 import { buildGa4Item } from '@/entities/product/analytics/lib/buildGa4Item';
 import { pushDataLayer } from '@/shared/analytics/gtm/lib/pushDataLayer';
-
+import { ProductApi } from '@/entities/products/api/types';
+import { ProductItem } from '@/entities/products/model/types';
 
 export const trackBeginCheckout = (
-	data: ProductsProps | undefined,
-	cartItems: { id: number; quantity: number; section: Section }[]
+	products: ProductApi[],
+	cartItems: ProductItem[]
 ) => {
-	if(!data) return;
+	if(!products) return;
 
-	const items = data.data.products.map(product => {
+	const items = products.map(product => {
 		const cart = cartItems.find(
 			item => item.id === product.best_offer.id
 		);

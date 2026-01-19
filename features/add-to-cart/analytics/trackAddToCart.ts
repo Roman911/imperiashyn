@@ -4,10 +4,12 @@ import { pushDataLayer } from '@/shared/analytics/gtm/lib/pushDataLayer';
 
 export const trackAddToCart = (
 	id: number,
-	name: string,
-	brand: string,
-	model: string,
-	price: number,
+	data: {
+		name: string,
+		brand: string,
+		model: string,
+		price: number,
+	},
 	section: Section,
 	quantity: number
 ) => {
@@ -19,10 +21,10 @@ export const trackAddToCart = (
 			items: [
 				buildGa4Item({
 					id,
-					name,
-					brand,
-					price,
-					model,
+					name: data.name,
+					brand: data.brand,
+					price: data.price,
+					model: data.model,
 					section,
 					quantity,
 				}),

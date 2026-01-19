@@ -9,12 +9,18 @@ import { ProductOffer } from '@/entities/product/api/types';
 
 interface Props {
 	id: number;
+	data: {
+		name: string,
+		brand: string,
+		model: string,
+		price: number,
+	}
 	quantity: number;
 	section: Section;
 	offerItem?: ProductOffer;
 }
 
-export function useAddToCart({ id, quantity, section, offerItem }: Props) {
+export function useAddToCart({ id, data, quantity, section, offerItem }: Props) {
 	const dispatch = useAppDispatch();
 	const cart = getCart();
 
@@ -24,7 +30,7 @@ export function useAddToCart({ id, quantity, section, offerItem }: Props) {
 			{ id, quantity, section },
 		];
 
-		trackAddToCart(id, );
+		trackAddToCart(id, data, section, quantity);
 		dispatch(addItem({ id, quantity, section }));
 		saveCart(updatedCart);
 	};

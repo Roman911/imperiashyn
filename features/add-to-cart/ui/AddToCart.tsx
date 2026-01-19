@@ -14,13 +14,19 @@ interface Props {
 	id: number;
 	quantity: number;
 	section: Section;
+	data: {
+		name: string,
+		brand: string,
+		model: string,
+		price: number,
+	}
 	isProductPage?: boolean;
 	offerItem?: ProductOffer;
 }
 
-export function AddToCart({ id, quantity, section, isProductPage, offerItem }: Props) {
+export function AddToCart({ id, quantity, section, isProductPage, offerItem, data }: Props) {
 	const { isOpen, onOpen, onClose } = useDisclosure();
-	const { addToCart } = useAddToCart({ id, quantity, section, offerItem });
+	const { addToCart } = useAddToCart({ id, quantity, section, offerItem, data });
 	const { cartItems } = useAppSelector(state => state.cartReducer);
 	const inCart = cartItems.some(item => item.id === id);
 

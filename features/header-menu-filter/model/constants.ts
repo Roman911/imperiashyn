@@ -202,10 +202,6 @@ export const DISKS_BRAND = [
 		href: '/catalog/disks/b-476',
 	},
 	{
-		label: 'Replica',
-		href: '/catalog/disks/b-541',
-	},
-	{
 		label: 'Ronal',
 		href: '/catalog/disks/b-476',
 	},
