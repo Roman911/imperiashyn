@@ -25,7 +25,6 @@ export function BuyActions({ id, quantity, section, data, offerItem }: Props) {
 				id={ id || 0 }
 				quantity={ quantity }
 				section={ section }
-				offerItem={ offerItem }
 				data={ data }
 			/>
 			<QuickOrder offerItem={ offerItem } section={ section } offerId={ id } quantity={ quantity } />

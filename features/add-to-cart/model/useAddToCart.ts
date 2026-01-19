@@ -5,7 +5,6 @@ import { getCart, saveCart } from '@/entities/cart/lib/cartStorage';
 import { addItem } from '@/entities/cart/model/cart.slice';
 import { Section } from '@/shared/types/section';
 import { trackAddToCart } from '@/features/add-to-cart/analytics/trackAddToCart';
-import { ProductOffer } from '@/entities/product/api/types';
 
 interface Props {
 	id: number;
@@ -17,10 +16,9 @@ interface Props {
 	}
 	quantity: number;
 	section: Section;
-	offerItem?: ProductOffer;
 }
 
-export function useAddToCart({ id, data, quantity, section, offerItem }: Props) {
+export function useAddToCart({ id, data, quantity, section }: Props) {
 	const dispatch = useAppDispatch();
 	const cart = getCart();
 
