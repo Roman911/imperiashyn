@@ -19,7 +19,7 @@ export function Contacts({ settingsData, isInfoBlock }: ContactsProps) {
 	return (
 		<div className='relative flex items-center gap-2'>
 			<Dropdown isInfoBlock={ isInfoBlock } phones={ phones } />
-			{ !isInfoBlock && <CallbackModal quantity={ 1 } /> }
+			{ !isInfoBlock && <CallbackModal /> }
 		</div>
 	);
 }

@@ -112,7 +112,7 @@ export function ProductPage({ locale, productData, settingsData, section }: Prop
 							name={ name }
 						/>
 					</div>
-					<ActionsBlock className='flex md:hidden' id={ id } section={ section } quantity={ quantity } />
+					<ActionsBlock className='flex md:hidden' id={ id } section={ section } />
 					<div className="flex-1 md:ml-6 xl:ml-10">
 						<h1 className="text-2xl font-bold mt-8 md:mt-0">
 							{ name }
@@ -126,7 +126,7 @@ export function ProductPage({ locale, productData, settingsData, section }: Prop
 									commentsAvgRate={ 0 }
 								/>
 							</div>
-							<ActionsBlock className='hidden md:flex' id={ id } section={ section } quantity={ quantity } />
+							<ActionsBlock className='hidden md:flex' id={ id } section={ section } />
 						</div>
 
 						<div className="mt-8">
@@ -157,7 +157,7 @@ export function ProductPage({ locale, productData, settingsData, section }: Prop
 					<OtherModelSizes brand={ productData.brandId } model={ productData.modelId } diameter={ productData.offerGroup.diameter } section={ section } vehicle_type={ productData.vehicleType } />
 				}
 			</div>
-			<InfoBlock settingsData={ settingsData } quantity={ quantity } />
+			<InfoBlock settingsData={ settingsData } />
 		</section>
 	);
 }

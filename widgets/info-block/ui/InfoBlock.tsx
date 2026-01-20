@@ -30,10 +30,9 @@ const LINKS = [
 
 interface Props {
 	settingsData: ConfigSettings;
-	quantity: number;
 }
 
-export function InfoBlock({ settingsData, quantity }: Props) {
+export function InfoBlock({ settingsData }: Props) {
 	const { t, address, openHours } = useInfoBlock(settingsData);
 
 	return (
@@ -56,7 +55,7 @@ export function InfoBlock({ settingsData, quantity }: Props) {
 					</Button>
 				)) }
 
-				<CallbackModal quantity={ quantity } color='primary' />
+				<CallbackModal color='primary' />
 
 				<Divider className='my-4'/>
 
