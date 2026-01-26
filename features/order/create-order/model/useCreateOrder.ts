@@ -64,7 +64,7 @@ export function useCreateOrder() {
 				dispatch(reset());
 				resetStorage('reducerCart');
 				router.push('/order/successful');
-				trackPurchase(payload.products, cartItems, response?.order_id);
+				trackPurchase(payload.products, cartItems, response?.order_id, payload.email, phone, payload.firstname, payload.lastname);
 			}
 
 			if (response?.linkpay) {

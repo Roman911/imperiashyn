@@ -1,6 +1,6 @@
 'use client';
 
-import { FormEvent, useEffect, useState } from 'react';
+import { FormEvent, useEffect, useRef, useState } from 'react';
 import { Form } from '@heroui/react';
 import { useTranslations } from 'next-intl';
 
@@ -20,6 +20,7 @@ import { trackBeginCheckout } from '@/features/checkout/analytics/trackBeginChec
 
 export function OrderForm() {
 	const t = useTranslations('order');
+	const hasTracked = useRef(false);
 
 	const { cartItems } = useAppSelector(s => s.cartReducer);
 	const { city, wirehouse } = useAppSelector(s => s.deliveryReducer);
@@ -29,8 +30,13 @@ export function OrderForm() {
 	const [ paymentMethod, setPaymentMethod ] = useState<number | string | null>(1);
 
 	useEffect(() => {
-		trackBeginCheckout(products, cartItems)
-	}, [ products ])
+		if (hasTracked.current) return;
+
+		if (products.length > 0) {
+			trackBeginCheckout(products, cartItems);
+			hasTracked.current = true;
+		}
+	}, [products, cartItems]);
 
 	const {
 		submit,

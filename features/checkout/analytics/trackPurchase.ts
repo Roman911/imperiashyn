@@ -6,7 +6,11 @@ import { ProductItem } from '@/entities/products/model/types';
 export const trackPurchase = (
 	products: ProductApi[],
 	cartItems: ProductItem[],
-	orderId: number
+	orderId: number,
+	email: string,
+	phone: string,
+	first_name: string,
+	last_name: string,
 ) => {
 	if (!products) return;
 
@@ -39,6 +43,10 @@ export const trackPurchase = (
 			value,
 			currency: 'UAH',
 			items,
+			email,
+			phone_number: phone,
+			first_name,
+			last_name,
 		},
 	});
 };
