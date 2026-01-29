@@ -9,7 +9,7 @@ import { SwitchTabsByParams } from './SwitchTabsByParams';
 import { SelectFromTo } from './SelectFromTo';
 import { SectionTires } from './SectionTires';
 import { SectionDisks } from './SectionDisks';
-import { SectionBattery } from './SectionBattery';
+// import { SectionBattery } from './SectionBattery';
 
 export function FilterContent({ filterData, section, car, slug, isProductPage }: FilterAltProps) {
 	const t = useTranslations('filters');
@@ -38,11 +38,11 @@ export function FilterContent({ filterData, section, car, slug, isProductPage }:
 					/>
 				) }
 
-				{ section === Section.Battery && (
-					<SectionBattery
-						slug={ slug }
-					/>
-				) }
+				{/*{ section === Section.Battery && (*/}
+				{/*	<SectionBattery*/}
+				{/*		slug={ slug }*/}
+				{/*	/>*/}
+				{/*) }*/}
 
 				<SelectFromTo
 					name="price"
