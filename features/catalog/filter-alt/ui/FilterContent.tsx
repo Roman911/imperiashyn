@@ -22,11 +22,12 @@ export function FilterContent({ filterData, section, car, slug, isProductPage }:
 			<div className='relative h-[calc(100%-50px)] pb-32 lg:pb-4 lg:px-4 pt-4 bg-white lg:border lg:border-gray-200 overflow-y-auto md:overflow-y-visible flex flex-col gap-3'>
 				{ section !== Section.Battery && <SwitchTabsByParams section={ section } car={ car }/> }
 				{ car && <ByCar car={ car } section={ Section.Tires } /> }
-				{ section === Section.Tires && (
+				{ (section === Section.Tires || section === Section.Cargo || section === Section.Special || section === Section.Moto) && (
 					<SectionTires
 						car={ car }
 						filterData={ filterData }
 						slug={ slug }
+						section={ section }
 					/>
 				) }
 
@@ -35,6 +36,7 @@ export function FilterContent({ filterData, section, car, slug, isProductPage }:
 						car={ car }
 						filterData={ filterData }
 						slug={ slug }
+						section={ section }
 					/>
 				) }
 

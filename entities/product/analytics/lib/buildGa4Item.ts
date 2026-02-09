@@ -5,7 +5,9 @@ const sectionMap: Record<Section, string> = {
 	disks: 'Автодиски',
 	battery: 'Акумулятори',
 	cargo: 'Вантажні',
-	car: 'Авто'
+	car: 'Авто',
+	special: 'Спецшини',
+	moto: 'Мотошини'
 };
 
 export const buildGa4Item = (
