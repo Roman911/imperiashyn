@@ -11,12 +11,12 @@
     "lint:ts": "eslint \"**/*.{ts,tsx}\"",
     "lint:ts:fix": "eslint \"**/*.{ts,tsx}\" --fix"
   },
-  "type": "module",
   "dependencies": {
-    "@heroui/react": "^2.8.8",
-    "@heroui/toast": "^2.0.20",
+    "@heroui/react": "^2.8.9",
+    "@heroui/toast": "^2.0.21",
     "@next/third-parties": "^16.1.6",
     "@reduxjs/toolkit": "^2.11.2",
+    "cheerio": "^1.2.0",
     "framer-motion": "^12.34.0",
     "isomorphic-dompurify": "^2.36.0",
     "next": "^16.1.6",
@@ -55,6 +55,10 @@
     "sass": "^1.97.3",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "overrides": {
+    "jsdom": "26.1.0",
+    "parse5": "7.1.2"
   },
   "browserslist": [
     "last 2 Chrome versions",
