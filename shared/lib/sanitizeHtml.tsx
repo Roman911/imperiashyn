@@ -3,13 +3,7 @@
 import { useEffect, useState } from 'react';
 import createDOMPurify from 'dompurify';
 
-export const HtmlContent = ({
-															htmlString,
-															className,
-														}: {
-	htmlString: string;
-	className?: string;
-}) => {
+export const HtmlContent = ({ htmlString, className }: { htmlString: string; className?: string; }) => {
 	const [sanitizedHtml, setSanitizedHtml] = useState('');
 
 	useEffect(() => {
