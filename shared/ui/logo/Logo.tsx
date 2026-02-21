@@ -1,12 +1,12 @@
 import Image from 'next/image';
 
-const width = 186;
-const height = 60;
+const width = 126;
+const height = 76;
 
 export function Logo() {
 	return (
 		<Image
-			src="/logo.svg"
+			src="/logo.png"
 			alt="logo"
 			width={ width }
 			height={ height }
