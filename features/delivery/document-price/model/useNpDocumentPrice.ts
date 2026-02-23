@@ -27,7 +27,6 @@ export function useNpDocumentPrice({ offerId, quantity, price }: Params) {
 	const totalWithPostpaid = calculatePostpaid(
 		price,
 		quantity,
-		deliveryCost
 	);
 
 	return {

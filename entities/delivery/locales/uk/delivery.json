@@ -1,11 +1,14 @@
 {
-  "cost": "Вартість",
+  "cost": "Доставка",
   "estimated shipping": "Розрахункова вартість доставки за",
-  "with cash": "З післяплатою",
+  "with cash": "Післяплата",
   "delivery calculation": "Розрахунок доставки",
   "specify city": "Вкажіть місто",
   "specify quantity": "Вкажіть кількість",
   "close": "Закрити",
   "calculate": "Розрахувати",
-  "change": "Змінити"
+  "change": "Змінити",
+  "product cost": "Вартість товару",
+  "cash on delivery cost": "вартість післяплати 2% + 20 грн",
+  "total": "Разом з післяплатою"
 }

@@ -32,13 +32,23 @@ export function NpDocumentPrice({ offer_id, quantity, price }: Props) {
 				{ t('estimated shipping') } { quantity } шт.
 			</p>
 
-			<h3 className="text-base font-semibold mt-6">
+			<h3 className="text-base font-semibold mt-4">
+				{ t('product cost') }: { price * quantity } грн
+			</h3>
+
+			<h3 className="text-base font-semibold mt-1">
 				{ t('cost') }: { deliveryCost } грн
 			</h3>
 
-			<h3 className="text-base font-semibold mt-3">
+			<h3 className="text-base font-semibold mt-1">
 				{ t('with cash') }: { totalWithPostpaid } грн
 			</h3>
+
+			<h3 className="text-base font-semibold mt-1">
+				{ t('total') }: { price * quantity + deliveryCost + Number(totalWithPostpaid) } грн
+			</h3>
+
+			<p className='mt-2text-sm'>{ t('cash on delivery cost') }</p>
 		</>
 	);
 }

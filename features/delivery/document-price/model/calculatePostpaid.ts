@@ -1,15 +1,14 @@
 const POSTPAID = {
 	fixed: 20,
-	coef: 1.02,
+	coef: 0.02,
 };
 
 export function calculatePostpaid(
 	productPrice: number,
 	quantity: number,
-	deliveryCost: number
 ): number {
 	const total = productPrice * quantity;
-	return total * POSTPAID.coef + POSTPAID.fixed + deliveryCost;
+	return total * POSTPAID.coef + POSTPAID.fixed;
 }
 
 export function formatPrice(value: number): string {

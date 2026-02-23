@@ -11,7 +11,7 @@ export function MainBarLayout() {
 	return (
 		<div className={
 			twMerge(
-				'container grid items-center justify-normal py-2 md:py-1.5 px-4 grid-cols-2 lg:grid-cols-[220px_auto_150px]',
+				'container grid items-center justify-normal py-2 md:py-1.5 px-4 grid-cols-2 lg:grid-cols-[190px_auto_150px]',
 				styles['container']
 			)
 		}>

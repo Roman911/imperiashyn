@@ -88,7 +88,6 @@ export function InfoBlock({ settingsData }: Props) {
 				<div className='text-sm'>
 					<p className='mt-3 font-bold'>{ t('period') }</p>
 					<p className='mt-3'>{ t('novaposhta') }</p>
-					<p>{ t('ukrposhta') }</p>
 				</div>
 			</div>
 		</section>
