@@ -3,7 +3,7 @@ import { SectionMenuItem } from './types';
 
 export const SECTION_MENU: SectionMenuItem[] = [
 	{ section: Section.Tires, labelKey: 'cartires' },
-	{ section: Section.Disks, labelKey: 'cardiscs' },
+	// { section: Section.Disks, labelKey: 'cardiscs' },
 ];
 
 export const TYPE_CAR = [

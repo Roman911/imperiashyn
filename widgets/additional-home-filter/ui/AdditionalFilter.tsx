@@ -14,9 +14,9 @@ export async function AdditionalFilter() {
 			<FilterLayout section={ Section.Tires } >
 				<Filters filters={ filters } section={ Section.Tires } />
 			</FilterLayout>
-			<FilterLayout section={ Section.Disks } >
-				<Filters filters={ filters } section={ Section.Disks } />
-			</FilterLayout>
+			{/*<FilterLayout section={ Section.Disks } >*/}
+			{/*	<Filters filters={ filters } section={ Section.Disks } />*/}
+			{/*</FilterLayout>*/}
 		</section>
 	)
 }

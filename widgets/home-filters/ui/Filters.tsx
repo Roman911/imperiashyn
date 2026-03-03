@@ -9,7 +9,7 @@ import styles from './index.module.scss';
 
 import { ByCar } from '@/features/catalog-filter-by-car';
 import { TiresFilters } from './TiresFilters';
-import { DisksFilters } from './DisksFilters';
+// import { DisksFilters } from './DisksFilters';
 
 import { Section } from '@/shared/types/section';
 import type { FiltersBaseData } from '@/entities/filters/model/filters.types';
@@ -49,9 +49,9 @@ export function Filters({ filters }: Props) {
 					<Tab key={ Section.Tires } title={ t(Section.Tires) } >
 						<TiresFilters filters={ filters } locale={ locale } />
 					</Tab>
-					<Tab key={ Section.Disks } title={ t(Section.Disks) } >
-						<DisksFilters filters={ filters } locale={ locale } />
-					</Tab>
+					{/*<Tab key={ Section.Disks } title={ t(Section.Disks) } >*/}
+					{/*	<DisksFilters filters={ filters } locale={ locale } />*/}
+					{/*</Tab>*/}
 					<Tab key={ Section.Car } title={ t('by car') } >
 						<div className='grid gap-2.5 md:mt-7 grid-cols-1 md:grid-cols-3 lg:grid-cols-5'>
 							<ByCar isHomeFilter car={ 'car-' } section={ Section.Tires } />

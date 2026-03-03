@@ -25,7 +25,7 @@ export function SwitchTabs({ section, car }: { section: Section, car: string | n
 	return (
 		<div className='relative z-10 filter-tabs grid grid-cols-2 gap-2.5 -mb-0.5'>
 			{ renderTab(Section.Tires) }
-			{ renderTab(Section.Disks) }
+			{/*{ renderTab(Section.Disks) }*/}
 		</div>
 	)
 }
