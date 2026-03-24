@@ -23,8 +23,8 @@ interface Props {
 
 const social = {
 	links: [
-		{ link: 'https://www.facebook.com/imperiashyn', logo: 'facebook' },
-		{ link: 'https://www.instagram.com/imperiashyn/', logo: 'instagram' },
+		{ link: 'https://www.facebook.com/imperia.tyre.disk.ua/', logo: 'facebook' },
+		{ link: 'https://www.instagram.com/imperia_tyre_disk_ua/', logo: 'instagram' },
 	],
 }
 
