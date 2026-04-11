@@ -1,7 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { Tab, Tabs } from '@heroui/tabs';
+import { Tab, Tabs } from '@heroui/react';
 
 import { Section } from '@/shared/types/section';
 import { ComparisonProductCard } from '@/entities/product/ui/ComparisonProductCard';
@@ -19,7 +19,7 @@ interface Props {
 	battery: ProductApi[];
 }
 
-export function ComparisonTabs({ tires, cargo }: Props) {
+export function ComparisonTabs({ disks, tires, cargo }: Props) {
 	const t = useTranslations('filters');
 	const dispatch = useAppDispatch();
 	const rout = useRouter();
@@ -88,29 +88,29 @@ export function ComparisonTabs({ tires, cargo }: Props) {
 				</Tab>
 			) }
 
-			{/*{ disks.length > 0 && (*/}
-			{/*	<Tab key={ Section.Disks } title={ `${ t(Section.Disks) } (${ disks.length })` }>*/}
-			{/*		<>*/}
-			{/*			<div className='relative pt-6 md:pt-2 pb-2 mb-2 text-sm'>*/}
-			{/*				<Button*/}
-			{/*					size='sm'*/}
-			{/*					color='default'*/}
-			{/*					variant='light'*/}
-			{/*					className='font-bold'*/}
-			{/*					onPress={ resetEverything }*/}
-			{/*					endContent={ <span>X</span> }*/}
-			{/*				>*/}
-			{/*					{ t('reset everything') }*/}
-			{/*				</Button>*/}
-			{/*			</div>*/}
-			{/*			<div className="flex overflow-x-auto overflow-y-hidden whitespace-nowrap max-w-full">*/}
-			{/*				{ disks.map(p => (*/}
-			{/*					<ComparisonProductCard key={ p.group } product={ p } handleClick={ handleClick } type='disks' section={ Section.Disks } />*/}
-			{/*				)) }*/}
-			{/*			</div>*/}
-			{/*		</>*/}
-			{/*	</Tab>*/}
-			{/*) }*/}
+			{ disks.length > 0 && (
+				<Tab key={ Section.Disks } title={ `${ t(Section.Disks) } (${ disks.length })` }>
+					<>
+						<div className='relative pt-6 md:pt-2 pb-2 mb-2 text-sm'>
+							<Button
+								size='sm'
+								color='default'
+								variant='light'
+								className='font-bold'
+								onPress={ resetEverything }
+								endContent={ <span>X</span> }
+							>
+								{ t('reset everything') }
+							</Button>
+						</div>
+						<div className="flex overflow-x-auto overflow-y-hidden whitespace-nowrap max-w-full">
+							{ disks.map(p => (
+								<ComparisonProductCard key={ p.group } product={ p } handleClick={ handleClick } type='disks' section={ Section.Disks } />
+							)) }
+						</div>
+					</>
+				</Tab>
+			) }
 
 			{/*{ battery.length > 0 && (*/}
 			{/*	<Tab key={ Section.Battery } title={ `${ t(Section.Battery) } (${ battery.length })` }>*/}
