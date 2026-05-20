@@ -4,8 +4,7 @@ import { SetQuantityParams } from '../model/types';
 import { useSetQuantity } from '../model/useSetQuantity';
 
 export function SetQuantity({ id, maxQuantity }: SetQuantityParams) {
-	const { quantity, increment, decrement, set } =
-		useSetQuantity(id, maxQuantity);
+	const { quantity, increment, decrement, set } = useSetQuantity(id, maxQuantity);
 
 	return (
 		<div className="flex gap-1.5 relative">
@@ -25,7 +24,7 @@ export function SetQuantity({ id, maxQuantity }: SetQuantityParams) {
 				aria-label="Amount"
 				className="w-8"
 				value={ quantity }
-				minValue={ 1 }
+				minValue={ 2 }
 				maxValue={ maxQuantity }
 				onValueChange={ set }
 			/>

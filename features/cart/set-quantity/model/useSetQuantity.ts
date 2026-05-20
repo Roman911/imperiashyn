@@ -9,14 +9,23 @@ export function useSetQuantity(id: number, maxQuantity: number) {
 	const dispatch = useAppDispatch();
 	const { cartItems } = useAppSelector(state => state.cartReducer);
 
-	const quantity =
-		cartItems.find(item => item.id === id)?.quantity ?? 1;
+	// Always even, minimum 2
+	const quantity = (() => {
+		const value =
+			cartItems.find(item => item.id === id)?.quantity ?? 2;
+
+		return value % 2 === 0 ? value : value + 1;
+	})();
 
 	const updateQuantity = useCallback(
 		(nextQuantity: number) => {
-			if(nextQuantity < 1 || nextQuantity > maxQuantity) return;
+			// Quantity must always be even
+			if (nextQuantity % 2 !== 0) return;
+
+			if (nextQuantity < 2 || nextQuantity > maxQuantity) return;
 
 			const storage = getFromStorage('reducerCart');
+
 			const current = storage.find(
 				(item: { id: number }) => item.id === id
 			);
@@ -34,13 +43,18 @@ export function useSetQuantity(id: number, maxQuantity: number) {
 				})
 			);
 		},
-		[ id, maxQuantity, dispatch ]
+		[id, maxQuantity, dispatch]
 	);
 
 	return {
 		quantity,
-		increment: () => updateQuantity(quantity + 1),
-		decrement: () => updateQuantity(quantity - 1),
-		set: updateQuantity,
+		increment: () => updateQuantity(quantity + 2),
+		decrement: () => updateQuantity(quantity - 2),
+		set: (value: number) => {
+			// Auto-convert odd numbers to even
+			const evenValue = value % 2 === 0 ? value : value + 1;
+
+			updateQuantity(evenValue);
+		},
 	};
 }

@@ -21,8 +21,9 @@ export function Header({ alias, settingsData }: Props) {
 
 	return (
 		<Navbar
+			position='static'
 			maxWidth='full'
-			shouldHideOnScroll
+			// shouldHideOnScroll
 			isMenuOpen={ menu.isMenuOpen }
 			onMenuOpenChange={ menu.setIsMenuOpen }
 			classNames={{ wrapper: 'p-0 flex-col gap-0 h-48 md:h-42' }}

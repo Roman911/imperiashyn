@@ -32,7 +32,7 @@ interface Props {
 }
 
 export function ProductPage({ locale, productData, settingsData, section }: Props) {
-	const [ quantity, setQuantity ] = useState(1);
+	const [ quantity, setQuantity ] = useState(2);
 	const [ offerId, setOfferId ] = useState(0);
 	const t = useTranslations('product');
 	const {
