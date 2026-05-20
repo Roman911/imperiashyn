@@ -23,6 +23,7 @@ export function Header({ alias, settingsData }: Props) {
 		<Navbar
 			position='static'
 			maxWidth='full'
+			className='z-40 relative'
 			// shouldHideOnScroll
 			isMenuOpen={ menu.isMenuOpen }
 			onMenuOpenChange={ menu.setIsMenuOpen }
