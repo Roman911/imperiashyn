@@ -19,6 +19,7 @@ export default getRequestConfig(async({ requestLocale }) => {
 		comparison: locale === Locale.UK ? (await import("@/features/comparison/locales/uk/comparison.json")).default : (await import(`@/features/comparison/locales/${ locale }/comparison.json`)).default,
 		cart: locale === Locale.UK ? (await import("@/entities/cart/locales/uk/cart.json")).default : (await import(`@/entities/cart/locales/${ locale }/cart.json`)).default,
 		catalog: locale === Locale.UK ? (await import("@/entities/catalog/locales/uk/catalog.json")).default : (await import(`@/entities/catalog/locales/${ locale }/catalog.json`)).default,
+		creditInformation: locale === Locale.UK ?(await import("@/widgets/credit-information/locales/uk/credit-information.json")).default : (await import(`@/widgets/credit-information/locales/${ locale }/credit-information.json`)).default,
 		languageSwitcher: locale === Locale.UK ? (await import("@/features/i18n/locales/uk/language-switcher.json")).default : (await import(`@/features/i18n/locales/${ locale }/language-switcher.json`)).default,
 		navigation: locale === Locale.UK ? (await import("@/features/navigation/locales/uk/navigation.json")).default : (await import(`@/features/navigation/locales/${ locale }/navigation.json`)).default,
 		headerMenuFilter: locale === Locale.UK ? (await import("@/features/header-menu-filter/locales/uk/header-menu-filter.json")).default : (await import(`@/features/header-menu-filter/locales/${ locale }/header-menu-filter.json`)).default,

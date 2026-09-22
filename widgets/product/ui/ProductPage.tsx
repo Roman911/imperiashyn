@@ -22,6 +22,7 @@ import './index.scss';
 import { CharacteristicsBlock } from '@/widgets/product/characteristics';
 import { OtherModelSizes } from '@/widgets/product/other-model-sizes/ui/OtherModelSizes';
 import { trackProductView } from '@/features/product-view/analytics/trackProductView';
+import { CreditInformation } from '@/widgets/credit-information';
 
 interface Props {
 	locale: Locale;
@@ -112,7 +113,7 @@ export function ProductPage({ locale, productData, settingsData, section }: Prop
 							name={ name }
 						/>
 					</div>
-					<ActionsBlock className='flex md:hidden' id={ id } section={ section } />
+					<ActionsBlock className='flex md:hidden' id={ id } section={ section }/>
 					<div className="flex-1 md:ml-6 xl:ml-10">
 						<h1 className="text-2xl font-bold mt-8 md:mt-0">
 							{ name }
@@ -126,7 +127,7 @@ export function ProductPage({ locale, productData, settingsData, section }: Prop
 									commentsAvgRate={ 0 }
 								/>
 							</div>
-							<ActionsBlock className='hidden md:flex' id={ id } section={ section } />
+							<ActionsBlock className='hidden md:flex' id={ id } section={ section }/>
 						</div>
 
 						<div className="mt-8">
@@ -137,21 +138,25 @@ export function ProductPage({ locale, productData, settingsData, section }: Prop
 									</span>
 								<span className="text-xl">грн/шт.</span>
 							</div>
-							{section === Section.Tires && <div className='mt-3 text-gray-500'>
+							{ section === Section.Tires && <div className='mt-3 text-gray-500'>
 								{ t('price for one tire') }
-							</div>}
-							{section === Section.Disks && <div className='mt-3 text-gray-500'>
+							</div> }
+							{ section === Section.Disks && <div className='mt-3 text-gray-500'>
 								{ t('price for one disk') }
-							</div>}
+							</div> }
 						</div>
-						{ offerId !== 0 && <Offers locale={ locale } offerId={ offerId } offers={ offers } setOfferId={ setOfferId } setQuantity={ setQuantity } /> }
+						{ offerId !== 0 && <Offers locale={ locale } offerId={ offerId } offers={ offers } setOfferId={ setOfferId }
+						                           setQuantity={ setQuantity }/> }
 					</div>
 				</div>
 				<div className='purchase-information grid justify-self-stretch mt-5 md:mt-10 gap-3'>
-					<Quantity id={ 0 } quantity={ quantity } offerQuantity={ availableQuantity } price={ price } onChange={ onChange } setQuantity={ onSetQuantity }/>
-					<DeliveryCalculation offer_id={ offerId } quantity={ quantity } setQuantity={ setQuantity } price={ price } />
-					<BuyActions id={ offerId } quantity={ quantity } section={ section } offerItem={ offers.find(offer => offer.offer_id === offerId) } data={ data } />
+					<Quantity id={ 0 } quantity={ quantity } offerQuantity={ availableQuantity } price={ price }
+					          onChange={ onChange } setQuantity={ onSetQuantity }/>
+					<DeliveryCalculation offer_id={ offerId } quantity={ quantity } setQuantity={ setQuantity } price={ price }/>
+					<BuyActions id={ offerId } quantity={ quantity } section={ section }
+					            offerItem={ offers.find(offer => offer.offer_id === offerId) } data={ data }/>
 				</div>
+				<CreditInformation />
 				<CharacteristicsBlock locale={ locale } product={ productData } section={ section } />
 				{ section !== Section.Battery &&
 					<OtherModelSizes brand={ productData.brandId } model={ productData.modelId } diameter={ productData.offerGroup.diameter } section={ section } vehicle_type={ productData.vehicleType } />

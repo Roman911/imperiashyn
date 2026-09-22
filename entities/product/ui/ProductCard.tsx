@@ -1,6 +1,7 @@
 'use client'
 
 import { JSX } from 'react';
+import Image from 'next/image';
 import { Card, CardBody, CardFooter } from '@heroui/react';
 import { ProductIcons } from './ProductIcons';
 import { ActionsBlock } from '@/entities/product/ui/ActionsBlock';
@@ -41,6 +42,20 @@ export function ProductCard({ item }: Props): JSX.Element {
 					<ProductIcons isProductCard season={ season } vehicleType={ vehicle_type } studded={ studded } />
 					<ActionsBlock sectionNew={ sectionNew } group={ best_offer?.id || 0 }/>
 					<ProductImage default_photo={ default_photo } images={ model.model_images } full_name={ full_name }/>
+					{ section === Section.Tires && <div className='absolute flex gap-2 bottom-2 left-1'>
+						<Image
+							src={ `/icons/monobank.svg` }
+							alt=''
+							width={ 20 }
+							height={ 20 }
+						/>
+						<Image
+							src={ `/icons/privatbank.svg` }
+							alt=''
+							width={ 20 }
+							height={ 20 }
+						/>
+					</div> }
 				</div>
 				<div className='px-2 flex flex-col'>
 					<ProductName full_name={ full_name } page_url={ page_url } />
