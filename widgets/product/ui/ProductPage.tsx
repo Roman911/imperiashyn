@@ -23,6 +23,7 @@ import { CharacteristicsBlock } from '@/widgets/product/characteristics';
 import { OtherModelSizes } from '@/widgets/product/other-model-sizes/ui/OtherModelSizes';
 import { trackProductView } from '@/features/product-view/analytics/trackProductView';
 import { CreditInformation } from '@/widgets/credit-information';
+import { BanksIcon } from '@/shared/ui/banks-icon';
 
 interface Props {
 	locale: Locale;
@@ -103,7 +104,7 @@ export function ProductPage({ locale, productData, settingsData, section }: Prop
 								/>
 							) }
 						</div>
-
+						<BanksIcon section={ section } />
 						<ImageGallery
 							photo={ {
 								url_part: imageSmall,

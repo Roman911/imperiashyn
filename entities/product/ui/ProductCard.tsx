@@ -1,8 +1,8 @@
 'use client'
 
 import { JSX } from 'react';
-import Image from 'next/image';
 import { Card, CardBody, CardFooter } from '@heroui/react';
+
 import { ProductIcons } from './ProductIcons';
 import { ActionsBlock } from '@/entities/product/ui/ActionsBlock';
 import { Section } from '@/shared/types/section';
@@ -14,6 +14,7 @@ import { ProductPrice } from '@/entities/product/ui/Price';
 import { AddToCart } from '@/features/add-to-cart';
 import { ProductName } from '@/entities/product/ui/ProductName';
 import { ProductApi } from '@/entities/products/api/types';
+import { BanksIcon } from '@/shared/ui/banks-icon';
 
 const cargo = [ '3', '4', '5', '6', '9', '10', '11' ];
 
@@ -42,20 +43,7 @@ export function ProductCard({ item }: Props): JSX.Element {
 					<ProductIcons isProductCard season={ season } vehicleType={ vehicle_type } studded={ studded } />
 					<ActionsBlock sectionNew={ sectionNew } group={ best_offer?.id || 0 }/>
 					<ProductImage default_photo={ default_photo } images={ model.model_images } full_name={ full_name }/>
-					{ section === Section.Tires && <div className='absolute flex gap-2 bottom-2 left-1'>
-						<Image
-							src={ `/icons/monobank.svg` }
-							alt=''
-							width={ 20 }
-							height={ 20 }
-						/>
-						<Image
-							src={ `/icons/privatbank.svg` }
-							alt=''
-							width={ 20 }
-							height={ 20 }
-						/>
-					</div> }
+					<BanksIcon section={ section } bottom />
 				</div>
 				<div className='px-2 flex flex-col'>
 					<ProductName full_name={ full_name } page_url={ page_url } />
