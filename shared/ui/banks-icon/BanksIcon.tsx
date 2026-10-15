@@ -1,16 +1,12 @@
 import Image from 'next/image';
 
-import { Section } from '@/shared/types/section';
 import { twMerge } from 'tailwind-merge';
 
 interface Props {
-	section: Section;
 	bottom?: boolean;
 }
 
-export function BanksIcon({ section, bottom }: Props) {
-	if(section !== Section.Tires) return null;
-
+export function BanksIcon({ bottom }: Props) {
 	return (
 		<div className={ twMerge('absolute flex gap-2 left-1 z-10', bottom && 'bottom-2', !bottom && 'top-64') }>
 			<Image

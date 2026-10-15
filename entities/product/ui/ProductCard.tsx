@@ -43,7 +43,7 @@ export function ProductCard({ item }: Props): JSX.Element {
 					<ProductIcons isProductCard season={ season } vehicleType={ vehicle_type } studded={ studded } />
 					<ActionsBlock sectionNew={ sectionNew } group={ best_offer?.id || 0 }/>
 					<ProductImage default_photo={ default_photo } images={ model.model_images } full_name={ full_name }/>
-					<BanksIcon section={ section } bottom />
+					<BanksIcon bottom />
 				</div>
 				<div className='px-2 flex flex-col'>
 					<ProductName full_name={ full_name } page_url={ page_url } />

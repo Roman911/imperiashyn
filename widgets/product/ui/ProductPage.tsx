@@ -104,7 +104,7 @@ export function ProductPage({ locale, productData, settingsData, section }: Prop
 								/>
 							) }
 						</div>
-						<BanksIcon section={ section } />
+						<BanksIcon />
 						<ImageGallery
 							photo={ {
 								url_part: imageSmall,
